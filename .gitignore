@@ -1,0 +1,26 @@
+node_modules
+dist
+.turbo
+.next
+.cache
+coverage
+
+# editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.idea
+.DS_Store
+
+# env
+.env
+.env.local
+.env.*.local
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# misc
+*.tsbuildinfo
