@@ -12,6 +12,9 @@
     "src",
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",
