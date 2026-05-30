@@ -20,14 +20,36 @@ omniUI is an attempt to fix all three at once:
 
 ## Status
 
-Phase 0. Foundation only:
+Phase 0 wrapped, phase 1 hardening in flight.
 
-- `@omniui/core`: design tokens (colors, spacing), polymorphic type helper, a couple of headless hooks.
-- `@omniui/theme`: ThemeProvider with web and React Native variants, shared `useTheme()` API.
-- `@omniui/primitives`: one component so far. `Box`. Polymorphic on web, View-backed on native.
-- `@omniui/mcp`: stub MCP server. Tool signatures defined, implementations are scaffolds.
+- `@omniui/core`: design tokens (colors, spacing, radius), polymorphic type helper, headless hooks. Module-augmentable, see below.
+- `@omniui/theme`: ThemeProvider for web and React Native, shared `useTheme()`. Follows OS preference until the user picks; persists once they do.
+- `@omniui/primitives`: `Box` (polymorphic web, View-backed native). More on the way; tracker in `OMNIUI_PLAN.md`.
+- `@omniui/mcp`: scaffolded MCP server. Tool signatures defined; handler impls are the next big chunk of work.
 
-Not on npm yet. The 0.1 release targets the end of week 2.
+Not on npm yet. The 0.1 release targets the end of week 3 instead of week 2; module augmentation work pushed the schedule by a few days.
+
+## Extending tokens
+
+Tokens are interfaces, not enums. Augment them from userland and the rest of the library autocompletes against your brand:
+
+```ts
+declare module "@omniui/core" {
+  interface OmniColorTokens {
+    brandTeal: string;
+    brandTealMuted: string;
+  }
+}
+
+import { registerColorTokens } from "@omniui/core";
+
+registerColorTokens({
+  brandTeal:      { light: "#0FAFA4", dark: "#3FD9CE" },
+  brandTealMuted: { light: "#E1F5F4", dark: "#0A2E2C" },
+});
+```
+
+After registration, every `useTheme().colors.brandTeal` call is typed, and every `<Box surface="brandTeal">` autocompletes.
 
 ## Layout
 
