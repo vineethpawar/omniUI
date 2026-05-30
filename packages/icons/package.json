@@ -1,0 +1,49 @@
+{
+  "name": "@omniui/icons",
+  "version": "0.0.0",
+  "description": "Icon component + extensible icon registry. Icons are typed TS modules, not SVG assets, so consumers get autocomplete on names.",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "react-native": "src/index.ts",
+  "exports": {
+    ".": {
+      "react-native": "./src/index.native.ts",
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    },
+    "./pack": {
+      "types": "./src/pack/index.ts",
+      "import": "./src/pack/index.ts"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "lint": "echo 'todo: wire eslint'",
+    "build": "echo 'todo: wire tsup or tsc emit'",
+    "clean": "rm -rf dist .turbo *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@omniui/core": "*",
+    "@omniui/theme": "*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native-svg": ">=15"
+  },
+  "peerDependenciesMeta": {
+    "react-native-svg": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
