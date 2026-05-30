@@ -43,7 +43,14 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 function getInitialMode(): ThemeVariant {
   if (typeof window === "undefined") return "dark";
   const stored = window.localStorage.getItem(STORAGE_KEY);
-  return stored === "light" || stored === "dark" ? stored : "dark";
+  if (stored === "light" || stored === "dark") return stored;
+  // Fall back to the OS preference when the user hasn't picked one yet.
+  // Defaults to dark if matchMedia isn't there (some older Electron renderers,
+  // jsdom in unit tests).
+  if (typeof window.matchMedia === "function") {
+    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  }
+  return "dark";
 }
 
 function applyCssVariables(mode: ThemeVariant): void {
@@ -62,10 +69,25 @@ export interface ThemeProviderProps {
 export function ThemeProvider({ children, defaultMode }: ThemeProviderProps) {
   const [mode, setMode] = useState<ThemeVariant>(() => defaultMode ?? getInitialMode());
   const [version, setVersion] = useState(0);
+  const [userPicked, setUserPicked] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.localStorage.getItem(STORAGE_KEY) != null;
+  });
+
+  // Track OS-level theme changes while the user hasn't explicitly chosen.
+  // The moment they hit toggleTheme / setMode, we stop following the OS.
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    if (userPicked) return;
+    const mq = window.matchMedia("(prefers-color-scheme: light)");
+    const handler = (e: MediaQueryListEvent) => setMode(e.matches ? "light" : "dark");
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, [userPicked]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    window.localStorage.setItem(STORAGE_KEY, mode);
+    if (userPicked) window.localStorage.setItem(STORAGE_KEY, mode);
     document.documentElement.dataset["theme"] = mode;
     document.documentElement.style.colorScheme = mode;
     applyCssVariables(mode);
@@ -85,12 +107,20 @@ export function ThemeProvider({ children, defaultMode }: ThemeProviderProps) {
   }, [mode, version]);
 
   const colors = useMemo(() => resolveColors(mode), [mode, version]);
-  const toggleTheme = useCallback(() => setMode((m) => (m === "dark" ? "light" : "dark")), []);
+
+  const setModeExplicit = useCallback((next: ThemeVariant) => {
+    setUserPicked(true);
+    setMode(next);
+  }, []);
+  const toggleTheme = useCallback(() => {
+    setUserPicked(true);
+    setMode((m) => (m === "dark" ? "light" : "dark"));
+  }, []);
   const refreshColors = useCallback(() => setVersion((v) => v + 1), []);
 
   const value = useMemo<ThemeContextValue>(
-    () => ({ mode, colors, setMode, toggleTheme, refreshColors }),
-    [mode, colors, toggleTheme, refreshColors],
+    () => ({ mode, colors, setMode: setModeExplicit, toggleTheme, refreshColors }),
+    [mode, colors, setModeExplicit, toggleTheme, refreshColors],
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
