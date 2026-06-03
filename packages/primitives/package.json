@@ -15,6 +15,31 @@
       "react-native": "./src/box/index.native.tsx",
       "types": "./src/box/index.tsx",
       "import": "./src/box/index.tsx"
+    },
+    "./text": {
+      "react-native": "./src/text/index.native.tsx",
+      "types": "./src/text/index.tsx",
+      "import": "./src/text/index.tsx"
+    },
+    "./stack": {
+      "react-native": "./src/stack/index.native.tsx",
+      "types": "./src/stack/index.tsx",
+      "import": "./src/stack/index.tsx"
+    },
+    "./flex": {
+      "react-native": "./src/flex/index.native.tsx",
+      "types": "./src/flex/index.tsx",
+      "import": "./src/flex/index.tsx"
+    },
+    "./input": {
+      "react-native": "./src/input/index.native.tsx",
+      "types": "./src/input/index.tsx",
+      "import": "./src/input/index.tsx"
+    },
+    "./button": {
+      "react-native": "./src/button/index.native.tsx",
+      "types": "./src/button/index.tsx",
+      "import": "./src/button/index.tsx"
     }
   },
   "files": [
