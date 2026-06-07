@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; padding: 0; margin: 0; }
+
+:root, [data-theme="dark"] {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --elev: #1A1A1A;
+  --container: #1F1F1F;
+  --text: #ECECEC;
+  --muted: #8E8E8E;
+  --dim: #555555;
+  --stroke: #262626;
+  --stroke-soft: #1E1E1E;
+  --orange: #FF5C00;
+  --orange-soft: rgba(255, 92, 0, 0.12);
+  --purple: #8B6CCB;
+  --green: #2EB872;
+  --red: #E05146;
+  --code-bg: rgba(255,255,255,0.06);
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+[data-theme="light"] {
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --elev: #FFFFFF;
+  --container: #F5F5F5;
+  --text: #111111;
+  --muted: #666666;
+  --dim: #999999;
+  --stroke: #E5E5E5;
+  --stroke-soft: #F0F0F0;
+  --orange: #FF5C00;
+  --orange-soft: rgba(255, 92, 0, 0.08);
+  --purple: #7B4AB6;
+  --green: #14761A;
+  --red: #FF4F41;
+  --code-bg: rgba(0,0,0,0.04);
+  --shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--orange); }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: var(--stroke); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--dim); }
+::selection { background: var(--orange-soft); }
+
+.doc h1 { font-size: 36px; font-weight: 800; letter-spacing: -0.025em; margin: 0 0 16px; line-height: 1.15; }
+.doc h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; margin: 36px 0 12px; }
+.doc h3 { font-size: 17px; font-weight: 600; margin: 24px 0 10px; }
+.doc p  { margin: 0 0 14px; color: var(--text); }
+.doc p > strong { color: var(--text); font-weight: 600; }
+.doc ul, .doc ol { margin: 0 0 14px 24px; }
+.doc li { margin-bottom: 6px; }
+.doc code:not(pre code) {
+  font-family: var(--font-mono);
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+.doc pre {
+  font-family: var(--font-mono);
+  background: var(--elev);
+  border: 1px solid var(--stroke);
+  padding: 16px 18px;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 16px 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.doc blockquote {
+  border-left: 3px solid var(--orange);
+  padding: 8px 16px;
+  background: var(--orange-soft);
+  margin: 16px 0;
+  color: var(--muted);
+  border-radius: 0 8px 8px 0;
+}
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.doc th, .doc td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--stroke);
+}
+.doc th {
+  background: var(--elev);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

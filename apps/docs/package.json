@@ -1,0 +1,30 @@
+{
+  "name": "@omniui/docs-site",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --port 4001",
+    "build": "next build",
+    "start": "next start --port 4001",
+    "check-types": "tsc --noEmit",
+    "clean": "rm -rf .next out .turbo"
+  },
+  "dependencies": {
+    "next": "^16.0.0",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "gray-matter": "^4.0.3",
+    "@omniui/core": "*",
+    "@omniui/theme": "*",
+    "@omniui/primitives": "*",
+    "@omniui/icons": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.6.0"
+  }
+}
