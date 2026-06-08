@@ -1,0 +1,77 @@
+---
+title: ThemeProvider
+description: One provider, two platforms. CSS variables on the web, Appearance API on native.
+order: 10
+---
+
+## Setup
+
+```tsx
+import { ThemeProvider } from "@omniui/theme";
+
+<ThemeProvider>
+  <App />
+</ThemeProvider>
+```
+
+By default the provider:
+
+- Reads `localStorage["omniui-theme-mode"]` for a previously chosen mode.
+- Falls back to the OS preference via `matchMedia("(prefers-color-scheme: light)")`.
+- Mirrors the active mode to `document.documentElement.dataset.theme` so your own CSS can target `[data-theme="dark"]`.
+- Listens to OS changes until the user explicitly toggles. Once toggled, it stops following the OS and persists the choice.
+
+## useTheme
+
+```tsx
+import { useTheme } from "@omniui/theme";
+
+const { mode, colors, toggleTheme, setMode, refreshColors } = useTheme();
+```
+
+| Field | What |
+|---|---|
+| `mode` | `"light"` or `"dark"`. |
+| `colors` | Resolved palette. Every key from `OmniColorTokens` mapped to a string. |
+| `toggleTheme()` | Switch and persist. |
+| `setMode(mode)` | Explicit set. |
+| `refreshColors()` | Force a rerender after mutating tokens at runtime. |
+
+## Extending tokens
+
+Tokens are interfaces, not enums. Augment the interface and register the runtime values:
+
+```ts
+declare module "@omniui/core" {
+  interface OmniColorTokens {
+    brandTeal: string;
+    brandTealMuted: string;
+  }
+}
+
+import { registerColorTokens } from "@omniui/core";
+
+registerColorTokens({
+  brandTeal:      { light: "#0FAFA4", dark: "#3FD9CE" },
+  brandTealMuted: { light: "#E1F5F4", dark: "#0A2E2C" },
+});
+```
+
+After registration, `useTheme().colors.brandTeal` is typed and CSS variables `--omni-color-brand-teal` are emitted by the provider.
+
+## Electron title-bar bridge
+
+When the renderer's `window.electronAPI.setThemeColors` is present, the provider syncs the title-bar background + text color on every mode change. Wire the preload like this:
+
+```ts
+// preload.ts
+contextBridge.exposeInMainWorld("electronAPI", {
+  setThemeColors: (c) => ipcRenderer.send("app:setThemeColors", c),
+});
+```
+
+The provider also adds an `omniui-electron` class to `document.body` so you can pad the top of your shell to account for the title-bar zone.
+
+## Native variant
+
+The React Native variant of the provider sits in `index.native.tsx` and uses the `Appearance` API instead of `matchMedia` + `localStorage`. The hook surface is the same, the storage key is the same, and the token shape is the same so swapping platforms is invisible to callers.

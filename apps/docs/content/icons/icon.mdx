@@ -1,0 +1,86 @@
+---
+title: Icon
+description: Registry-based Icon component. Names autocomplete, names extend.
+order: 10
+---
+
+Icons in omniUI aren't imported per-file. They live in a registry that consumers register into at boot. There are three reasons:
+
+1. Names autocomplete. `<Icon name="..." />` returns suggestions from the registered set, which matters for both human devs and coding agents.
+2. Apps that want to search or swap icons by name need an enumerable registry, not opaque ESM imports.
+3. The sprite-sheet codegen on the roadmap needs a centralized table.
+
+## Setup
+
+```tsx
+import { registerIcons } from "@omniui/icons";
+import { seedPack } from "@omniui/icons/pack";
+
+registerIcons(seedPack);
+```
+
+Then in your code:
+
+```tsx
+import { Icon } from "@omniui/icons";
+
+<Icon name="home" />
+<Icon name="settings" size={28} color="primaryOrange" />
+<Icon name="trash" color="statusError" aria-label="Delete" />
+```
+
+## Augmenting names
+
+To get autocomplete on `name`, augment the registry shape:
+
+```ts
+declare module "@omniui/icons" {
+  interface IconRegistryShape {
+    "company/squiggle": import("@omniui/icons").IconDef;
+    "x-bud/pinout": import("@omniui/icons").IconDef;
+  }
+}
+```
+
+Then register the runtime defs:
+
+```ts
+import { registerIcons } from "@omniui/icons";
+import squiggle from "./icons/company-squiggle";
+import xbudPinout from "./icons/x-bud-pinout";
+
+registerIcons({
+  "company/squiggle": squiggle,
+  "x-bud/pinout": xbudPinout,
+});
+```
+
+## Building your own icon
+
+Each icon is data-only so the native renderer can rebuild it via react-native-svg without DOM trickery:
+
+```ts
+import type { IconDef } from "@omniui/icons";
+
+const squiggle: IconDef = {
+  viewBox: "0 0 24 24",
+  elements: [
+    { kind: "path", d: "M3 12c3-6 6 6 9 0s6 6 9 0" },
+  ],
+};
+
+export default squiggle;
+```
+
+## color prop resolution
+
+The `color` prop accepts either a theme token key (`"primaryOrange"`, `"text"`, `"statusError"`, …) or any raw CSS color. Theme token keys take precedence; if your color literal happens to match a token name, the token wins.
+
+## Defaults
+
+| Prop | Default |
+|---|---|
+| `size` | `20` |
+| `color` | `currentColor` (inherits) |
+| `strokeWidth` | `1.75` |
+| `decorative` | `true` when no `aria-label`, else `false` |
