@@ -2,7 +2,7 @@
 
 scratchpad for me. lives in the repo so i can pick up where i left off. don't link from the readme.
 
-last touched: 2026-06-11
+last touched: 2026-06-11 (end of phase 7 push)
 
 ## the pitch
 
@@ -44,7 +44,7 @@ three reasons to upvote:
 - [ ] turbo build pipeline emits dist/ correctly for each pkg
 - [ ] add a postbuild script that copies the README to dist/
 - [x] ThemeProvider listens to `prefers-color-scheme` when no localStorage entry
-- [ ] document module augmentation in a single visible README block (not buried in core/tokens/colors.ts header)
+- [x] document module augmentation in a single visible README block (not buried in core/tokens/colors.ts header)
 - [ ] add a node 20 + 22 CI matrix
 - [ ] `npm run check-types` should pass clean -- currently flaky on the polymorphic ref forward cast, look at it
 
@@ -96,18 +96,25 @@ three reasons to upvote:
 - [x] getting-started page
 - [x] /primitives/Box reference page
 - [x] /theme/ThemeProvider reference page
+- [x] /icons/Icon reference page
+- [x] /layouts/AppShell reference page
 - [ ] live preview per comp (sandpack or codesandbox iframe)
 - [ ] llms.txt at /llms.txt -- one big concatenated doc for agents
 - [ ] /mcp page with one-liner install + agent transcripts
 
 ## phase 7 punchlist (landing)
 
-- [x] hero + problem + how-it-works
+- [x] hero + why + how-it-works
 - [x] features grid
+- [x] architecture diagram + decisions cards
+- [x] agent mode section (MCP server + AI desktop app pitch)
+- [x] remix layer section
+- [x] vs alternatives table (shadcn / Radix / Tamagui / RN Reusables)
 - [x] setup steps
 - [x] roadmap table
 - [x] faq
-- [ ] real demo gif (record after icons + Text + Button land)
+- [x] CTA + footer
+- [ ] real demo gif (record after Text + Button + Modal land in playground)
 - [ ] testimonials from at least 3 friends running the alpha
 
 ## phase 8 punchlist (theme remix platform)
