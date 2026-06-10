@@ -20,14 +20,18 @@ omniUI is an attempt to fix all three at once:
 
 ## Status
 
-Phase 0 wrapped, phase 1 hardening in flight.
+Foundation + first chunk of breadth + docs scaffold all in. Tracker in `OMNIUI_PLAN.md`.
 
-- `@omniui/core`: design tokens (colors, spacing, radius), polymorphic type helper, headless hooks. Module-augmentable, see below.
-- `@omniui/theme`: ThemeProvider for web and React Native, shared `useTheme()`. Follows OS preference until the user picks; persists once they do.
-- `@omniui/primitives`: `Box` (polymorphic web, View-backed native). More on the way; tracker in `OMNIUI_PLAN.md`.
-- `@omniui/mcp`: scaffolded MCP server. Tool signatures defined; handler impls are the next big chunk of work.
+- `@omniui/core`: design tokens (colors, spacing, radius), polymorphic type helper, headless hooks. Module-augmentable.
+- `@omniui/theme`: ThemeProvider for web and React Native. Follows OS preference until you toggle; persists once you do. Electron title-bar bridge baked in.
+- `@omniui/primitives`: `Box`, `Text`, `Stack`, `Flex`, `Input`, `Button`. Web + native parity.
+- `@omniui/icons`: registry-based `Icon` component, augmentable name union, seed pack of 20.
+- `@omniui/layouts`: `AppShell`, `Sidebar`, `ScreenContainer`.
+- `@omniui/navigator`: router-agnostic `defineRoutes` + adapters for react-router and react-navigation.
+- `@omniui/comps`: `Modal`, `Dropdown`. More incoming.
+- `@omniui/mcp`: tool signatures, handler impls in progress.
 
-Not on npm yet. The 0.1 release targets the end of week 3 instead of week 2; module augmentation work pushed the schedule by a few days.
+Not on npm yet. The 0.1 cut lands once the MCP server has real handlers; until then, point at the GitHub workspace.
 
 ## Extending tokens
 
@@ -56,12 +60,18 @@ After registration, every `useTheme().colors.brandTeal` call is typed, and every
 ```
 omniUI/
 ├── apps/
-│   └── playground-web/      vite app, quick way to see Box render
+│   ├── playground-web/      vite app, quick way to see primitives render
+│   ├── docs/                next.js + MDX docs site
+│   └── landing/             product page (Product Hunt-bound)
 ├── packages/
 │   ├── core/                tokens + types + hooks, zero DOM, zero RN
 │   ├── theme/               ThemeProvider with web + native splits
-│   ├── primitives/          Box (more coming)
-│   └── mcp/                 MCP server stub for agent installs
+│   ├── primitives/          Box, Text, Stack, Flex, Input, Button
+│   ├── icons/               Icon component + registry + seed pack
+│   ├── layouts/             AppShell, Sidebar, ScreenContainer
+│   ├── navigator/           router-agnostic + adapters
+│   ├── comps/               Modal, Dropdown (more coming)
+│   └── mcp/                 first-party MCP server
 ├── turbo.json
 └── tsconfig.base.json
 ```
@@ -76,9 +86,15 @@ npm run dev --workspace=@omniui/playground-web
 
 ## Roadmap
 
-- Week 1: foundation hardening, build pipeline, intellisense audit
-- Week 2: MCP server, llms.txt, shadcn registry, docs site
-- Week 3: agent UI components (ToolCall, AgentTrace, Citation, etc.) + RN parity for top 3
+Foundation + breadth + docs scaffold are in. Next stops:
+
+- MCP server: real handler implementations behind the tool signatures, then llms.txt at the docs root.
+- Composites: Tooltip, Tabs, Toast, Drawer.
+- AI desktop app: paste a Figma frame URL + bring your Anthropic key, the agent edits the design system in place.
+- Theme remix backend: publish a token + variant override bundle, share with a one-line `<ThemeProvider remixUrl="..." />`.
+- Sprite-sheet codegen for heavy icon users.
+
+See `OMNIUI_PLAN.md` for the running tracker.
 
 ## Prior art
 
