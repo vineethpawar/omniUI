@@ -1,0 +1,29 @@
+{
+  "$schema": "https://omniui.dev/schema/project-config.json",
+  "name": "Example App",
+  "readPaths": ["src", "design"],
+  "writePaths": ["src/components", "src/screens", "design/tokens"],
+  "figmaDumpsDir": "design/figma-dumps",
+  "screens": [
+    {
+      "path": "/",
+      "name": "Home",
+      "group": "App",
+      "sourceFile": "src/screens/Home.tsx",
+      "description": "Hero, three feature cards, recent activity table."
+    },
+    {
+      "path": "/settings",
+      "name": "Settings",
+      "group": "App",
+      "sourceFile": "src/screens/Settings.tsx"
+    },
+    {
+      "path": "/signin",
+      "name": "Sign in",
+      "group": "Auth",
+      "sourceFile": "src/screens/auth/SignIn.tsx"
+    }
+  ],
+  "systemPromptAppend": "All text uses the Inter font family. Brand accent is #6D5BFF. Use the existing Button + Box primitives in src/components; don't add new dependencies."
+}

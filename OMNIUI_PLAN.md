@@ -2,7 +2,7 @@
 
 scratchpad for me. lives in the repo so i can pick up where i left off. don't link from the readme.
 
-last touched: 2026-06-11 (end of phase 7 push)
+last touched: 2026-06-11 (evening push: phase 9 scaffolded)
 
 ## the pitch
 
@@ -35,7 +35,7 @@ three reasons to upvote:
 | 6 | docs site | partial | next app scaffold, MDX, sidebar nav, three pages done |
 | 7 | landing | partial | hero + features + setup + faq done; demo gif pending |
 | 8 | theme remix platform | not started | the uiverse-y thing, separate cloud surface, later |
-| 9 | ai desktop app | not started | repackage ai-polish work as a generic electron tool. plan in [ai-desk.md] one day |
+| 9 | ai desktop app | in progress | scaffolded as `apps/desktop`. settings + project picker + agent loop + chat view in. needs install + first run. |
 
 ## phase 1 punchlist (foundation hardening)
 
@@ -129,13 +129,22 @@ shape i'm imagining:
 
 ## phase 9 punchlist (ai desktop app)
 
-a generic electron host for the agent loop, with:
-- a settings page for figma token + anthropic key + (later) any-llm endpoint
-- a sidebar drawer with the chat + apply/reject diff preview
-- a per-screen context manifest (json, not the typed thing the lib uses, since this app needs to host any framework)
-- the agent has the omniui mcp wired by default; users can add their own mcp servers
+a generic electron host for the agent loop. scaffolded at `apps/desktop`.
 
-if i can get this packaged as a brew/winget formula, that's the product hunt centerpiece.
+- [x] electron-forge + webpack scaffold
+- [x] main process: settings persistence, project loader, agent supervisor, shell:openExternal
+- [x] preload bridge with typed surface
+- [x] renderer: sidebar with Chat / Project / Settings tabs
+- [x] agent CLI ported from BXI ai-polish, generalized to read allowlist + screens from the project config
+- [x] PreToolUse hook with Apply/Reject over stdin/stdout protocol
+- [x] omniui.config.json schema documented + example dropped in `apps/desktop/examples/`
+- [ ] `npm install` + `npm run start` (haven't actually run this yet -- just scaffolded)
+- [ ] icons + brand polish on the renderer (currently bare; lifts directly from omniUI's own design tokens later)
+- [ ] notarization + DMG signing setup
+- [ ] brew / winget / linux packaging
+- [ ] omniui-mcp wired by default for agents
+
+if i can get this packaged with a real installer, that's the product hunt centerpiece.
 
 ## release plan
 
