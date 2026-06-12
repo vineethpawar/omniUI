@@ -5,6 +5,13 @@ dist
 .cache
 coverage
 
+# next.js output
+out/
+next-env.d.ts
+
+# electron-forge
+.webpack/
+
 # editors
 .vscode/*
 !.vscode/extensions.json
