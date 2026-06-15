@@ -1,6 +1,6 @@
 {
   "name": "@omniui/mcp",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Model Context Protocol server for omniUI. Lets coding agents list, search, install, and lint components conversationally.",
   "license": "MIT",
   "bin": {

@@ -1,0 +1,51 @@
+name: release
+
+# When a changeset PR is merged into main, this opens a "Version Packages" PR
+# (or, if one is already open and merged, publishes the bumped versions to npm).
+#
+# To enable publishing: add an NPM_TOKEN repo secret with publish rights to
+# the @omniui/* scope. Until then this job runs but skips the publish step.
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: release-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install
+        run: npm install --no-audit --no-fund
+
+      - name: Create Release PR or Publish
+        uses: changesets/action@v1
+        with:
+          version: npm run version-packages
+          publish: npm run release
+          commit: "chore(release): version packages"
+          title: "chore(release): version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

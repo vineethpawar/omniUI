@@ -1,6 +1,6 @@
 {
   "name": "@omniui/comps",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Composite components built on the primitives: Modal, Dropdown, Tooltip, Tabs, Toast.",
   "license": "MIT",
   "main": "src/index.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@omniui/primitives",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Base components. Box is the first one. Polymorphic on web, View-backed on native.",
   "license": "MIT",
   "main": "src/index.ts",

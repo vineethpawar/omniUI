@@ -1,6 +1,6 @@
 {
   "name": "@omniui/navigator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Router-agnostic helper. defineRoutes() once; render with the right adapter on web or native.",
   "license": "MIT",
   "main": "src/index.ts",
