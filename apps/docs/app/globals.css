@@ -170,3 +170,155 @@ a:hover { color: var(--orange); }
   text-transform: uppercase;
   margin-bottom: 12px;
 }
+
+/* ── Header ────────────────────────────────────────────────────────── */
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 28px;
+}
+.header-brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.header-name { font-weight: 700; letter-spacing: -0.01em; font-size: 15px; white-space: nowrap; }
+.header-version {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--muted);
+  border: 1px solid var(--stroke);
+  letter-spacing: 0.08em;
+}
+.header-link { font-size: 13.5px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.header-link:hover { color: var(--orange); }
+.header-link-github { padding: 4px; }
+.header-theme {
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.header-theme:hover { border-color: var(--orange); color: var(--orange); }
+
+@media (max-width: 720px) {
+  .header-inner { padding: 10px 16px; gap: 12px; }
+  .header-version { display: none; }
+  .header-name { font-size: 14px; }
+  /* hide text links; keep GitHub icon + theme toggle */
+  .header-link:not(.header-link-github) { display: none; }
+}
+@media (max-width: 480px) {
+  .header-theme { padding: 4px 8px; font-size: 12px; }
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────── */
+.sidebar {
+  width: 248px;
+  flex-shrink: 0;
+  background: var(--bg);
+  border-right: 1px solid var(--stroke-soft);
+  padding: 32px 16px;
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+  position: sticky;
+  top: 56px;
+}
+.sidebar-mobile-header { display: none; }
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  z-index: 40;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+.sidebar-toggle:hover { border-color: var(--orange); color: var(--orange); }
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 60;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+[data-theme="light"] .sidebar-backdrop { background: rgba(0,0,0,0.35); }
+.sidebar-backdrop[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Below 900px the sidebar becomes a slide-in drawer */
+@media (max-width: 899px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(82vw, 320px);
+    z-index: 70;
+    border-right: 1px solid var(--stroke);
+    box-shadow: 0 0 48px rgba(0,0,0,0.5);
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    padding-top: 18px;
+  }
+  .sidebar[data-open="true"] { transform: translateX(0); }
+  .sidebar-mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px 16px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--stroke-soft);
+  }
+  .sidebar-toggle { display: inline-flex; }
+  .sidebar-backdrop { display: block; }
+}
+
+/* Article container holds the main + right-side TOC. Stack on smaller screens. */
+.doc-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px 120px;
+}
+.doc-shell > article.doc { flex: 1; min-width: 0; max-width: 720px; }
+
+@media (max-width: 1099px) {
+  .doc-shell > aside { display: none; }  /* hide On This Page TOC */
+  .doc-shell > article.doc { max-width: none; }
+}
+@media (max-width: 720px) {
+  .doc-shell { padding: 28px 20px 96px; gap: 24px; }
+  .doc h1 { font-size: 28px; }
+  .doc h2 { font-size: 19px; margin-top: 32px; }
+  .doc h3 { font-size: 15.5px; }
+  .doc pre { font-size: 12px; padding: 14px 16px; }
+  .doc table { font-size: 13px; }
+  .doc th, .doc td { padding: 8px 10px; }
+}
+@media (max-width: 480px) {
+  .doc-shell { padding: 22px 16px 80px; }
+}

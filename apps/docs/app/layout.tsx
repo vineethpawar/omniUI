@@ -54,19 +54,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 background: "var(--bg)",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: 48,
-                  maxWidth: 1100,
-                  margin: "0 auto",
-                  padding: "48px 32px 120px",
-                }}
-              >
-                <article className="doc" style={{ flex: 1, minWidth: 0, maxWidth: 720 }}>
-                  {children}
-                </article>
+              <div className="doc-shell">
+                <article className="doc">{children}</article>
                 <OnThisPage />
               </div>
             </main>

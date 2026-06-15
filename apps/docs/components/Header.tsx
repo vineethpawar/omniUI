@@ -34,50 +34,29 @@ export function Header() {
         borderBottom: "1px solid var(--stroke-soft)",
       }}
     >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: "0 auto",
-          display: "flex",
-          alignItems: "center",
-          gap: 18,
-          padding: "14px 28px",
-        }}
-      >
+      <div className="header-inner">
         {/* Plain anchor (not next/link) so we bypass basePath and go to the
-            landing root at plyxui.vercel.app/. When viewed via the docs
-            subdomain directly, this still goes to "/" of that domain. */}
-        <a href="/" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            landing root at plyxui.com/. When viewed via the docs subdomain
+            directly, this still goes to "/" of that domain. */}
+        <a href="/" className="header-brand">
           <BrandMark size={28} />
-          <span style={{ fontWeight: 700, letterSpacing: "-0.01em", fontSize: 15 }}>plyxui docs</span>
-          <span
-            style={{
-              fontSize: 10,
-              fontWeight: 700,
-              padding: "1px 6px",
-              borderRadius: 4,
-              color: "var(--muted)",
-              border: "1px solid var(--stroke)",
-              letterSpacing: "0.08em",
-            }}
-          >
-            0.1
-          </span>
+          <span className="header-name">plyxui docs</span>
+          <span className="header-version">0.1</span>
         </a>
         <div style={{ flex: 1 }} />
         <a
-          href="https://plyxui-releases.vercel.app/"
+          href="https://releases-plyxui.vercel.app/"
           target="_blank"
           rel="noreferrer"
-          style={{ fontSize: 13.5, color: "var(--muted)" }}
+          className="header-link"
         >
           Releases
         </a>
         <a
-          href="https://plyxui.vercel.app/"
+          href="https://plyxui.com/"
           target="_blank"
           rel="noreferrer"
-          style={{ fontSize: 13.5, color: "var(--muted)" }}
+          className="header-link"
         >
           Landing
         </a>
@@ -85,24 +64,19 @@ export function Header() {
           href="https://github.com/vineethpawar/plyxui"
           target="_blank"
           rel="noreferrer"
-          style={{ fontSize: 13.5, color: "var(--muted)" }}
+          aria-label="GitHub"
+          title="GitHub"
+          className="header-link header-link-github"
         >
-          GitHub
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path fillRule="evenodd" clipRule="evenodd" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.18-.02-2.13-3.2.7-3.87-1.36-3.87-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39.98 0 1.98.13 2.9.39 2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.77.11 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+          </svg>
         </a>
         <button
           onClick={toggle}
           title={theme === "dark" ? "Switch to light" : "Switch to dark"}
           aria-label="Toggle theme"
-          style={{
-            background: "var(--surface)",
-            border: "1px solid var(--stroke)",
-            color: "var(--text)",
-            borderRadius: 6,
-            padding: "4px 10px",
-            fontSize: 13,
-            cursor: "pointer",
-            fontFamily: "inherit",
-          }}
+          className="header-theme"
         >
           {theme === "dark" ? "Light" : "Dark"}
         </button>
