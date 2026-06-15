@@ -4,7 +4,7 @@
  * Renders as a native <button>; if you need a navigation link, pass `as="a"`.
  */
 import { forwardRef, type ElementType, type CSSProperties, type ForwardedRef } from "react";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { radius, spacing } from "@omniui/core";
 import type { PolymorphicComponentPropsWithRef } from "@omniui/core";
 

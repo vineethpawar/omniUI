@@ -7,7 +7,7 @@
  * positioning is design-system-specific.
  */
 import { forwardRef, useState, type ChangeEvent, type CSSProperties } from "react";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { radius, spacing } from "@omniui/core";
 
 export type InputSize = "sm" | "md" | "lg";

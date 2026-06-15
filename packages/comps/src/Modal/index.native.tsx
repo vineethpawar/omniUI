@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 import { Modal as RNModal, View, TouchableOpacity, type ViewStyle } from "react-native";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { radius, spacing } from "@omniui/core";
 
 export interface ModalProps {

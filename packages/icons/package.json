@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@omniui/core": "*",
-    "@omniui/theme": "*"
+    "@omniui/styles": "*"
   },
   "peerDependencies": {
     "react": ">=18",

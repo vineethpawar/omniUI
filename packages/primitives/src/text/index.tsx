@@ -6,7 +6,7 @@
  * theme token name (autocomplete) or a raw color.
  */
 import { forwardRef, type ElementType, type ForwardedRef, type CSSProperties } from "react";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import type { OmniColorTokens, PolymorphicComponentPropsWithRef } from "@omniui/core";
 
 type ThemeColorKey = keyof OmniColorTokens;

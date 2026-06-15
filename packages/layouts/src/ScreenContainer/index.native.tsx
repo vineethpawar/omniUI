@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { ScrollView, View, type ViewStyle } from "react-native";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { spacing } from "@omniui/core";
 
 export interface ScreenContainerProps {

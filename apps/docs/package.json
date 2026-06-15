@@ -17,7 +17,7 @@
     "react-dom": "^19.0.0",
     "gray-matter": "^4.0.3",
     "@omniui/core": "*",
-    "@omniui/theme": "*",
+    "@omniui/styles": "*",
     "@omniui/primitives": "*",
     "@omniui/icons": "*"
   },

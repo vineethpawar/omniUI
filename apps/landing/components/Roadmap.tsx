@@ -8,7 +8,6 @@ const ITEMS = [
   { phase: "Next", what: "MCP server handlers + llms.txt at the docs root", done: false },
   { phase: "Next", what: "Tooltip, Tabs, Toast, Drawer", done: false },
   { phase: "Next", what: "Sandpack live previews per comp on the docs site", done: false },
-  { phase: "Soon", what: "AI desktop app v1 (figma + Anthropic key, paste and go)", done: false },
   { phase: "Soon", what: "Theme remix backend + omniui.dev/r/<short-id> sharing", done: false },
   { phase: "Soon", what: "Sprite-sheet codegen for heavy icon users", done: false },
   { phase: "Soon", what: "Team mode: shared remix workspaces", done: false },

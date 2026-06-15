@@ -11,13 +11,13 @@ export default function Setup() {
           n: 1,
           title: "Install",
           body: "Pick the layers you need. Foundation is three packages.",
-          code: "npm install @omniui/core @omniui/theme @omniui/primitives",
+          code: "npm install @omniui/core @omniui/styles @omniui/primitives",
         },
         {
           n: 2,
           title: "Wrap",
           body: "ThemeProvider once at the root. It picks up OS preference until the user toggles.",
-          code: `import { ThemeProvider } from "@omniui/theme";
+          code: `import { ThemeProvider } from "@omniui/styles";
 
 <ThemeProvider>
   <App />

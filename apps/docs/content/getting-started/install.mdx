@@ -6,10 +6,10 @@ order: 10
 
 ## Pick the bits you need
 
-omniUI is split into small packages so consumers only pay for what they use. The minimum useful install is `@omniui/core` plus `@omniui/theme` plus `@omniui/primitives`.
+omniUI is split into small packages so consumers only pay for what they use. The minimum useful install is `@omniui/core` plus `@omniui/styles` plus `@omniui/primitives`.
 
 ```bash
-npm install @omniui/core @omniui/theme @omniui/primitives
+npm install @omniui/core @omniui/styles @omniui/primitives
 ```
 
 Add icons when you need them:
@@ -27,7 +27,7 @@ npm install @omniui/layouts @omniui/navigator @omniui/comps
 ## Wrap your app in ThemeProvider
 
 ```tsx
-import { ThemeProvider } from "@omniui/theme";
+import { ThemeProvider } from "@omniui/styles";
 
 export default function App() {
   return (
@@ -44,7 +44,7 @@ That's it. The provider sets CSS custom properties on `documentElement`, persist
 
 ```tsx
 import { Box, Text, Button } from "@omniui/primitives";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 
 export function Hello() {
   const { toggleTheme } = useTheme();
@@ -59,6 +59,6 @@ export function Hello() {
 
 ## What's next
 
-- [ThemeProvider](/theme/provider/) covers extending tokens, runtime registration, and the Electron title-bar bridge.
+- [ThemeProvider](/styles/provider/) covers extending tokens, runtime registration, and the Electron title-bar bridge.
 - [Box](/primitives/box/) is the polymorphic primitive every other comp builds on.
 - [Icons](/icons/icon/) explains the registry pattern and how to bring your own SVGs.

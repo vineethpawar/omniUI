@@ -19,7 +19,7 @@
 import { forwardRef, type ElementType, type ForwardedRef, type CSSProperties } from "react";
 import type { PolymorphicComponentPropsWithRef } from "@omniui/core";
 import { radius as radiusTokens, spacing } from "@omniui/core";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { boxConfig, type BoxVariants } from "./config";
 
 type BoxOwnProps = BoxVariants & {

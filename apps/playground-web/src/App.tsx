@@ -1,4 +1,4 @@
-import { ThemeProvider, useTheme } from "@omniui/theme";
+import { ThemeProvider, useTheme } from "@omniui/styles";
 import { Box } from "@omniui/primitives";
 
 function Demo() {

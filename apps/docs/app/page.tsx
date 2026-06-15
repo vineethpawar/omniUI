@@ -9,7 +9,7 @@ const CARDS = [
   {
     title: "Theming",
     body: "ThemeProvider, useTheme, module-augmentable tokens, runtime registration.",
-    href: "/theme/provider/",
+    href: "/styles/provider/",
   },
   {
     title: "Primitives",

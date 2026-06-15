@@ -27,10 +27,10 @@ export default function Hero() {
         <h1 className="h1" style={{ maxWidth: 880, margin: "0 auto 24px" }}>
           One component library.<br />
           <span className="accent">Web, native, electron.</span><br />
-          And it ships with an AI.
+          Per-package install, agent-aware.
         </h1>
         <p className="lead" style={{ margin: "0 auto 32px", maxWidth: 640 }}>
-          omniUI is a typed, branded, cross-platform component library. Same tree for React and React Native via .ts and .native.ts. First-party MCP server so coding agents install components by name. Bundled with a desktop app that lets anyone point at their figma + repo and start polishing.
+          omniUI is a typed, branded, cross-platform component library. Same source tree for React and React Native via .ts and .native.ts splits. Install only the packages you need: primitives, styles, icons, layouts, navigator. First-party MCP server so coding agents pick components by name.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="#install" className="cta">Get the alpha</a>
@@ -51,7 +51,7 @@ export default function Hero() {
           }}
         >
           <span className="accent">$</span>
-          <span>npm install @omniui/core @omniui/theme @omniui/primitives</span>
+          <span>npm install @omniui/core @omniui/styles @omniui/primitives</span>
         </div>
       </div>
 
@@ -91,7 +91,7 @@ export default function Hero() {
             </span>
           </div>
           <pre className="codeblock" style={{ borderRadius: 0, border: "none", margin: 0, padding: "20px 24px" }}>
-{`import { ThemeProvider } from "@omniui/theme";
+{`import { ThemeProvider } from "@omniui/styles";
 import { Box, Text, Button } from "@omniui/primitives";
 import { Icon } from "@omniui/icons";
 

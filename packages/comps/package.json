@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@omniui/core": "*",
-    "@omniui/theme": "*",
+    "@omniui/styles": "*",
     "@omniui/primitives": "*",
     "@omniui/icons": "*"
   },

@@ -6,7 +6,7 @@
  */
 import { useState } from "react";
 import { Modal, Pressable, Text as RNText, View } from "react-native";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { radius, spacing } from "@omniui/core";
 
 export interface DropdownOption<T extends string = string> {

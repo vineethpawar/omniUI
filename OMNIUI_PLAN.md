@@ -2,7 +2,7 @@
 
 scratchpad for me. lives in the repo so i can pick up where i left off. don't link from the readme.
 
-last touched: 2026-06-11 (evening push: phase 9 scaffolded)
+last touched: 2026-06-15 (extracted phase 9 to its own repo, renamed theme to styles)
 
 ## the pitch
 
@@ -35,7 +35,7 @@ three reasons to upvote:
 | 6 | docs site | partial | next app scaffold, MDX, sidebar nav, three pages done |
 | 7 | landing | partial | hero + features + setup + faq done; demo gif pending |
 | 8 | theme remix platform | not started | the uiverse-y thing, separate cloud surface, later |
-| 9 | ai desktop app | in progress | scaffolded as `apps/desktop`. settings + project picker + agent loop + chat view in. needs install + first run. |
+| 9 | ai desktop app | spun out | now its own repo: github.com/vineethpawar/ai-polish-desktop. omniUI stays focused on the library. |
 
 ## phase 1 punchlist (foundation hardening)
 
@@ -127,24 +127,13 @@ shape i'm imagining:
 - consuming a remix = a single `<ThemeProvider remixUrl="...">` prop
 - creator can lock the remix (force-pull) or open it (let consumers tweak)
 
-## phase 9 punchlist (ai desktop app)
+## phase 9 ai desktop app -- moved out
 
-a generic electron host for the agent loop. scaffolded at `apps/desktop`.
+extracted to its own repo: https://github.com/vineethpawar/ai-polish-desktop
 
-- [x] electron-forge + webpack scaffold
-- [x] main process: settings persistence, project loader, agent supervisor, shell:openExternal
-- [x] preload bridge with typed surface
-- [x] renderer: sidebar with Chat / Project / Settings tabs
-- [x] agent CLI ported from BXI ai-polish, generalized to read allowlist + screens from the project config
-- [x] PreToolUse hook with Apply/Reject over stdin/stdout protocol
-- [x] omniui.config.json schema documented + example dropped in `apps/desktop/examples/`
-- [ ] `npm install` + `npm run start` (haven't actually run this yet -- just scaffolded)
-- [ ] icons + brand polish on the renderer (currently bare; lifts directly from omniUI's own design tokens later)
-- [ ] notarization + DMG signing setup
-- [ ] brew / winget / linux packaging
-- [ ] omniui-mcp wired by default for agents
+the desktop app was the AI Polish product; omniUI is the component library. mixing them in one repo was confusing the pitch (and the install surface). they're sibling products now. the desktop app can be used on any codebase, omniUI or not, and the library doesn't ship any agent code in the foundation packages.
 
-if i can get this packaged with a real installer, that's the product hunt centerpiece.
+if i want a cross-link, the landing's "agent layer" section now points at ai-polish-desktop as a "see also".
 
 ## release plan
 

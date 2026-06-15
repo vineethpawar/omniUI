@@ -11,7 +11,7 @@ export default function HowItWorks() {
           {
             n: "01",
             title: "Foundation",
-            body: "@omniui/core, @omniui/theme, @omniui/primitives. Tokens, theming, Box, Text, Stack, Flex, Input, Button. Cross-platform.",
+            body: "@omniui/core, @omniui/styles, @omniui/primitives. Tokens, theming, Box, Text, Stack, Flex, Input, Button. Cross-platform.",
           },
           {
             n: "02",
@@ -21,7 +21,7 @@ export default function HowItWorks() {
           {
             n: "03",
             title: "Agent layer",
-            body: "@omniui/mcp + the AI desktop app. Coding agents install components by name. Designers paste a Figma link and tweak.",
+            body: "@omniui/mcp gives coding agents a structured handle on the library. List, describe, install, lint. No HTML scraping.",
           },
         ].map((s) => (
           <div key={s.n} className="card">

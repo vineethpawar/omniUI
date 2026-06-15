@@ -8,12 +8,12 @@ const QA = [
     a: "Coding agents like Cursor and Claude Code rely on scraping HTML or reading READMEs. That's lossy. The omniUI MCP exposes the component library as structured data: list_components, describe_component (props, variants, examples), install_component, lint_usage. The agent never guesses at a prop name.",
   },
   {
-    q: "What's the AI desktop app for?",
-    a: "Same model as ai-polish from BXI Studio, but generic: a desktop sidebar that sits next to your running app, you paste a Figma frame URL, paste your Anthropic key, and the agent makes design-system edits in your repo. Every write shows up as an Apply / Reject diff card. Bring your own key; the app has no backend.",
+    q: "Where does AI Polish fit in?",
+    a: "AI Polish is a sibling project, not part of omniUI. It's a standalone desktop app that pairs nicely with the library: pick a project folder, paste your Anthropic key, hand the agent a Figma frame, every Write or Edit is held for Apply / Reject review. Lives at github.com/vineethpawar/ai-polish-desktop. You can use omniUI without it, and you can use it on any non-omniUI codebase.",
   },
   {
     q: "What if I don't want the agent layer?",
-    a: "Don't install @omniui/mcp. The foundation packages have no agent code in them. The component library works without any of the agent-aware bits, and the only sign they exist is the augmentable types.",
+    a: "Don't install @omniui/mcp. The foundation packages have no agent code in them. The component library works without any of the agent-aware bits.",
   },
   {
     q: "Why not just use Tamagui?",
@@ -25,11 +25,11 @@ const QA = [
   },
   {
     q: "Can I use it on a closed-source repo?",
-    a: "Yes. The library is MIT. The MCP server runs locally and never phones home. The AI desktop app uses your Anthropic key directly, so it's no different than calling the API from a script you wrote.",
+    a: "Yes. The library is MIT. The MCP server runs locally and never phones home.",
   },
   {
     q: "When does 1.0 ship?",
-    a: "The library 0.x track stabilizes through the next month. 1.0 lands when the AI desktop app + remix sharing are both in beta. Targeting Q3 2026 for the public launch.",
+    a: "The library 0.x track stabilizes through the next month. 1.0 lands when the docs are complete, the MCP handlers are real (not stubs), and the remix sharing surface is in beta. Targeting Q3 2026.",
   },
 ];
 

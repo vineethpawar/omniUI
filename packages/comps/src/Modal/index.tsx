@@ -7,7 +7,7 @@
  *   </Modal>
  */
 import { useEffect, useRef, type ReactNode } from "react";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { Icon } from "@omniui/icons";
 import { radius, spacing } from "@omniui/core";
 

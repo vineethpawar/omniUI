@@ -9,7 +9,7 @@
  */
 import type { CSSProperties, ReactNode } from "react";
 import { spacing } from "@omniui/core";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 
 export interface ScreenContainerProps {
   children: ReactNode;

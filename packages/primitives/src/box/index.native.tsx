@@ -8,7 +8,7 @@
 import { forwardRef, type Ref } from "react";
 import { StyleSheet, View, type ViewStyle } from "react-native";
 import { radius as radiusTokens, spacing } from "@omniui/core";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import type { BoxVariants } from "./config";
 
 export interface BoxProps extends BoxVariants {

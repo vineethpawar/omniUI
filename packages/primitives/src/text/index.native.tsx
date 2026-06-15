@@ -3,7 +3,7 @@
  */
 import { forwardRef, type ForwardedRef } from "react";
 import { Text as RNText, type TextStyle, type TextProps as RNTextProps } from "react-native";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import type { OmniColorTokens } from "@omniui/core";
 
 type ThemeColorKey = keyof OmniColorTokens;

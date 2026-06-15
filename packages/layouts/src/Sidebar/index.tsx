@@ -14,7 +14,7 @@
  *   />
  */
 import type { CSSProperties } from "react";
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { Icon, type IconName } from "@omniui/icons";
 import { spacing, radius } from "@omniui/core";
 

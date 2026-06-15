@@ -6,7 +6,7 @@
  * get an empty View placeholder at the right size, which is what RN apps do
  * during native-module setup anyway.
  */
-import { useTheme } from "@omniui/theme";
+import { useTheme } from "@omniui/styles";
 import { type OmniColorTokens } from "@omniui/core";
 import { getIcon, type IconElement, type IconName } from "./registry";
 

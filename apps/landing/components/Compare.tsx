@@ -67,14 +67,6 @@ export default function Compare() {
               <td>no</td>
               <td>no</td>
             </tr>
-            <tr>
-              <td>AI desktop bundled</td>
-              <td className="accent">yes</td>
-              <td>no</td>
-              <td>no</td>
-              <td>no</td>
-              <td>no</td>
-            </tr>
           </tbody>
         </table>
       </div>
