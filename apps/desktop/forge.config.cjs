@@ -1,10 +1,17 @@
+const fs = require("node:fs");
 const path = require("node:path");
+
+const iconBase = path.join(__dirname, "assets", "icon");
+const hasIcon =
+  fs.existsSync(`${iconBase}.icns`) ||
+  fs.existsSync(`${iconBase}.ico`) ||
+  fs.existsSync(`${iconBase}.png`);
 
 module.exports = {
   packagerConfig: {
     name: "omniUI",
     appBundleId: "dev.omniui.desktop",
-    icon: path.join(__dirname, "assets", "icon"),
+    ...(hasIcon ? { icon: iconBase } : {}),
     asar: true,
   },
   rebuildConfig: {},

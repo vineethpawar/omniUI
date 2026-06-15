@@ -1,0 +1,92 @@
+name: build desktop (mac)
+
+# Builds the macOS desktop app and uploads the DMG + ZIP as workflow artifacts.
+#
+# Triggers:
+#   - manual via the Actions tab (workflow_dispatch)
+#   - push of a tag like `desk-vX.Y.Z` so we can cut tagged releases later
+#   - push to main that touches apps/desktop (lightweight smoke build)
+#
+# Code signing + notarization are intentionally skipped here. The DMG produced
+# is unsigned; macOS will require `xattr -d com.apple.quarantine ...` (or a
+# manual right-click + Open the first time) until we add a Developer ID cert.
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'desk-v*'
+    branches:
+      - main
+    paths:
+      - 'apps/desktop/**'
+      - '.github/workflows/build-desktop.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install workspace dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Install desktop dependencies
+        # The desktop app declares its own electron + forge devDeps; we install
+        # at the workspace root above, but if any are missing for whatever
+        # reason re-run inside the app to be safe.
+        run: npm install --workspace=@omniui/desktop --no-audit --no-fund
+
+      - name: Build (electron-forge make)
+        working-directory: apps/desktop
+        env:
+          # Skip code signing + notarization (no Developer ID in CI yet).
+          # Forge respects these env vars in our config to omit the macOS
+          # signing pipeline entirely.
+          SKIP_CODE_SIGNING: 'true'
+          SKIP_NOTARIZATION: 'true'
+        run: npx electron-forge make --platform=darwin
+
+      - name: List output
+        run: ls -laR apps/desktop/out/make || true
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: omniui-desktop-mac-dmg
+          path: apps/desktop/out/make/**/*.dmg
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: omniui-desktop-mac-zip
+          path: apps/desktop/out/make/zip/darwin/**/*.zip
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### Mac build complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Download the DMG / ZIP artifacts from this run." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The DMG is **unsigned**. On first launch:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "1. Open the DMG, drag omniUI.app to Applications." >> $GITHUB_STEP_SUMMARY
+          echo "2. Right-click the app in Finder, choose **Open**, then click **Open** in the prompt." >> $GITHUB_STEP_SUMMARY
+          echo "3. (Or run \`xattr -d com.apple.quarantine /Applications/omniUI.app\` in Terminal first.)" >> $GITHUB_STEP_SUMMARY
