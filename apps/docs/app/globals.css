@@ -197,15 +197,20 @@ a:hover { color: var(--orange); }
 .header-theme {
   background: var(--surface);
   border: 1px solid var(--stroke);
-  color: var(--text);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 13px;
+  color: var(--muted);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   font-family: inherit;
-  white-space: nowrap;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
-.header-theme:hover { border-color: var(--orange); color: var(--orange); }
+.header-theme:hover { border-color: var(--orange); color: var(--orange); background: var(--bg); }
 
 @media (max-width: 720px) {
   .header-inner { padding: 10px 16px; gap: 12px; }
@@ -215,7 +220,7 @@ a:hover { color: var(--orange); }
   .header-link:not(.header-link-github) { display: none; }
 }
 @media (max-width: 480px) {
-  .header-theme { padding: 4px 8px; font-size: 12px; }
+  .header-theme { width: 32px; height: 32px; }
 }
 
 /* ── Sidebar ───────────────────────────────────────────────────────── */
