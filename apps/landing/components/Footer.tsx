@@ -27,7 +27,18 @@ export default function Footer() {
           </div>
         </div>
         <div style={{ marginTop: 18, fontSize: 12 }}>
-          MIT. Built late at night between full-time things. Reach out: @vineethp14 on most places.
+          Built with{" "}
+          <span aria-label="love" role="img" style={{ color: "var(--orange)" }}>❤️</span>{" "}
+          by{" "}
+          <a
+            href="https://github.com/vineethpawar"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "var(--orange)", textDecoration: "underline", textUnderlineOffset: 2 }}
+          >
+            vineethpawar
+          </a>
+          .
         </div>
       </div>
     </footer>
