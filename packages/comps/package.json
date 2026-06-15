@@ -1,7 +1,7 @@
 {
   "name": "@plyxui/comps",
   "version": "0.1.0",
-  "description": "Composite components built on the primitives: Modal, Dropdown, Tooltip, Tabs, Toast.",
+  "description": "Composite components built on the primitives: Modal, Dropdown, Tooltip, Tabs, Toast, Drawer.",
   "license": "MIT",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -30,7 +30,8 @@
     "@plyxui/core": "*",
     "@plyxui/styles": "*",
     "@plyxui/primitives": "*",
-    "@plyxui/icons": "*"
+    "@plyxui/icons": "*",
+    "@plyxui/hooks": "*"
   },
   "peerDependencies": {
     "react": ">=18"

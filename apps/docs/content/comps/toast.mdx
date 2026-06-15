@@ -1,0 +1,61 @@
+---
+title: Toast
+description: Renderer for the headless toast queue in @plyxui/hooks. Mount the Toaster once, call toast() anywhere.
+order: 30
+---
+
+The toast queue lives in [`@plyxui/hooks`](/hooks/) — `ToastProvider` +
+`useToast()`. `@plyxui/comps` ships `Toaster`, the renderer.
+
+That split is on purpose: the same queue can drive a custom snackbar, a
+banner stack, or this `Toaster`. Apps that need a bespoke visual skip the
+renderer and read from `useToast()` directly.
+
+## API
+
+```tsx
+import { ToastProvider, useToast } from "@plyxui/hooks";
+import { Toaster } from "@plyxui/comps";
+
+function App() {
+  return (
+    <ToastProvider>
+      <Routes />
+      <Toaster position="bottom-right" />
+    </ToastProvider>
+  );
+}
+
+function SaveButton() {
+  const { toast } = useToast();
+  return (
+    <Button
+      onClick={async () => {
+        await save();
+        toast({ title: "Saved", description: "Changes live now.", variant: "success" });
+      }}
+    >
+      Save
+    </Button>
+  );
+}
+```
+
+## Variants
+
+`default`, `success`, `warning`, `error`. The left rail accent picks the
+matching theme token. Override per variant with the `accent` prop.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `position` | `"top-left" \| "top-right" \| "top-center" \| "bottom-left" \| "bottom-right" \| "bottom-center"` | `"bottom-right"` |
+| `offset` | `number` (px from the corner) | `16` |
+| `max` | `number` (cap of visible toasts; older ones drop) | `5` |
+| `accent` | `Partial<Record<ToastVariant, string>>` | — |
+
+## Native
+
+The native `Toaster` lives at the same import path and supports `top` or
+`bottom` positions. It uses RN `Animated` for the enter transition.

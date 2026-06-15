@@ -1,0 +1,49 @@
+---
+title: Tooltip
+description: Hover or focus a trigger to surface a short label. Auto-flips when it would clip the viewport.
+order: 10
+---
+
+`Tooltip` wraps a single trigger element. The label appears on hover or focus
+after a short delay, dismisses on mouse leave, blur, or Escape.
+
+## API
+
+```tsx
+import { Tooltip } from "@plyxui/comps";
+
+<Tooltip label="Save the document">
+  <Button iconLeading={<Icon name="save" />} aria-label="Save" />
+</Tooltip>
+
+<Tooltip label="Custom side and delay" side="right" delay={400}>
+  <button>Hover me</button>
+</Tooltip>
+```
+
+## Behavior
+
+- Trigger must be a single React element. Tooltip attaches `onMouseEnter`,
+  `onMouseLeave`, `onFocus`, `onBlur`, and `aria-describedby` via `cloneElement`.
+- The preferred `side` is honored when it fits. If it would clip the viewport,
+  the tooltip flips to the opposite side and clamps to the edges.
+- Default open delay is 250&nbsp;ms; close is immediate so the UI feels snappy.
+- Escape dismisses while open.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `label` | `ReactNode` | required |
+| `children` | `ReactElement` | required, must be a single element |
+| `side` | `"top" \| "bottom" \| "left" \| "right"` | `"top"` |
+| `delay` | `number` (ms) | `250` |
+| `open` | `boolean` | uncontrolled |
+| `disabled` | `boolean` | `false` |
+
+## Native
+
+The React Native build ships a pass-through that renders the child unchanged.
+The hover gesture doesn't exist on touch platforms; a long-press affordance
+is on the roadmap. Until then the JSX stays platform-agnostic so you don't
+need to fork the call site.

@@ -1,0 +1,50 @@
+---
+title: Drawer
+description: Edge-anchored panel that slides in from a side. Same close behavior as Modal.
+order: 40
+---
+
+`Drawer` is a side-anchored sibling of `Modal`. Same controlled
+`open` / `onClose` shape, same backdrop and Escape behavior, but the panel
+sits flush against an edge instead of centering.
+
+## API
+
+```tsx
+import { Drawer } from "@plyxui/comps";
+
+const [open, setOpen] = useState(false);
+
+<Drawer
+  open={open}
+  onClose={() => setOpen(false)}
+  side="right"
+  title="Settings"
+  footer={<Button onClick={() => setOpen(false)}>Done</Button>}
+>
+  …
+</Drawer>
+```
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `open` | `boolean` | required |
+| `onClose` | `() => void` | required |
+| `side` | `"left" \| "right" \| "top" \| "bottom"` | `"right"` |
+| `title` | `ReactNode` | — |
+| `footer` | `ReactNode` | — |
+| `size` | `number \| string` (width for L/R, height for T/B) | per-side default |
+| `dismissOnBackdrop` | `boolean` | `true` |
+
+## Defaults
+
+Default size is 360&nbsp;px for left/right and 280–320&nbsp;px for top/bottom.
+The inner corners on the side facing the page get a `radius.lg` so the
+drawer doesn't feel like it's punching a square hole in the layout.
+
+## Native
+
+The native build uses RN `Modal` for the backdrop and `Animated` for the
+slide-in transform. Same prop shape; size is a number only.

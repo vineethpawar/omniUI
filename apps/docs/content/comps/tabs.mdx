@@ -1,0 +1,62 @@
+---
+title: Tabs
+description: Composable tab list and panels with arrow-key navigation and ARIA roles wired up.
+order: 20
+---
+
+`Tabs` is a small set of composable parts — `Tabs`, `TabList`, `Tab`,
+`TabPanel` — rather than a monolithic component. That lets you drop a search
+bar between the list and the panels, or render panels somewhere else
+entirely.
+
+## API
+
+```tsx
+import { Tabs, TabList, Tab, TabPanel } from "@plyxui/comps";
+
+const [tab, setTab] = useState("overview");
+
+<Tabs value={tab} onChange={setTab}>
+  <TabList>
+    <Tab value="overview">Overview</Tab>
+    <Tab value="usage">Usage</Tab>
+    <Tab value="props">Props</Tab>
+  </TabList>
+
+  <TabPanel value="overview">…</TabPanel>
+  <TabPanel value="usage">…</TabPanel>
+  <TabPanel value="props">…</TabPanel>
+</Tabs>
+```
+
+## Accessibility
+
+- `TabList` has `role="tablist"`.
+- Each `Tab` has `role="tab"`, paired with its panel via `aria-controls` /
+  `aria-labelledby`.
+- Left and Right arrows move focus between tabs and activate the focused tab.
+- The active tab is `tabIndex=0`; inactive tabs are `-1` so Tab/Shift+Tab
+  steps in and out as a single stop.
+
+## Props
+
+### `Tabs`
+
+| Prop | Type | Default |
+|---|---|---|
+| `value` | `string` | required |
+| `onChange` | `(next: string) => void` | required |
+| `children` | `ReactNode` | required |
+
+### `TabList`
+
+| Prop | Type | Default |
+|---|---|---|
+| `variant` | `"line" \| "pill"` | `"line"` |
+| `fill` | `boolean` | `false` |
+
+### `TabPanel`
+
+`keepMounted` keeps the panel rendered (hidden via `display: none`) when
+inactive. Useful for forms where you don't want to lose input state on tab
+switch.
