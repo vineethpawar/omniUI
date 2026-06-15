@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { ScrollView, View, type ViewStyle } from "react-native";
-import { useTheme } from "@omniui/styles";
-import { spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { spacing } from "@plyxui/core";
 
 export interface ScreenContainerProps {
   children: ReactNode;

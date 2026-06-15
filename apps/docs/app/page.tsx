@@ -39,7 +39,7 @@ export default function Home() {
       <div style={{ fontSize: 11, fontWeight: 700, color: "var(--orange)", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 12 }}>
         Documentation
       </div>
-      <h1>omniUI</h1>
+      <h1>plyxui</h1>
       <p style={{ fontSize: 17, color: "var(--muted)" }}>
         Cross-platform component library that gets out of the way for humans and agents alike. React + React Native via .ts / .native.ts. Branded tokens, autocomplete-as-spec, first-party MCP.
       </p>

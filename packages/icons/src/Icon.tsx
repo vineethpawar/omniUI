@@ -15,8 +15,8 @@
  * you'll absolutely hit name typos in PRs and a thrown error helps no one).
  */
 import { type CSSProperties } from "react";
-import { useTheme } from "@omniui/styles";
-import { type OmniColorTokens } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { type OmniColorTokens } from "@plyxui/core";
 import { getIcon, type IconElement, type IconName } from "./registry";
 
 type ThemeColorKey = keyof OmniColorTokens;

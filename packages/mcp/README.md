@@ -1,6 +1,6 @@
-# @omniui/mcp
+# @plyxui/mcp
 
-Model Context Protocol server for omniUI. Lets coding agents (Claude Desktop, Claude Code, Cursor, Cline, Continue) list, search, install, and lint omniUI components conversationally.
+Model Context Protocol server for plyxui. Lets coding agents (Claude Desktop, Claude Code, Cursor, Cline, Continue) list, search, install, and lint plyxui components conversationally.
 
 ## Status
 
@@ -10,19 +10,19 @@ Phase 0. Tool signatures defined. Real transport wiring lands in week 2.
 
 | Name | Purpose |
 |---|---|
-| `omniui_list_components` | List available components, optionally by category |
-| `omniui_get_component` | Full prop table, examples, source for a component |
-| `omniui_search` | Free-text search |
-| `omniui_suggest` | Recommend components from a natural-language description |
-| `omniui_install` | Copy a component into the user's project |
-| `omniui_get_tokens` | Active design tokens for a theme |
-| `omniui_lint` | Lint code for omniUI usage mistakes |
-| `omniui_examples` | Runnable code samples |
+| `plyxui_list_components` | List available components, optionally by category |
+| `plyxui_get_component` | Full prop table, examples, source for a component |
+| `plyxui_search` | Free-text search |
+| `plyxui_suggest` | Recommend components from a natural-language description |
+| `plyxui_install` | Copy a component into the user's project |
+| `plyxui_get_tokens` | Active design tokens for a theme |
+| `plyxui_lint` | Lint code for plyxui usage mistakes |
+| `plyxui_examples` | Runnable code samples |
 
 ## Run
 
 ```bash
-npx omniui-mcp tools
+npx plyxui-mcp tools
 ```
 
 ## Wire into Claude Desktop
@@ -31,9 +31,9 @@ npx omniui-mcp tools
 // ~/Library/Application Support/Claude/claude_desktop_config.json
 {
   "mcpServers": {
-    "omniui": {
+    "plyxui": {
       "command": "npx",
-      "args": ["-y", "@omniui/mcp"]
+      "args": ["-y", "@plyxui/mcp"]
     }
   }
 }

@@ -11,7 +11,7 @@ export type ToolHandlers = {
 };
 
 export const handlers: ToolHandlers = {
-  async omniui_list_components() {
+  async plyxui_list_components() {
     return [
       {
         name: "Box",
@@ -22,7 +22,7 @@ export const handlers: ToolHandlers = {
     ];
   },
 
-  async omniui_get_component({ name }) {
+  async plyxui_get_component({ name }) {
     if (name !== "Box") {
       throw new Error(`Unknown component: ${name}`);
     }
@@ -48,7 +48,7 @@ export const handlers: ToolHandlers = {
     };
   },
 
-  async omniui_search({ query }) {
+  async plyxui_search({ query }) {
     const q = query.toLowerCase();
     if ("box layout container surface".includes(q)) {
       return [
@@ -63,28 +63,28 @@ export const handlers: ToolHandlers = {
     return [];
   },
 
-  async omniui_suggest() {
+  async plyxui_suggest() {
     // TODO: replace with embeddings + simple BM25 fallback once we have more comps.
     return [];
   },
 
-  async omniui_install() {
+  async plyxui_install() {
     // TODO: real install runs a registry fetch + writes files. Hooked up in week 2.
     return { installed: [], skipped: [], modifiedFiles: [] };
   },
 
-  async omniui_get_tokens({ theme = "dark" }) {
-    const { resolveColors } = await import("@omniui/core");
+  async plyxui_get_tokens({ theme = "dark" }) {
+    const { resolveColors } = await import("@plyxui/core");
     return resolveColors(theme);
   },
 
-  async omniui_lint() {
+  async plyxui_lint() {
     // TODO: AST-based rules. Stub returns clean.
     return [];
   },
 
-  async omniui_examples({ name }) {
-    const detail = await handlers.omniui_get_component({ name });
+  async plyxui_examples({ name }) {
+    const detail = await handlers.plyxui_get_component({ name });
     return detail.examples;
   },
 };

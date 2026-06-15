@@ -23,7 +23,7 @@ export interface SidebarProps {
 export function Sidebar(_props: SidebarProps): null {
   if (__DEV__) {
     console.warn(
-      "@omniui/layouts: <Sidebar /> is web-only. On native, use the tab navigator pattern from @omniui/navigator.",
+      "@plyxui/layouts: <Sidebar /> is web-only. On native, use the tab navigator pattern from @plyxui/navigator.",
     );
   }
   return null;

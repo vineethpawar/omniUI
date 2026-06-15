@@ -1,6 +1,6 @@
 /**
  * Headless toast queue. The hook + provider; rendering is up to the
- * consumer (or @omniui/comps Toast once that lands).
+ * consumer (or @plyxui/comps Toast once that lands).
  *
  *   <ToastProvider>
  *     <App />

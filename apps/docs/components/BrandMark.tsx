@@ -1,6 +1,6 @@
 /**
  * BrandMark. The 3x3 dot matrix with one accent dot.
- * Used wherever the omniUI logo renders inline (Header, Sidebar, footer).
+ * Used wherever the plyxui logo renders inline (Header, Sidebar, footer).
  * Defaults to currentColor for the eight muted dots so the logo picks up
  * the surrounding text color on light + dark.
  */
@@ -21,7 +21,7 @@ export function BrandMark({ size = 28, accent = "#FF5C00", base, style }: BrandM
       height={size}
       viewBox="0 0 24 24"
       role="img"
-      aria-label="omniUI"
+      aria-label="plyxui"
       style={{ flexShrink: 0, color: base ?? "currentColor", display: "block", ...style }}
     >
       <g fill={base ?? "currentColor"}>

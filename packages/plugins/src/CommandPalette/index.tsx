@@ -16,16 +16,16 @@
  * the latency.
  */
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useTheme } from "@omniui/styles";
-import { spacing, radius } from "@omniui/core";
-import { Icon, type IconName } from "@omniui/icons";
+import { useTheme } from "@plyxui/styles";
+import { spacing, radius } from "@plyxui/core";
+import { Icon, type IconName } from "@plyxui/icons";
 
 export interface CommandItem {
   id: string;
   label: string;
   /** Optional logical group (e.g. "Navigate", "Account"). */
   group?: string;
-  /** Optional icon name from the @omniui/icons registry. */
+  /** Optional icon name from the @plyxui/icons registry. */
   icon?: IconName | (string & {});
   /** Optional keywords to broaden the substring match. */
   keywords?: string[];

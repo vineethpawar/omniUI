@@ -21,7 +21,7 @@ import {
   resolveColors,
   type OmniColorTokens,
   type ThemeVariant,
-} from "@omniui/core";
+} from "@plyxui/core";
 
 type ResolvedColors = Record<keyof OmniColorTokens, string>;
 

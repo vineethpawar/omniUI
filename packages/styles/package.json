@@ -1,5 +1,5 @@
 {
-  "name": "@omniui/styles",
+  "name": "@plyxui/styles",
   "version": "0.1.0",
   "description": "ThemeProvider and useTheme hook. Web variant uses CSS vars + localStorage. Native variant uses Appearance API.",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*"
+    "@plyxui/core": "*"
   },
   "peerDependencies": {
     "react": ">=18",

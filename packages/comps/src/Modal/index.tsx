@@ -7,9 +7,9 @@
  *   </Modal>
  */
 import { useEffect, useRef, type ReactNode } from "react";
-import { useTheme } from "@omniui/styles";
-import { Icon } from "@omniui/icons";
-import { radius, spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { Icon } from "@plyxui/icons";
+import { radius, spacing } from "@plyxui/core";
 
 export interface ModalProps {
   open: boolean;

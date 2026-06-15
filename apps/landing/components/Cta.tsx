@@ -22,7 +22,7 @@ export default function Cta() {
           Install the foundation. Try one screen. Decide if the agent-aware bits are for you.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <a href="https://github.com/vineethpawar/omniUI" className="cta">View on GitHub</a>
+          <a href="https://github.com/vineethpawar/plyxui" className="cta">View on GitHub</a>
           <a href="/docs/" className="cta-secondary">Read the docs</a>
         </div>
       </div>

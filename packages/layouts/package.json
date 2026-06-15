@@ -1,5 +1,5 @@
 {
-  "name": "@omniui/layouts",
+  "name": "@plyxui/layouts",
   "version": "0.1.0",
   "description": "Cross-platform layout primitives: AppShell, Sidebar, ScreenContainer. Compose with the navigator for full apps.",
   "license": "MIT",
@@ -27,10 +27,10 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*",
-    "@omniui/styles": "*",
-    "@omniui/primitives": "*",
-    "@omniui/icons": "*"
+    "@plyxui/core": "*",
+    "@plyxui/styles": "*",
+    "@plyxui/primitives": "*",
+    "@plyxui/icons": "*"
   },
   "peerDependencies": {
     "react": ">=18"

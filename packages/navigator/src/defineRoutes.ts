@@ -8,11 +8,11 @@
  *   ]);
  *
  *   // web:
- *   import { OmniRouter } from "@omniui/navigator/react-router";
+ *   import { OmniRouter } from "@plyxui/navigator/react-router";
  *   <OmniRouter routes={routes} />
  *
  *   // native:
- *   import { OmniNavigator } from "@omniui/navigator/react-navigation";
+ *   import { OmniNavigator } from "@plyxui/navigator/react-navigation";
  *   <OmniNavigator routes={routes} />
  *
  * Each platform adapter pulls only what it needs. The routes table itself
@@ -27,7 +27,7 @@ export interface OmniRoute {
   /** Web URL path. Native ignores this except for deep linking. */
   path: string;
   title: string;
-  /** Icon name from the @omniui/icons registry. Drives Sidebar + tabs. */
+  /** Icon name from the @plyxui/icons registry. Drives Sidebar + tabs. */
   icon?: string;
   /** A render function. Lazy by default; consumers can wrap in React.lazy. */
   element: ComponentType<unknown> | (() => ReactElement);

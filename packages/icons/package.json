@@ -1,5 +1,5 @@
 {
-  "name": "@omniui/icons",
+  "name": "@plyxui/icons",
   "version": "0.1.0",
   "description": "Icon component + extensible icon registry. Icons are typed TS modules, not SVG assets, so consumers get autocomplete on names.",
   "license": "MIT",
@@ -31,8 +31,8 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*",
-    "@omniui/styles": "*"
+    "@plyxui/core": "*",
+    "@plyxui/styles": "*"
   },
   "peerDependencies": {
     "react": ">=18",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * `omniui-mcp` CLI entry. For now this is a placeholder that prints the
- * tool surface so you can `npx omniui-mcp` and confirm the shape without
+ * `plyxui-mcp` CLI entry. For now this is a placeholder that prints the
+ * tool surface so you can `npx plyxui-mcp` and confirm the shape without
  * needing the full MCP transport hooked up.
  *
  * Week 2: wire to @modelcontextprotocol/sdk stdio transport.
@@ -16,7 +16,7 @@ function main(): void {
     }
     return;
   }
-  console.error("usage: omniui-mcp tools");
+  console.error("usage: plyxui-mcp tools");
   process.exit(1);
 }
 

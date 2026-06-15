@@ -7,7 +7,7 @@ export default function Architecture() {
         Each package is its own npm artifact. Each is small enough to read in an afternoon. Each ships on its own changeset cadence.
       </p>
       <pre className="codeblock" style={{ marginBottom: 32 }}>
-{`omniUI/
+{`plyxui/
 ├── apps/
 │   ├── playground-web/      sandbox with the live primitives
 │   ├── docs/                next.js + MDX docs site
@@ -46,7 +46,7 @@ export default function Architecture() {
         <div className="card">
           <h3 style={{ fontWeight: 700, fontSize: 17, marginBottom: 8 }}>No styled-components</h3>
           <p className="muted">
-            Runtime CSS-in-JS is a hot loop in big design systems. omniUI uses the style prop + cva. Faster on cold start; cheaper to debug.
+            Runtime CSS-in-JS is a hot loop in big design systems. plyxui uses the style prop + cva. Faster on cold start; cheaper to debug.
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 {
-  "name": "@omniui/plugins",
+  "name": "@plyxui/plugins",
   "version": "0.1.0",
-  "description": "Heavyweight components: CommandPalette, DataTable (planned), Chart (planned). Opt-in; the rest of omniUI doesn't pull these in.",
+  "description": "Heavyweight components: CommandPalette, DataTable (planned), Chart (planned). Opt-in; the rest of plyxui doesn't pull these in.",
   "license": "MIT",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -25,12 +25,12 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*",
-    "@omniui/styles": "*",
-    "@omniui/primitives": "*",
-    "@omniui/icons": "*",
-    "@omniui/comps": "*",
-    "@omniui/hooks": "*"
+    "@plyxui/core": "*",
+    "@plyxui/styles": "*",
+    "@plyxui/primitives": "*",
+    "@plyxui/icons": "*",
+    "@plyxui/comps": "*",
+    "@plyxui/hooks": "*"
   },
   "peerDependencies": {
     "react": ">=18"

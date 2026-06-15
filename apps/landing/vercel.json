@@ -5,11 +5,11 @@
   "rewrites": [
     {
       "source": "/docs/(.*)",
-      "destination": "https://omniui-docs.vercel.app/docs/$1"
+      "destination": "https://plyxui-docs.vercel.app/docs/$1"
     },
     {
       "source": "/docs",
-      "destination": "https://omniui-docs.vercel.app/docs/"
+      "destination": "https://plyxui-docs.vercel.app/docs/"
     }
   ]
 }

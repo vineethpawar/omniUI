@@ -1,5 +1,5 @@
 {
-  "name": "omniui",
+  "name": "plyxui",
   "private": true,
   "version": "0.0.0",
   "description": "Typed, agent-aware component library for React, React Native, Electron, and VS Code webviews.",

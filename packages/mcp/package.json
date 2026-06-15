@@ -1,10 +1,10 @@
 {
-  "name": "@omniui/mcp",
+  "name": "@plyxui/mcp",
   "version": "0.1.0",
-  "description": "Model Context Protocol server for omniUI. Lets coding agents list, search, install, and lint components conversationally.",
+  "description": "Model Context Protocol server for plyxui. Lets coding agents list, search, install, and lint components conversationally.",
   "license": "MIT",
   "bin": {
-    "omniui-mcp": "src/bin.ts"
+    "plyxui-mcp": "src/bin.ts"
   },
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -23,7 +23,7 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*"
+    "@plyxui/core": "*"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

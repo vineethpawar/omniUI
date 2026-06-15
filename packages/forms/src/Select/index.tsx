@@ -1,13 +1,13 @@
 /**
  * Select (web). Native <select> with theme-aware chrome.
  *
- * The fancier popover-style version lives in @omniui/comps Dropdown; this
+ * The fancier popover-style version lives in @plyxui/comps Dropdown; this
  * is the form-grade equivalent for cases where native a11y + mobile UX
  * matters more than custom styling.
  */
 import { forwardRef, type ChangeEvent, type CSSProperties } from "react";
-import { useTheme } from "@omniui/styles";
-import { radius, spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { radius, spacing } from "@plyxui/core";
 
 export interface SelectOption {
   label: string;

@@ -5,17 +5,17 @@
  * Import this pack once at app boot:
  *
  * ```ts
- * import { registerIcons } from "@omniui/icons";
- * import { seedPack } from "@omniui/icons/pack";
+ * import { registerIcons } from "@plyxui/icons";
+ * import { seedPack } from "@plyxui/icons/pack";
  * registerIcons(seedPack);
  * ```
  *
  * Then augment the registry shape so name autocomplete kicks in:
  *
  * ```ts
- * declare module "@omniui/icons" {
+ * declare module "@plyxui/icons" {
  *   interface IconRegistryShape {
- *     home: import("@omniui/icons").IconDef;
+ *     home: import("@plyxui/icons").IconDef;
  *     // ... or just import the seedPackKeys helper below
  *   }
  * }

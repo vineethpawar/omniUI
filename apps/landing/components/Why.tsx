@@ -10,15 +10,15 @@ export default function Why() {
         {[
           {
             title: "Cross-platform is hard.",
-            body: "The same components get rewritten for web, Electron, and React Native. Three branches drift. omniUI ships one tree with .ts and .native.ts splits, so the platform-specific code is bounded and the public API is identical.",
+            body: "The same components get rewritten for web, Electron, and React Native. Three branches drift. plyxui ships one tree with .ts and .native.ts splits, so the platform-specific code is bounded and the public API is identical.",
           },
           {
             title: "Tokens become strings.",
-            body: "Big design systems lose autocomplete on token names, variants, and icons. omniUI tokens are interfaces, augmentable from userland. Names extend; types follow.",
+            body: "Big design systems lose autocomplete on token names, variants, and icons. plyxui tokens are interfaces, augmentable from userland. Names extend; types follow.",
           },
           {
             title: "Coding agents misimplement.",
-            body: "Cursor and Claude Code scrape docs and guess. omniUI ships a first-party MCP server so agents list, search, install, and lint components conversationally. The agent and the dev pull from the same source.",
+            body: "Cursor and Claude Code scrape docs and guess. plyxui ships a first-party MCP server so agents list, search, install, and lint components conversationally. The agent and the dev pull from the same source.",
           },
         ].map((c) => (
           <div key={c.title} className="card">

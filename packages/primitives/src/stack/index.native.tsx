@@ -5,7 +5,7 @@
  */
 import { forwardRef, type ReactNode } from "react";
 import { View, type ViewStyle, type ViewProps } from "react-native";
-import { spacing, type SpacingKey } from "@omniui/core";
+import { spacing, type SpacingKey } from "@plyxui/core";
 
 export type StackDirection = "row" | "column" | "row-reverse" | "column-reverse";
 export type StackAlign = "start" | "center" | "end" | "stretch" | "baseline";

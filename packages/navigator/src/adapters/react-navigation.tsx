@@ -34,7 +34,7 @@ type BottomTabsModule = {
 
 function requireMissing(name: string): never {
   throw new Error(
-    `[@omniui/navigator] ${name} isn't installed. Run "npm install ${name} @react-navigation/native" and follow the @react-navigation install instructions.`,
+    `[@plyxui/navigator] ${name} isn't installed. Run "npm install ${name} @react-navigation/native" and follow the @react-navigation install instructions.`,
   );
 }
 

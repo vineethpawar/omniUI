@@ -2,23 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const DESCRIPTION =
-  "Every published version of omniUI + AI Polish. Download builds, copy install commands.";
+  "Every published version of plyxui + AI Polish. Download builds, copy install commands.";
 
 export const metadata: Metadata = {
-  title: "omniUI releases",
+  title: "plyxui releases",
   description: DESCRIPTION,
-  metadataBase: new URL("https://omniui-releases.vercel.app"),
+  metadataBase: new URL("https://plyxui-releases.vercel.app"),
   openGraph: {
-    title: "omniUI releases",
+    title: "plyxui releases",
     description: DESCRIPTION,
-    url: "https://omniui-releases.vercel.app",
-    siteName: "omniUI",
-    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "omniUI" }],
+    url: "https://plyxui-releases.vercel.app",
+    siteName: "plyxui",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "plyxui" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "omniUI releases",
+    title: "plyxui releases",
     description: DESCRIPTION,
     images: ["/og-image.svg"],
   },

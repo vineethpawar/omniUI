@@ -7,7 +7,7 @@ order: 10
 AppShell is the chrome you wrap your routed views in. It doesn't take a router opinion, so you can use any navigator under it.
 
 ```tsx
-import { AppShell, Sidebar } from "@omniui/layouts";
+import { AppShell, Sidebar } from "@plyxui/layouts";
 
 <AppShell
   header={<TitleBar />}
@@ -27,17 +27,17 @@ import { AppShell, Sidebar } from "@omniui/layouts";
 | `sidebarWidth` | `number` | `240` |
 | `divider` | `boolean` | `true` |
 
-The sidebar slot is a single render slot, so consumers can put the omniUI Sidebar there or any custom navigation surface.
+The sidebar slot is a single render slot, so consumers can put the plyxui Sidebar there or any custom navigation surface.
 
 ## Native variant
 
-On native the sidebar slot is dropped; tabs are the right pattern. Use `OmniNavigator mode="tabs"` from `@omniui/navigator/react-navigation` and feed it the same `OmniRoute[]` you'd render in the web Sidebar.
+On native the sidebar slot is dropped; tabs are the right pattern. Use `OmniNavigator mode="tabs"` from `@plyxui/navigator/react-navigation` and feed it the same `OmniRoute[]` you'd render in the web Sidebar.
 
 ## Composing with the navigator
 
 ```tsx
-import { defineRoutes } from "@omniui/navigator";
-import { OmniRouter } from "@omniui/navigator/react-router";
+import { defineRoutes } from "@plyxui/navigator";
+import { OmniRouter } from "@plyxui/navigator/react-router";
 
 const routes = defineRoutes([
   { name: "home",     path: "/",         icon: "home",     title: "Home",     element: () => <Home /> },

@@ -7,8 +7,8 @@
  *   </AuthLayout>
  */
 import type { CSSProperties, ReactNode } from "react";
-import { useTheme } from "@omniui/styles";
-import { spacing, radius } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { spacing, radius } from "@plyxui/core";
 
 export interface AuthLayoutProps {
   title: ReactNode;

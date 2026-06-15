@@ -1,5 +1,5 @@
-import { ThemeProvider, useTheme } from "@omniui/styles";
-import { Box } from "@omniui/primitives";
+import { ThemeProvider, useTheme } from "@plyxui/styles";
+import { Box } from "@plyxui/primitives";
 
 function Demo() {
   const { mode, toggleTheme, colors } = useTheme();
@@ -11,7 +11,7 @@ function Demo() {
         radius="lg"
         style={{ maxWidth: 640, margin: "40px auto", color: colors.text }}
       >
-        <h1 style={{ marginTop: 0 }}>omniUI playground</h1>
+        <h1 style={{ marginTop: 0 }}>plyxui playground</h1>
         <p style={{ color: colors.textMuted }}>
           Current mode: <strong>{mode}</strong>. Polymorphic Box rendering as div, button, and a.
         </p>
@@ -37,7 +37,7 @@ function Demo() {
 
         <Box
           as="a"
-          href="https://github.com/vineethpawar/omniUI"
+          href="https://github.com/vineethpawar/plyxui"
           surface="none"
           padding="sm"
           style={{ display: "inline-block", marginLeft: 12, color: colors.primaryOrange }}

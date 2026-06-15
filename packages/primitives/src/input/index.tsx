@@ -7,8 +7,8 @@
  * positioning is design-system-specific.
  */
 import { forwardRef, useState, type ChangeEvent, type CSSProperties } from "react";
-import { useTheme } from "@omniui/styles";
-import { radius, spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { radius, spacing } from "@plyxui/core";
 
 export type InputSize = "sm" | "md" | "lg";
 

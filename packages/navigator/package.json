@@ -1,5 +1,5 @@
 {
-  "name": "@omniui/navigator",
+  "name": "@plyxui/navigator",
   "version": "0.1.0",
   "description": "Router-agnostic helper. defineRoutes() once; render with the right adapter on web or native.",
   "license": "MIT",
@@ -35,7 +35,7 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*"
+    "@plyxui/core": "*"
   },
   "peerDependencies": {
     "react": ">=18",

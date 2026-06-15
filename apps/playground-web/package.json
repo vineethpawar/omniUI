@@ -1,5 +1,5 @@
 {
-  "name": "@omniui/playground-web",
+  "name": "@plyxui/playground-web",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,9 +12,9 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*",
-    "@omniui/primitives": "*",
-    "@omniui/styles": "*",
+    "@plyxui/core": "*",
+    "@plyxui/primitives": "*",
+    "@plyxui/styles": "*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

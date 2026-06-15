@@ -4,12 +4,12 @@ description: Drop-in screen scaffolds. AuthLayout, EmptyState, ErrorScreen.
 order: 10
 ---
 
-`@omniui/screens` is the "I just need a competent default" layer. Each export is a screen scaffold you can use as-is or peel apart for your own composition.
+`@plyxui/screens` is the "I just need a competent default" layer. Each export is a screen scaffold you can use as-is or peel apart for your own composition.
 
 ## Install
 
 ```bash
-npm install @omniui/screens
+npm install @plyxui/screens
 ```
 
 Auto-pulls everything below: layouts, primitives, icons, styles, core, hooks (transitively).
@@ -19,7 +19,7 @@ Auto-pulls everything below: layouts, primitives, icons, styles, core, hooks (tr
 The classic centered-card layout used by sign-in, sign-up, forgot-password, and magic-link confirm.
 
 ```tsx
-import { AuthLayout } from "@omniui/screens";
+import { AuthLayout } from "@plyxui/screens";
 
 <AuthLayout
   title="Sign in"
@@ -36,8 +36,8 @@ import { AuthLayout } from "@omniui/screens";
 The "no data yet" screen. Big icon, headline, supporting copy, optional CTA. Use as a leaf inside a routed view (not a full-screen layout).
 
 ```tsx
-import { EmptyState } from "@omniui/screens";
-import { Button } from "@omniui/primitives";
+import { EmptyState } from "@plyxui/screens";
+import { Button } from "@plyxui/primitives";
 
 <EmptyState
   icon="inbox"
@@ -52,8 +52,8 @@ import { Button } from "@omniui/primitives";
 The "something broke" full-screen. Big status code, headline, optional retry + go-home buttons.
 
 ```tsx
-import { ErrorScreen } from "@omniui/screens";
-import { Button } from "@omniui/primitives";
+import { ErrorScreen } from "@plyxui/screens";
+import { Button } from "@plyxui/primitives";
 
 <ErrorScreen
   code={500}

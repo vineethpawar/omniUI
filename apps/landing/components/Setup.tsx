@@ -4,20 +4,20 @@ export default function Setup() {
       <p className="eyebrow">From zero to a styled screen</p>
       <h2 className="h2">Five minutes. No build step, no compiler, no codegen.</h2>
       <p className="lead" style={{ marginBottom: 48 }}>
-        omniUI is a regular npm install. No vendored copy-paste. No special bundler config. No nativewind setup.
+        plyxui is a regular npm install. No vendored copy-paste. No special bundler config. No nativewind setup.
       </p>
       {[
         {
           n: 1,
           title: "Install",
           body: "Pick the layers you need. Foundation is three packages.",
-          code: "npm install @omniui/core @omniui/styles @omniui/primitives",
+          code: "npm install @plyxui/core @plyxui/styles @plyxui/primitives",
         },
         {
           n: 2,
           title: "Wrap",
           body: "ThemeProvider once at the root. It picks up OS preference until the user toggles.",
-          code: `import { ThemeProvider } from "@omniui/styles";
+          code: `import { ThemeProvider } from "@plyxui/styles";
 
 <ThemeProvider>
   <App />
@@ -27,10 +27,10 @@ export default function Setup() {
           n: 3,
           title: "Use a primitive",
           body: "Polymorphic Box plus typed Text and Button covers the first 80% of any screen.",
-          code: `import { Box, Text, Button } from "@omniui/primitives";
+          code: `import { Box, Text, Button } from "@plyxui/primitives";
 
 <Box surface="primary" padding="lg">
-  <Text size="xl" weight="bold">Hello, omniUI.</Text>
+  <Text size="xl" weight="bold">Hello, plyxui.</Text>
   <Button>Get started</Button>
 </Box>`,
         },
@@ -38,8 +38,8 @@ export default function Setup() {
           n: 4,
           title: "Add icons + the rest",
           body: "Register the seed pack at boot, augment names if you need autocomplete.",
-          code: `import { registerIcons } from "@omniui/icons";
-import { seedPack } from "@omniui/icons/pack";
+          code: `import { registerIcons } from "@plyxui/icons";
+import { seedPack } from "@plyxui/icons/pack";
 
 registerIcons(seedPack);`,
         },

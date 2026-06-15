@@ -6,41 +6,41 @@ order: 10
 
 ## Pick the bits you need
 
-omniUI is published as eight small packages. Pull only what you need; nothing else gets installed.
+plyxui is published as eight small packages. Pull only what you need; nothing else gets installed.
 
 ```bash
 # The minimum useful set
-npm install @omniui/core @omniui/styles @omniui/primitives
+npm install @plyxui/core @plyxui/styles @plyxui/primitives
 ```
 
 | Package | Install when | Dev dep? |
 |---|---|---|
-| `@omniui/core` | Always (tokens, types, hooks). The other packages depend on it. | runtime |
-| `@omniui/styles` | Always (ThemeProvider + useTheme). Wraps your app once. | runtime |
-| `@omniui/primitives` | You need Box, Text, Stack, Flex, Input, Button. | runtime |
-| `@omniui/icons` | You need an Icon component + registry. | runtime |
-| `@omniui/layouts` | You want AppShell, Sidebar, ScreenContainer. | runtime |
-| `@omniui/navigator` | You want defineRoutes + a web/native adapter. | runtime |
-| `@omniui/comps` | You want Modal, Dropdown (Tooltip + Tabs coming). | runtime |
-| `@omniui/mcp` | You want coding agents to install components by name. | tooling |
+| `@plyxui/core` | Always (tokens, types, hooks). The other packages depend on it. | runtime |
+| `@plyxui/styles` | Always (ThemeProvider + useTheme). Wraps your app once. | runtime |
+| `@plyxui/primitives` | You need Box, Text, Stack, Flex, Input, Button. | runtime |
+| `@plyxui/icons` | You need an Icon component + registry. | runtime |
+| `@plyxui/layouts` | You want AppShell, Sidebar, ScreenContainer. | runtime |
+| `@plyxui/navigator` | You want defineRoutes + a web/native adapter. | runtime |
+| `@plyxui/comps` | You want Modal, Dropdown (Tooltip + Tabs coming). | runtime |
+| `@plyxui/mcp` | You want coding agents to install components by name. | tooling |
 
 A single line for the lot:
 
 ```bash
-npm install @omniui/core @omniui/styles @omniui/primitives @omniui/icons \
-  @omniui/layouts @omniui/navigator @omniui/comps
+npm install @plyxui/core @plyxui/styles @plyxui/primitives @plyxui/icons \
+  @plyxui/layouts @plyxui/navigator @plyxui/comps
 ```
 
-`@omniui/mcp` is a CLI you install once and run as an MCP server, not a runtime import:
+`@plyxui/mcp` is a CLI you install once and run as an MCP server, not a runtime import:
 
 ```bash
-npm install --save-dev @omniui/mcp
+npm install --save-dev @plyxui/mcp
 ```
 
 ## Wrap your app in ThemeProvider
 
 ```tsx
-import { ThemeProvider } from "@omniui/styles";
+import { ThemeProvider } from "@plyxui/styles";
 
 export default function App() {
   return (
@@ -56,8 +56,8 @@ That's it. The provider sets CSS custom properties on `documentElement`, persist
 ## Use a primitive
 
 ```tsx
-import { Box, Text, Button } from "@omniui/primitives";
-import { useTheme } from "@omniui/styles";
+import { Box, Text, Button } from "@plyxui/primitives";
+import { useTheme } from "@plyxui/styles";
 
 export function Hello() {
   const { toggleTheme } = useTheme();

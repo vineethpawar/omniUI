@@ -15,7 +15,7 @@ export default function Footer() {
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <BrandMark size={28} />
-            <span style={{ fontWeight: 700 }}>omniUI</span>
+            <span style={{ fontWeight: 700 }}>plyxui</span>
           </div>
           <div style={{ display: "flex", gap: 18, fontSize: 13 }}>
             <a className="muted" href="/docs/">Docs</a>
@@ -23,7 +23,7 @@ export default function Footer() {
             <a className="muted" href="#features">Features</a>
             <a className="muted" href="#agent">AI mode</a>
             <a className="muted" href="#faq">FAQ</a>
-            <a className="muted" href="https://github.com/vineethpawar/omniUI">GitHub</a>
+            <a className="muted" href="https://github.com/vineethpawar/plyxui">GitHub</a>
           </div>
         </div>
         <div style={{ marginTop: 18, fontSize: 12 }}>

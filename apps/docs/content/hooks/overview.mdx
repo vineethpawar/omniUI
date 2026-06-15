@@ -4,12 +4,12 @@ description: Cross-platform React hooks. No DOM or RN assumptions in the public 
 order: 10
 ---
 
-`@omniui/hooks` is a small collection of headless hooks. Web + native both work where the hook makes sense; `useClickOutside` is web-only (gesture handling on native is per-platform).
+`@plyxui/hooks` is a small collection of headless hooks. Web + native both work where the hook makes sense; `useClickOutside` is web-only (gesture handling on native is per-platform).
 
 ## Install
 
 ```bash
-npm install @omniui/hooks
+npm install @plyxui/hooks
 ```
 
 ## Exports
@@ -24,7 +24,7 @@ npm install @omniui/hooks
 ## Disclosure
 
 ```tsx
-import { useDisclosure } from "@omniui/hooks";
+import { useDisclosure } from "@plyxui/hooks";
 
 const { isOpen, open, close, toggle } = useDisclosure();
 ```
@@ -32,7 +32,7 @@ const { isOpen, open, close, toggle } = useDisclosure();
 ## Toast
 
 ```tsx
-import { ToastProvider, useToast } from "@omniui/hooks";
+import { ToastProvider, useToast } from "@plyxui/hooks";
 
 <ToastProvider>
   <App />
@@ -42,4 +42,4 @@ const { toast } = useToast();
 toast({ title: "Saved", variant: "success" });
 ```
 
-`ToastProvider` is headless: it manages the queue. Rendering the toasts is up to you (or `@omniui/comps Toast` once it lands).
+`ToastProvider` is headless: it manages the queue. Rendering the toasts is up to you (or `@plyxui/comps Toast` once it lands).

@@ -1,5 +1,5 @@
 {
-  "name": "@omniui/comps",
+  "name": "@plyxui/comps",
   "version": "0.1.0",
   "description": "Composite components built on the primitives: Modal, Dropdown, Tooltip, Tabs, Toast.",
   "license": "MIT",
@@ -27,10 +27,10 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*",
-    "@omniui/styles": "*",
-    "@omniui/primitives": "*",
-    "@omniui/icons": "*"
+    "@plyxui/core": "*",
+    "@plyxui/styles": "*",
+    "@plyxui/primitives": "*",
+    "@plyxui/icons": "*"
   },
   "peerDependencies": {
     "react": ">=18"

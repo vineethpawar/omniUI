@@ -4,24 +4,24 @@ export default function HowItWorks() {
       <p className="eyebrow">The idea</p>
       <h2 className="h2">Three packages get you a working app. Two more get you a polished one.</h2>
       <p className="lead" style={{ marginBottom: 56 }}>
-        Each package does one thing. Install only the layers you need. The MCP server is independent so the agent-friendly bits ship to anyone, not just omniUI users.
+        Each package does one thing. Install only the layers you need. The MCP server is independent so the agent-friendly bits ship to anyone, not just plyxui users.
       </p>
       <div className="grid-3">
         {[
           {
             n: "01",
             title: "Foundation",
-            body: "@omniui/core, @omniui/styles, @omniui/primitives. Tokens, theming, Box, Text, Stack, Flex, Input, Button. Cross-platform.",
+            body: "@plyxui/core, @plyxui/styles, @plyxui/primitives. Tokens, theming, Box, Text, Stack, Flex, Input, Button. Cross-platform.",
           },
           {
             n: "02",
             title: "Polish",
-            body: "@omniui/icons, @omniui/comps, @omniui/layouts. The icon registry, Modal, Dropdown, AppShell, Sidebar, ScreenContainer.",
+            body: "@plyxui/icons, @plyxui/comps, @plyxui/layouts. The icon registry, Modal, Dropdown, AppShell, Sidebar, ScreenContainer.",
           },
           {
             n: "03",
             title: "Agent layer",
-            body: "@omniui/mcp gives coding agents a structured handle on the library. List, describe, install, lint. No HTML scraping.",
+            body: "@plyxui/mcp gives coding agents a structured handle on the library. List, describe, install, lint. No HTML scraping.",
           },
         ].map((s) => (
           <div key={s.n} className="card">

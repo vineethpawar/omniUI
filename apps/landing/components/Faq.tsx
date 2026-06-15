@@ -5,19 +5,19 @@ const QA = [
   },
   {
     q: "How does the MCP server actually help?",
-    a: "Coding agents like Cursor and Claude Code rely on scraping HTML or reading READMEs. That's lossy. The omniUI MCP exposes the component library as structured data: list_components, describe_component (props, variants, examples), install_component, lint_usage. The agent never guesses at a prop name.",
+    a: "Coding agents like Cursor and Claude Code rely on scraping HTML or reading READMEs. That's lossy. The plyxui MCP exposes the component library as structured data: list_components, describe_component (props, variants, examples), install_component, lint_usage. The agent never guesses at a prop name.",
   },
   {
     q: "Where does AI Polish fit in?",
-    a: "AI Polish is a sibling project, not part of omniUI. It's a standalone desktop app that pairs nicely with the library: pick a project folder, paste your Anthropic key, hand the agent a Figma frame, every Write or Edit is held for Apply / Reject review. Lives at github.com/vineethpawar/ai-polish-desktop. You can use omniUI without it, and you can use it on any non-omniUI codebase.",
+    a: "AI Polish is a sibling project, not part of plyxui. It's a standalone desktop app that pairs nicely with the library: pick a project folder, paste your Anthropic key, hand the agent a Figma frame, every Write or Edit is held for Apply / Reject review. Lives at github.com/vineethpawar/ai-polish-desktop. You can use plyxui without it, and you can use it on any non-plyxui codebase.",
   },
   {
     q: "What if I don't want the agent layer?",
-    a: "Don't install @omniui/mcp. The foundation packages have no agent code in them. The component library works without any of the agent-aware bits.",
+    a: "Don't install @plyxui/mcp. The foundation packages have no agent code in them. The component library works without any of the agent-aware bits.",
   },
   {
     q: "Why not just use Tamagui?",
-    a: "Tamagui is fantastic at the cross-platform problem and the compiler model is impressive. omniUI bets on a simpler runtime (no compiler), a typed token model that's friendlier for agents, and a first-party MCP. Pick the one that fits your team. They aren't directly competing.",
+    a: "Tamagui is fantastic at the cross-platform problem and the compiler model is impressive. plyxui bets on a simpler runtime (no compiler), a typed token model that's friendlier for agents, and a first-party MCP. Pick the one that fits your team. They aren't directly competing.",
   },
   {
     q: "What does the remix layer cost?",

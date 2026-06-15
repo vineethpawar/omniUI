@@ -1,5 +1,5 @@
 {
-  "name": "@omniui/core",
+  "name": "@plyxui/core",
   "version": "0.1.0",
   "description": "Design tokens, polymorphic types, and headless hooks. Pure TS, no DOM, no RN.",
   "license": "MIT",

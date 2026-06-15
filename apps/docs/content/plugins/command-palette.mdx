@@ -4,19 +4,19 @@ description: Cmd+K-style fuzzy-search launcher.
 order: 10
 ---
 
-`@omniui/plugins/command-palette` exports `CommandPalette` — a keyboard-driven launcher you can wire to any action set.
+`@plyxui/plugins/command-palette` exports `CommandPalette` — a keyboard-driven launcher you can wire to any action set.
 
 ## Install
 
 ```bash
-npm install @omniui/plugins
+npm install @plyxui/plugins
 ```
 
 ## Usage
 
 ```tsx
-import { CommandPalette } from "@omniui/plugins";
-import { useDisclosure } from "@omniui/hooks";
+import { CommandPalette } from "@plyxui/plugins";
+import { useDisclosure } from "@plyxui/hooks";
 
 function App() {
   const { isOpen, open, close } = useDisclosure();
@@ -58,7 +58,7 @@ function App() {
 | `label` | yes | What the user sees in the list. |
 | `onSelect` | yes | Called when the user picks this item. The palette closes after. |
 | `group` | no | Logical group header (e.g. "Navigate", "Account"). Ungrouped items appear at top. |
-| `icon` | no | Icon name from the `@omniui/icons` registry. |
+| `icon` | no | Icon name from the `@plyxui/icons` registry. |
 | `keywords` | no | Extra strings included in substring matching. Useful for aliases ("logout", "signout", "log out"). |
 | `disabled` | no | Greys out the item; Enter / click are ignored. |
 

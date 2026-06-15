@@ -3,8 +3,8 @@
  */
 import { forwardRef, type ReactNode } from "react";
 import { Pressable, Text as RNText, View, type ViewStyle, type TextStyle } from "react-native";
-import { useTheme } from "@omniui/styles";
-import { radius, spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { radius, spacing } from "@plyxui/core";
 
 export type ButtonVariant = "primary" | "ghost" | "link" | "danger";
 export type ButtonSize = "sm" | "md" | "lg";

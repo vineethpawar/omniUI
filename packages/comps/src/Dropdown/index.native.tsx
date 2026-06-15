@@ -6,8 +6,8 @@
  */
 import { useState } from "react";
 import { Modal, Pressable, Text as RNText, View } from "react-native";
-import { useTheme } from "@omniui/styles";
-import { radius, spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { radius, spacing } from "@plyxui/core";
 
 export interface DropdownOption<T extends string = string> {
   label: string;

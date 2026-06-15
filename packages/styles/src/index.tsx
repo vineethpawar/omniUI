@@ -23,9 +23,9 @@ import {
   toCssVarName,
   type OmniColorTokens,
   type ThemeVariant,
-} from "@omniui/core";
+} from "@plyxui/core";
 
-const STORAGE_KEY = "omniui-theme-mode";
+const STORAGE_KEY = "plyxui-theme-mode";
 
 type ResolvedColors = Record<keyof OmniColorTokens, string>;
 
@@ -102,7 +102,7 @@ export function ThemeProvider({ children, defaultMode }: ThemeProviderProps) {
         bg: colorTokens.primaryFill[mode],
         text: colorTokens.text[mode],
       });
-      document.body.classList.add("omniui-electron");
+      document.body.classList.add("plyxui-electron");
     }
   }, [mode, version]);
 

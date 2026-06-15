@@ -5,7 +5,7 @@
  *   <Icon name="home" />
  *
  * with full autocomplete, by extending the IconName union via module
- * augmentation. The seed pack ships in `@omniui/icons/pack`; bring your own
+ * augmentation. The seed pack ships in `@plyxui/icons/pack`; bring your own
  * by registering at app boot.
  *
  * Why a registry instead of tree-shakeable per-icon imports? Three reasons.
@@ -42,7 +42,7 @@ export interface IconDef {
  * The shipped name union. Extend from userland:
  *
  * ```ts
- * declare module "@omniui/icons" {
+ * declare module "@plyxui/icons" {
  *   interface IconRegistryShape {
  *     "company/squiggle": IconDef;
  *     "x-bud/pinout": IconDef;

@@ -9,7 +9,7 @@ export function Header() {
   useEffect(() => {
     const stored =
       (typeof window !== "undefined" &&
-        (window.localStorage.getItem("omniui-docs-theme") as "dark" | "light" | null)) ||
+        (window.localStorage.getItem("plyxui-docs-theme") as "dark" | "light" | null)) ||
       "dark";
     setTheme(stored);
     document.documentElement.dataset["theme"] = stored;
@@ -19,7 +19,7 @@ export function Header() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
     document.documentElement.dataset["theme"] = next;
-    window.localStorage.setItem("omniui-docs-theme", next);
+    window.localStorage.setItem("plyxui-docs-theme", next);
   };
 
   return (
@@ -45,11 +45,11 @@ export function Header() {
         }}
       >
         {/* Plain anchor (not next/link) so we bypass basePath and go to the
-            landing root at omniui-one.vercel.app/. When viewed via the docs
+            landing root at plyxui.vercel.app/. When viewed via the docs
             subdomain directly, this still goes to "/" of that domain. */}
         <a href="/" style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <BrandMark size={28} />
-          <span style={{ fontWeight: 700, letterSpacing: "-0.01em", fontSize: 15 }}>omniUI docs</span>
+          <span style={{ fontWeight: 700, letterSpacing: "-0.01em", fontSize: 15 }}>plyxui docs</span>
           <span
             style={{
               fontSize: 10,
@@ -66,7 +66,7 @@ export function Header() {
         </a>
         <div style={{ flex: 1 }} />
         <a
-          href="https://omniui-releases.vercel.app/"
+          href="https://plyxui-releases.vercel.app/"
           target="_blank"
           rel="noreferrer"
           style={{ fontSize: 13.5, color: "var(--muted)" }}
@@ -74,7 +74,7 @@ export function Header() {
           Releases
         </a>
         <a
-          href="https://omniui-one.vercel.app/"
+          href="https://plyxui.vercel.app/"
           target="_blank"
           rel="noreferrer"
           style={{ fontSize: 13.5, color: "var(--muted)" }}
@@ -82,7 +82,7 @@ export function Header() {
           Landing
         </a>
         <a
-          href="https://github.com/vineethpawar/omniUI"
+          href="https://github.com/vineethpawar/plyxui"
           target="_blank"
           rel="noreferrer"
           style={{ fontSize: 13.5, color: "var(--muted)" }}

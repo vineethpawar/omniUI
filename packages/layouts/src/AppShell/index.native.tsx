@@ -5,7 +5,7 @@
  */
 import type { ReactNode } from "react";
 import { View, type ViewStyle } from "react-native";
-import { useTheme } from "@omniui/styles";
+import { useTheme } from "@plyxui/styles";
 
 export interface AppShellProps {
   header?: ReactNode;

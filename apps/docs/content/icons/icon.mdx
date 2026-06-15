@@ -4,7 +4,7 @@ description: Registry-based Icon component. Names autocomplete, names extend.
 order: 10
 ---
 
-Icons in omniUI aren't imported per-file. They live in a registry that consumers register into at boot. There are three reasons:
+Icons in plyxui aren't imported per-file. They live in a registry that consumers register into at boot. There are three reasons:
 
 1. Names autocomplete. `<Icon name="..." />` returns suggestions from the registered set, which matters for both human devs and coding agents.
 2. Apps that want to search or swap icons by name need an enumerable registry, not opaque ESM imports.
@@ -13,8 +13,8 @@ Icons in omniUI aren't imported per-file. They live in a registry that consumers
 ## Setup
 
 ```tsx
-import { registerIcons } from "@omniui/icons";
-import { seedPack } from "@omniui/icons/pack";
+import { registerIcons } from "@plyxui/icons";
+import { seedPack } from "@plyxui/icons/pack";
 
 registerIcons(seedPack);
 ```
@@ -22,7 +22,7 @@ registerIcons(seedPack);
 Then in your code:
 
 ```tsx
-import { Icon } from "@omniui/icons";
+import { Icon } from "@plyxui/icons";
 
 <Icon name="home" />
 <Icon name="settings" size={28} color="primaryOrange" />
@@ -34,10 +34,10 @@ import { Icon } from "@omniui/icons";
 To get autocomplete on `name`, augment the registry shape:
 
 ```ts
-declare module "@omniui/icons" {
+declare module "@plyxui/icons" {
   interface IconRegistryShape {
-    "company/squiggle": import("@omniui/icons").IconDef;
-    "x-bud/pinout": import("@omniui/icons").IconDef;
+    "company/squiggle": import("@plyxui/icons").IconDef;
+    "x-bud/pinout": import("@plyxui/icons").IconDef;
   }
 }
 ```
@@ -45,7 +45,7 @@ declare module "@omniui/icons" {
 Then register the runtime defs:
 
 ```ts
-import { registerIcons } from "@omniui/icons";
+import { registerIcons } from "@plyxui/icons";
 import squiggle from "./icons/company-squiggle";
 import xbudPinout from "./icons/x-bud-pinout";
 
@@ -60,7 +60,7 @@ registerIcons({
 Each icon is data-only so the native renderer can rebuild it via react-native-svg without DOM trickery:
 
 ```ts
-import type { IconDef } from "@omniui/icons";
+import type { IconDef } from "@plyxui/icons";
 
 const squiggle: IconDef = {
   viewBox: "0 0 24 24",

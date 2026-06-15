@@ -1,5 +1,5 @@
 {
-  "name": "@omniui/screens",
+  "name": "@plyxui/screens",
   "version": "0.1.0",
   "description": "Drop-in screen scaffolds. AuthLayout, EmptyState, ErrorScreen. Composes on every layer below.",
   "license": "MIT",
@@ -21,11 +21,11 @@
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
-    "@omniui/core": "*",
-    "@omniui/styles": "*",
-    "@omniui/primitives": "*",
-    "@omniui/icons": "*",
-    "@omniui/layouts": "*"
+    "@plyxui/core": "*",
+    "@plyxui/styles": "*",
+    "@plyxui/primitives": "*",
+    "@plyxui/icons": "*",
+    "@plyxui/layouts": "*"
   },
   "peerDependencies": {
     "react": ">=18"

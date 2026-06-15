@@ -2,8 +2,8 @@
  * Checkbox (web). Native input under the hood, custom box on top.
  */
 import { forwardRef, type CSSProperties, type ChangeEvent } from "react";
-import { useTheme } from "@omniui/styles";
-import { spacing, radius } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { spacing, radius } from "@plyxui/core";
 
 export interface CheckboxProps {
   checked?: boolean;

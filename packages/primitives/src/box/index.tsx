@@ -17,9 +17,9 @@
  * Classes are kept as override hooks for consumers who want their own CSS.
  */
 import { forwardRef, type ElementType, type ForwardedRef, type CSSProperties } from "react";
-import type { PolymorphicComponentPropsWithRef } from "@omniui/core";
-import { radius as radiusTokens, spacing } from "@omniui/core";
-import { useTheme } from "@omniui/styles";
+import type { PolymorphicComponentPropsWithRef } from "@plyxui/core";
+import { radius as radiusTokens, spacing } from "@plyxui/core";
+import { useTheme } from "@plyxui/styles";
 import { boxConfig, type BoxVariants } from "./config";
 
 type BoxOwnProps = BoxVariants & {

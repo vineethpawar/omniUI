@@ -7,7 +7,7 @@ order: 10
 ## Setup
 
 ```tsx
-import { ThemeProvider } from "@omniui/styles";
+import { ThemeProvider } from "@plyxui/styles";
 
 <ThemeProvider>
   <App />
@@ -16,7 +16,7 @@ import { ThemeProvider } from "@omniui/styles";
 
 By default the provider:
 
-- Reads `localStorage["omniui-theme-mode"]` for a previously chosen mode.
+- Reads `localStorage["plyxui-theme-mode"]` for a previously chosen mode.
 - Falls back to the OS preference via `matchMedia("(prefers-color-scheme: light)")`.
 - Mirrors the active mode to `document.documentElement.dataset.theme` so your own CSS can target `[data-theme="dark"]`.
 - Listens to OS changes until the user explicitly toggles. Once toggled, it stops following the OS and persists the choice.
@@ -24,7 +24,7 @@ By default the provider:
 ## useTheme
 
 ```tsx
-import { useTheme } from "@omniui/styles";
+import { useTheme } from "@plyxui/styles";
 
 const { mode, colors, toggleTheme, setMode, refreshColors } = useTheme();
 ```
@@ -42,14 +42,14 @@ const { mode, colors, toggleTheme, setMode, refreshColors } = useTheme();
 Tokens are interfaces, not enums. Augment the interface and register the runtime values:
 
 ```ts
-declare module "@omniui/core" {
+declare module "@plyxui/core" {
   interface OmniColorTokens {
     brandTeal: string;
     brandTealMuted: string;
   }
 }
 
-import { registerColorTokens } from "@omniui/core";
+import { registerColorTokens } from "@plyxui/core";
 
 registerColorTokens({
   brandTeal:      { light: "#0FAFA4", dark: "#3FD9CE" },
@@ -70,7 +70,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 });
 ```
 
-The provider also adds an `omniui-electron` class to `document.body` so you can pad the top of your shell to account for the title-bar zone.
+The provider also adds an `plyxui-electron` class to `document.body` so you can pad the top of your shell to account for the title-bar zone.
 
 ## Native variant
 

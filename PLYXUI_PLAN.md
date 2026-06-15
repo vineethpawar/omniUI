@@ -1,4 +1,4 @@
-# omniUI plan
+# plyxui plan
 
 scratchpad for me. lives in the repo so i can pick up where i left off. don't link from the readme.
 
@@ -35,7 +35,7 @@ three reasons to upvote:
 | 6 | docs site | partial | next app scaffold, MDX, sidebar nav, three pages done |
 | 7 | landing | partial | hero + features + setup + faq done; demo gif pending |
 | 8 | theme remix platform | not started | the uiverse-y thing, separate cloud surface, later |
-| 9 | ai desktop app | spun out | now its own repo: github.com/vineethpawar/ai-polish-desktop. omniUI stays focused on the library. |
+| 9 | ai desktop app | spun out | now its own repo: github.com/vineethpawar/ai-polish-desktop. plyxui stays focused on the library. |
 
 ## phase 1 punchlist (foundation hardening)
 
@@ -51,7 +51,7 @@ three reasons to upvote:
 ## phase 2 punchlist (icons)
 
 - [x] Icon component with a registry pattern (no per-icon imports forced on consumers)
-- [x] seed pack of 20 strokeable icons in @omniui/icons
+- [x] seed pack of 20 strokeable icons in @plyxui/icons
 - [x] native Icon variant -- svg in react-native via react-native-svg path
 - [ ] codegen script so users can drop SVGs into `icons/source/*.svg` and get typed icon names
 - [ ] add a sprite-sheet build target so heavy users can avoid the per-icon tree-shake cost
@@ -123,7 +123,7 @@ deferring. requires hosting + auth + a share schema. write the spec on a saturda
 
 shape i'm imagining:
 - a remix is a json bundle: token overrides + per-comp variant overrides
-- share link = `https://omniui.dev/r/<short-id>` (or self-host the short-link service)
+- share link = `https://plyxui.dev/r/<short-id>` (or self-host the short-link service)
 - consuming a remix = a single `<ThemeProvider remixUrl="...">` prop
 - creator can lock the remix (force-pull) or open it (let consumers tweak)
 
@@ -131,7 +131,7 @@ shape i'm imagining:
 
 extracted to its own repo: https://github.com/vineethpawar/ai-polish-desktop
 
-the desktop app was the AI Polish product; omniUI is the component library. mixing them in one repo was confusing the pitch (and the install surface). they're sibling products now. the desktop app can be used on any codebase, omniUI or not, and the library doesn't ship any agent code in the foundation packages.
+the desktop app was the AI Polish product; plyxui is the component library. mixing them in one repo was confusing the pitch (and the install surface). they're sibling products now. the desktop app can be used on any codebase, plyxui or not, and the library doesn't ship any agent code in the foundation packages.
 
 if i want a cross-link, the landing's "agent layer" section now points at ai-polish-desktop as a "see also".
 
@@ -150,6 +150,6 @@ i'll keep adding to this so future-me doesn't re-litigate things i already chose
 - **cva for variants** -- looked at vanilla-extract, tamagui's `styled`, and rolling our own. cva is small, no compiler step, lets the consumer add CSS later. picked it.
 - **tokens are module-augmentable** -- the OmniColorTokens interface can be extended via `declare module`. means consumers don't have to fork the lib to add brand tokens.
 - **.native.tsx for splits, not a flag** -- metro auto-resolves, no runtime check. clean.
-- **MCP is first-party, not third-party** -- the lib ships @omniui/mcp. it's the cheapest way to be agent-friendly that isn't gimmicky.
+- **MCP is first-party, not third-party** -- the lib ships @plyxui/mcp. it's the cheapest way to be agent-friendly that isn't gimmicky.
 - **no styled-components, no emotion** -- runtime CSS-in-JS is a hot loop in big DS. style prop + cva is enough.
 - **changesets for releases** -- the only release tool i've found that doesn't make me hate it.

@@ -4,7 +4,7 @@ name: release
 # (or, if one is already open and merged, publishes the bumped versions to npm).
 #
 # To enable publishing: add an NPM_TOKEN repo secret with publish rights to
-# the @omniui/* scope. Until then this job runs but skips the publish step.
+# the @plyxui/* scope. Until then this job runs but skips the publish step.
 
 on:
   push:

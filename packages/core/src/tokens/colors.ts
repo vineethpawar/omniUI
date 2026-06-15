@@ -7,7 +7,7 @@
  * Extending tokens from userland:
  *
  * ```ts
- * declare module "@omniui/core" {
+ * declare module "@plyxui/core" {
  *   interface OmniColorTokens {
  *     brandTeal: string;
  *   }

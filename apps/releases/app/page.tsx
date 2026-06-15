@@ -22,7 +22,7 @@ function Header() {
     <div style={{ marginBottom: 60 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
         <BrandMark size={32} />
-        <span style={{ fontWeight: 700 }}>omniUI</span>
+        <span style={{ fontWeight: 700 }}>plyxui</span>
         <span className="pill" style={{ marginLeft: "auto" }}>Releases</span>
       </div>
       <h1 style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.02em", marginBottom: 12 }}>
@@ -31,7 +31,7 @@ function Header() {
       <p className="muted" style={{ fontSize: 15 }}>
         Built from each repo&apos;s GitHub releases. npm packages get install snippets;
         desktop builds get direct download links.{" "}
-        <a href="https://omniui-docs.vercel.app/" style={{ color: "var(--orange)" }}>
+        <a href="https://plyxui-docs.vercel.app/" style={{ color: "var(--orange)" }}>
           back to docs
         </a>
       </p>
@@ -225,9 +225,9 @@ function Footer() {
         flexWrap: "wrap",
       }}
     >
-      <a href="https://omniui-one.vercel.app/">landing</a>
-      <a href="https://omniui-docs.vercel.app/">docs</a>
-      <a href="https://github.com/vineethpawar/omniUI">repo</a>
+      <a href="https://plyxui.vercel.app/">landing</a>
+      <a href="https://plyxui-docs.vercel.app/">docs</a>
+      <a href="https://github.com/vineethpawar/plyxui">repo</a>
       <span style={{ marginLeft: "auto" }}>built from the GitHub Releases API</span>
     </footer>
   );

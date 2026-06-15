@@ -10,9 +10,9 @@
  *   />
  */
 import type { CSSProperties, ReactNode } from "react";
-import { useTheme } from "@omniui/styles";
-import { Icon, type IconName } from "@omniui/icons";
-import { spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { Icon, type IconName } from "@plyxui/icons";
+import { spacing } from "@plyxui/core";
 
 export interface EmptyStateProps {
   icon?: IconName | (string & {});

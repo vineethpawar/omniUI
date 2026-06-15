@@ -11,7 +11,7 @@ export default function Compare() {
           <thead>
             <tr>
               <th></th>
-              <th>omniUI</th>
+              <th>plyxui</th>
               <th>shadcn</th>
               <th>Radix</th>
               <th>Tamagui</th>

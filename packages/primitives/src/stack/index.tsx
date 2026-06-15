@@ -8,7 +8,7 @@
  * which wraps this with sensible defaults.
  */
 import { forwardRef, type CSSProperties, type ForwardedRef, type ReactNode } from "react";
-import { spacing, type SpacingKey } from "@omniui/core";
+import { spacing, type SpacingKey } from "@plyxui/core";
 
 export type StackDirection = "row" | "column" | "row-reverse" | "column-reverse";
 export type StackAlign = "start" | "center" | "end" | "stretch" | "baseline";

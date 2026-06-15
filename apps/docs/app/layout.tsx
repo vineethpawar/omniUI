@@ -8,20 +8,20 @@ import { CodeCopy } from "../components/CodeCopy";
 import { getSidebar } from "../lib/mdx";
 
 export const metadata: Metadata = {
-  title: "omniUI docs",
+  title: "plyxui docs",
   description: "Cross-platform component library. Per-package install. Agent-aware.",
-  metadataBase: new URL("https://omniui-docs.vercel.app"),
+  metadataBase: new URL("https://plyxui-docs.vercel.app"),
   openGraph: {
-    title: "omniUI docs",
+    title: "plyxui docs",
     description: "Cross-platform component library. Per-package install. Agent-aware.",
-    url: "https://omniui-docs.vercel.app",
-    siteName: "omniUI",
-    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "omniUI" }],
+    url: "https://plyxui-docs.vercel.app",
+    siteName: "plyxui",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "plyxui" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "omniUI docs",
+    title: "plyxui docs",
     description: "Cross-platform component library. Per-package install. Agent-aware.",
     images: ["/og-image.svg"],
   },
@@ -33,9 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body>
         {/* Resolve theme before paint to avoid the flash */}
-        <Script id="omniui-theme-init" strategy="beforeInteractive">{`
+        <Script id="plyxui-theme-init" strategy="beforeInteractive">{`
           try {
-            var t = localStorage.getItem('omniui-docs-theme');
+            var t = localStorage.getItem('plyxui-docs-theme');
             if (t === 'light' || t === 'dark') {
               document.documentElement.dataset.theme = t;
             }

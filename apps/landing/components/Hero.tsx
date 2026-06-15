@@ -30,7 +30,7 @@ export default function Hero() {
           Per-package install, agent-aware.
         </h1>
         <p className="lead" style={{ margin: "0 auto 32px", maxWidth: 640 }}>
-          omniUI is a typed, branded, cross-platform component library. Same source tree for React and React Native via .ts and .native.ts splits. Install only the packages you need: primitives, styles, icons, layouts, navigator. First-party MCP server so coding agents pick components by name.
+          plyxui is a typed, branded, cross-platform component library. Same source tree for React and React Native via .ts and .native.ts splits. Install only the packages you need: primitives, styles, icons, layouts, navigator. First-party MCP server so coding agents pick components by name.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="#install" className="cta">Get the alpha</a>
@@ -51,7 +51,7 @@ export default function Hero() {
           }}
         >
           <span className="accent">$</span>
-          <span>npm install @omniui/core @omniui/styles @omniui/primitives</span>
+          <span>npm install @plyxui/core @plyxui/styles @plyxui/primitives</span>
         </div>
       </div>
 
@@ -91,9 +91,9 @@ export default function Hero() {
             </span>
           </div>
           <pre className="codeblock" style={{ borderRadius: 0, border: "none", margin: 0, padding: "20px 24px" }}>
-{`import { ThemeProvider } from "@omniui/styles";
-import { Box, Text, Button } from "@omniui/primitives";
-import { Icon } from "@omniui/icons";
+{`import { ThemeProvider } from "@plyxui/styles";
+import { Box, Text, Button } from "@plyxui/primitives";
+import { Icon } from "@plyxui/icons";
 
 export default function App() {
   return (

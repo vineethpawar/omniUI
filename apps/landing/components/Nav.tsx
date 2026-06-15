@@ -36,7 +36,7 @@ export default function Nav() {
       <div className="nav-inner">
         <a href="#top" className="nav-brand">
           <BrandMark size={32} />
-          <span className="nav-name">omniUI</span>
+          <span className="nav-name">plyxui</span>
           <span className="nav-beta">BETA</span>
         </a>
 

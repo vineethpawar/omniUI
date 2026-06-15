@@ -13,8 +13,8 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
-import { useTheme } from "@omniui/styles";
-import { spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { spacing } from "@plyxui/core";
 
 interface RadioGroupContextValue {
   name: string;

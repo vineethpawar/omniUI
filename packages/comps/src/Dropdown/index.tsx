@@ -14,9 +14,9 @@
  * a fixed offset and zero overflow handling. Good enough for the docs.
  */
 import { useEffect, useRef, useState } from "react";
-import { useTheme } from "@omniui/styles";
-import { Icon } from "@omniui/icons";
-import { radius, spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { Icon } from "@plyxui/icons";
+import { radius, spacing } from "@plyxui/core";
 
 export interface DropdownOption<T extends string = string> {
   label: string;

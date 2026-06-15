@@ -8,8 +8,8 @@
  *   </ScreenContainer>
  */
 import type { CSSProperties, ReactNode } from "react";
-import { spacing } from "@omniui/core";
-import { useTheme } from "@omniui/styles";
+import { spacing } from "@plyxui/core";
+import { useTheme } from "@plyxui/styles";
 
 export interface ScreenContainerProps {
   children: ReactNode;

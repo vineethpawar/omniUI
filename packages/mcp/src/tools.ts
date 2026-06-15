@@ -1,5 +1,5 @@
 /**
- * MCP tool surface for omniUI.
+ * MCP tool surface for plyxui.
  *
  * Tool signatures only for now. Implementations land in week 2. The shape
  * here is the contract any MCP-aware client (Claude Desktop, Claude Code,
@@ -43,35 +43,35 @@ export interface InstallResult {
  * so we can keep the wire format and runtime in sync without runtime checks.
  */
 export interface OmniMcpTools {
-  omniui_list_components: {
+  plyxui_list_components: {
     input: { category?: ComponentSummary["category"] };
     output: ComponentSummary[];
   };
-  omniui_get_component: {
+  plyxui_get_component: {
     input: { name: string };
     output: ComponentDetail;
   };
-  omniui_search: {
+  plyxui_search: {
     input: { query: string; limit?: number };
     output: ComponentSummary[];
   };
-  omniui_suggest: {
+  plyxui_suggest: {
     input: { description: string; platform?: ComponentSummary["platforms"][number] };
     output: ComponentSummary[];
   };
-  omniui_install: {
+  plyxui_install: {
     input: { name: string; targetPath: string; overwrite?: boolean };
     output: InstallResult;
   };
-  omniui_get_tokens: {
+  plyxui_get_tokens: {
     input: { theme?: "light" | "dark" };
     output: Record<string, string>;
   };
-  omniui_lint: {
+  plyxui_lint: {
     input: { code: string; filename?: string };
     output: LintDiagnostic[];
   };
-  omniui_examples: {
+  plyxui_examples: {
     input: { name: string };
     output: Array<{ title: string; code: string }>;
   };
@@ -84,20 +84,20 @@ export type OmniMcpToolName = keyof OmniMcpTools;
  * shows these when the user picks which tool to invoke.
  */
 export const TOOL_DESCRIPTIONS: Record<OmniMcpToolName, string> = {
-  omniui_list_components:
-    "List all available omniUI components, optionally filtered by category (primitives, comps, agent, electron, vscode).",
-  omniui_get_component:
+  plyxui_list_components:
+    "List all available plyxui components, optionally filtered by category (primitives, comps, agent, electron, vscode).",
+  plyxui_get_component:
     "Get the full prop table, examples, and source for a single component.",
-  omniui_search:
-    "Search omniUI components by free-text query. Returns ranked summaries.",
-  omniui_suggest:
-    "Given a description of what the user wants to build, suggest the most relevant omniUI components.",
-  omniui_install:
+  plyxui_search:
+    "Search plyxui components by free-text query. Returns ranked summaries.",
+  plyxui_suggest:
+    "Given a description of what the user wants to build, suggest the most relevant plyxui components.",
+  plyxui_install:
     "Install a component into the user's project at the given path. Copies source, updates imports, runs no other side effects.",
-  omniui_get_tokens:
+  plyxui_get_tokens:
     "Return the active design tokens (colors) for a given theme.",
-  omniui_lint:
-    "Lint a code snippet for omniUI usage. Catches hardcoded colors, wrong props, missing required props, deprecated imports.",
-  omniui_examples:
+  plyxui_lint:
+    "Lint a code snippet for plyxui usage. Catches hardcoded colors, wrong props, missing required props, deprecated imports.",
+  plyxui_examples:
     "Return runnable code examples for a given component.",
 };

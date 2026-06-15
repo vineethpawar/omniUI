@@ -6,7 +6,7 @@ const FEATURES = [
   { title: "Router-agnostic", body: "defineRoutes() once, render with the react-router or react-navigation adapter. Same routes table powers Sidebar + tabs." },
   { title: "Layouts that compose", body: "AppShell, Sidebar, ScreenContainer. No router opinion. Drop in anywhere." },
   { title: "Modal and Dropdown", body: "Web uses the native <dialog>. Dropdown is keyboard-aware. Native ports trail by a small margin and are catching up fast." },
-  { title: "First-party MCP", body: "@omniui/mcp gives coding agents a structured handle on the library. List, search, install, lint without scraping HTML." },
+  { title: "First-party MCP", body: "@plyxui/mcp gives coding agents a structured handle on the library. List, search, install, lint without scraping HTML." },
   { title: "OS theme follow", body: "ThemeProvider follows prefers-color-scheme until the user explicitly picks. Then it stops listening, by design." },
 ];
 

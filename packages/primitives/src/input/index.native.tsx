@@ -3,8 +3,8 @@
  */
 import { forwardRef, useState } from "react";
 import { TextInput, View, type TextInputProps, type ViewStyle } from "react-native";
-import { useTheme } from "@omniui/styles";
-import { radius, spacing } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { radius, spacing } from "@plyxui/core";
 
 export type InputSize = "sm" | "md" | "lg";
 

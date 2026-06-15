@@ -39,7 +39,7 @@
   <text x="440" y="290"
         font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
         font-size="88" font-weight="800" letter-spacing="-3" fill="#ECECEC">
-    omniUI
+    plyxui
   </text>
   <text x="440" y="350"
         font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
@@ -56,6 +56,6 @@
   <text x="120" y="582"
         font-family="JetBrains Mono, ui-monospace, monospace"
         font-size="18" font-weight="500" fill="#555555">
-    omniui-docs.vercel.app
+    plyxui.vercel.app
   </text>
 </svg>

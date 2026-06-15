@@ -33,7 +33,7 @@ export interface RepoReleases {
 
 const REPOS: Array<{ repo: string; description: string }> = [
   {
-    repo: "vineethpawar/omniUI",
+    repo: "vineethpawar/plyxui",
     description: "Cross-platform component library. Eight npm packages, per-package install.",
   },
   {
@@ -79,7 +79,7 @@ export function formatBytes(n: number): string {
 }
 
 /**
- * If the tag looks like `@omniui/<pkg>@x.y.z`, parse it. Used to detect
+ * If the tag looks like `@plyxui/<pkg>@x.y.z`, parse it. Used to detect
  * npm-style releases created by changesets/action.
  */
 export function parseNpmTag(tag: string): { pkg: string; version: string } | null {

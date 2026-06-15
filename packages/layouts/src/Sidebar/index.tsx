@@ -1,6 +1,6 @@
 /**
  * Sidebar (web). Takes a list of `SidebarItem`s and renders a navigation
- * column. Each item carries an icon name (lookup in the @omniui/icons
+ * column. Each item carries an icon name (lookup in the @plyxui/icons
  * registry), a label, and an `active` boolean the consumer derives from
  * their router.
  *
@@ -14,9 +14,9 @@
  *   />
  */
 import type { CSSProperties } from "react";
-import { useTheme } from "@omniui/styles";
-import { Icon, type IconName } from "@omniui/icons";
-import { spacing, radius } from "@omniui/core";
+import { useTheme } from "@plyxui/styles";
+import { Icon, type IconName } from "@plyxui/icons";
+import { spacing, radius } from "@plyxui/core";
 
 export interface SidebarItem {
   label: string;

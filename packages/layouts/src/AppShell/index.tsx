@@ -12,7 +12,7 @@
  * makes sense for their app. The point of this primitive is the chrome.
  */
 import type { CSSProperties, ReactNode } from "react";
-import { useTheme } from "@omniui/styles";
+import { useTheme } from "@plyxui/styles";
 
 export interface AppShellProps {
   header?: ReactNode;
