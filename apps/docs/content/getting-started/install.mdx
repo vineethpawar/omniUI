@@ -1,0 +1,64 @@
+---
+title: Install
+description: Get the libraries into your project in under five minutes.
+order: 10
+---
+
+## Pick the bits you need
+
+omniUI is split into small packages so consumers only pay for what they use. The minimum useful install is `@omniui/core` plus `@omniui/theme` plus `@omniui/primitives`.
+
+```bash
+npm install @omniui/core @omniui/theme @omniui/primitives
+```
+
+Add icons when you need them:
+
+```bash
+npm install @omniui/icons
+```
+
+And the higher-level pieces when you reach for them:
+
+```bash
+npm install @omniui/layouts @omniui/navigator @omniui/comps
+```
+
+## Wrap your app in ThemeProvider
+
+```tsx
+import { ThemeProvider } from "@omniui/theme";
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <YourApp />
+    </ThemeProvider>
+  );
+}
+```
+
+That's it. The provider sets CSS custom properties on `documentElement`, persists the active mode to `localStorage`, and follows the OS preference until the user explicitly toggles.
+
+## Use a primitive
+
+```tsx
+import { Box, Text, Button } from "@omniui/primitives";
+import { useTheme } from "@omniui/theme";
+
+export function Hello() {
+  const { toggleTheme } = useTheme();
+  return (
+    <Box surface="primary" padding="lg" radius="lg">
+      <Text size="lg" weight="bold">Hello.</Text>
+      <Button onClick={toggleTheme}>Flip theme</Button>
+    </Box>
+  );
+}
+```
+
+## What's next
+
+- [ThemeProvider](/theme/provider/) covers extending tokens, runtime registration, and the Electron title-bar bridge.
+- [Box](/primitives/box/) is the polymorphic primitive every other comp builds on.
+- [Icons](/icons/icon/) explains the registry pattern and how to bring your own SVGs.

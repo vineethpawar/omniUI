@@ -1,0 +1,38 @@
+{
+  "name": "@omniui/desktop",
+  "version": "0.0.0",
+  "description": "AI design polish, as a desktop app. Pick a project folder, paste keys, hand a Figma frame to the agent.",
+  "private": true,
+  "main": ".webpack/main",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "check-types": "tsc --noEmit -p tsconfig.main.json && tsc --noEmit -p tsconfig.renderer.json",
+    "clean": "rm -rf .webpack out .turbo"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.0",
+    "dotenv": "^16.4.5",
+    "js-yaml": "^4.1.0",
+    "zod": "^4.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "@electron-forge/maker-deb": "^7.5.0",
+    "@electron-forge/maker-dmg": "^7.5.0",
+    "@electron-forge/maker-squirrel": "^7.5.0",
+    "@electron-forge/maker-zip": "^7.5.0",
+    "@electron-forge/plugin-webpack": "^7.5.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "electron": "^33.0.0",
+    "ts-loader": "^9.5.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.6.0"
+  }
+}

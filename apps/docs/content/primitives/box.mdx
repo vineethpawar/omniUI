@@ -1,0 +1,47 @@
+---
+title: Box
+description: The polymorphic primitive every other component builds on.
+order: 10
+---
+
+`Box` is the single most-reused primitive in omniUI. On the web it's polymorphic via the `as` prop, so it renders any HTML element you want while still typing the native attributes correctly. On native it's a `View` (RN has no polymorphism story worth simulating, so we don't pretend).
+
+## API at a glance
+
+```tsx
+<Box surface="primary" padding="lg" radius="md">...</Box>
+<Box as="button" onClick={handle}>Click</Box>
+<Box as="a" href="/x" surface="sunken">Link</Box>
+```
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `as` | `ElementType` (web only) | `"div"` |
+| `surface` | `"none" | "primary" | "raised" | "sunken"` | `"none"` |
+| `padding` | `"none" | "sm" | "md" | "lg"` | `"none"` |
+| `radius` | `"none" | "sm" | "md" | "lg" | "pill"` | `"none"` |
+| `className` | `string` | - |
+| `style` | `CSSProperties` (web) / `ViewStyle` (native) | - |
+
+The four surface variants map to theme tokens that flip with the active mode:
+
+| Surface | Light | Dark |
+|---|---|---|
+| `none` | transparent | transparent |
+| `primary` | `primaryFill` | `primaryFill` |
+| `raised` | `surfaceFill` | `surfaceFill` |
+| `sunken` | `containerFill` | `containerFill` |
+
+## Composing without a CSS file
+
+Box renders both a `cva` className (`omni-box--surface-raised` etc.) AND the equivalent inline style. The class is an override hook for projects that want their own CSS; without any CSS at all, the primitive still looks right because of the inline style.
+
+## Polymorphism caveat
+
+React's `forwardRef` erases polymorphic generics at the type level. The exported `Box` is cast to restore the generic; runtime is unchanged. This is the same pattern Radix uses internally.
+
+## Native variant
+
+The native variant ignores `as` (always renders `View`), but every other prop is identical. Spacing and radius resolve to the same numeric values; surface colors come from the same theme tokens.

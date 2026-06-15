@@ -75,3 +75,14 @@ export function resolveColors(mode: ThemeVariant): Record<keyof OmniColorTokens,
 export function toCssVarName(key: string): string {
   return `--omni-color-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`;
 }
+
+/**
+ * Register brand tokens at runtime. Pair with a `declare module` augmentation
+ * to get full TS support; see README "Extending tokens".
+ *
+ * Call before `<ThemeProvider>` mounts. If you mutate after mount, follow up
+ * with `useTheme().refreshColors()` to nudge consumers.
+ */
+export function registerColorTokens(extra: Record<string, ColorPair>): void {
+  Object.assign(colorTokens, extra);
+}
