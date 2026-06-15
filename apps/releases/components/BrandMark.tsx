@@ -1,8 +1,8 @@
 /**
  * BrandMark. The 3x3 dot matrix with one accent dot.
- * Used wherever the omniUI logo needs to render inline (Header, Sidebar,
- * footer, social previews). Defaults to currentColor for the muted dots
- * so the logo picks up the surrounding text color on light + dark.
+ * Used wherever the omniUI logo renders inline (Header, Sidebar, footer).
+ * Defaults to currentColor for the eight muted dots so the logo picks up
+ * the surrounding text color on light + dark.
  */
 import type { CSSProperties } from "react";
 
@@ -14,27 +14,27 @@ export interface BrandMarkProps {
   style?: CSSProperties;
 }
 
-export function BrandMark({ size = 22, accent = "#FF5C00", base, style }: BrandMarkProps) {
+export function BrandMark({ size = 28, accent = "#FF5C00", base, style }: BrandMarkProps) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 120 120"
+      viewBox="0 0 24 24"
       role="img"
       aria-label="omniUI"
-      style={{ flexShrink: 0, color: base ?? "currentColor", ...style }}
+      style={{ flexShrink: 0, color: base ?? "currentColor", display: "block", ...style }}
     >
       <g fill={base ?? "currentColor"}>
-        <circle cx="40" cy="40" r="6" />
-        <circle cx="60" cy="40" r="6" />
-        <circle cx="80" cy="40" r="6" />
-        <circle cx="40" cy="60" r="6" />
-        <circle cx="80" cy="60" r="6" />
-        <circle cx="40" cy="80" r="6" />
-        <circle cx="60" cy="80" r="6" />
-        <circle cx="80" cy="80" r="6" />
+        <circle cx="5"  cy="5"  r="2.4" />
+        <circle cx="12" cy="5"  r="2.4" />
+        <circle cx="19" cy="5"  r="2.4" />
+        <circle cx="5"  cy="12" r="2.4" />
+        <circle cx="19" cy="12" r="2.4" />
+        <circle cx="5"  cy="19" r="2.4" />
+        <circle cx="12" cy="19" r="2.4" />
+        <circle cx="19" cy="19" r="2.4" />
       </g>
-      <circle cx="60" cy="60" r="6" fill={accent} />
+      <circle cx="12" cy="12" r="2.4" fill={accent} />
     </svg>
   );
 }

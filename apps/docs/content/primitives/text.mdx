@@ -1,0 +1,48 @@
+---
+title: Text
+description: Typography primitive. Sized via a scale, weighted via an enum, polymorphic on the element.
+order: 20
+---
+
+`Text` is omniUI's typography primitive. Sized via a small enum (`xs` to `3xl`), weighted via four named weights, color resolved against the theme, polymorphic on the element via the `as` prop on web.
+
+## API
+
+```tsx
+<Text size="md" weight="semibold" color="text">
+  Hello.
+</Text>
+
+<Text as="h2" size="2xl" weight="bold">Page title</Text>
+<Text as="p"  size="md"  color="textMuted">Subtitle copy.</Text>
+<Text size="sm" truncate>This will ellipsis if it overflows.</Text>
+```
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `as` | `ElementType` (web only) | `"span"` |
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl"` | `"md"` |
+| `weight` | `"regular" \| "medium" \| "semibold" \| "bold"` | `"regular"` |
+| `color` | theme token key OR raw CSS color | `colors.text` |
+| `align` | `"start" \| "center" \| "end"` | - |
+| `truncate` | `boolean` (single-line ellipsis) | `false` |
+
+## Size scale
+
+| Size | Web | Native |
+|---|---|---|
+| `xs`  | 11 / 16 | 11 / 16 |
+| `sm`  | 13 / 18 | 13 / 18 |
+| `md`  | 15 / 22 | 15 / 22 |
+| `lg`  | 18 / 26 | 18 / 26 |
+| `xl`  | 22 / 30 | 22 / 30 |
+| `2xl` | 28 / 36 | 28 / 36 |
+| `3xl` | 36 / 44 | 36 / 44 |
+
+Values are `font-size / line-height` in pixels. Same on web and native; the native variant uses unitless line-height (RN convention).
+
+## Native
+
+The native variant ignores `as` (always renders `RN.Text`), but every other prop matches. `truncate` maps to `numberOfLines={1}`.

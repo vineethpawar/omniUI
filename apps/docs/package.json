@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --port 4001",
-    "build": "next build",
+    "build": "next build && node ./scripts/postbuild.mjs",
     "start": "next start --port 4001",
     "check-types": "tsc --noEmit",
     "clean": "rm -rf .next out .turbo"

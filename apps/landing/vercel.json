@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/docs/(.*)",
+      "destination": "https://omniui-docs.vercel.app/docs/$1"
+    },
+    {
+      "source": "/docs",
+      "destination": "https://omniui-docs.vercel.app/docs/"
+    }
+  ]
+}

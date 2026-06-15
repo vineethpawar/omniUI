@@ -21,7 +21,7 @@ function Header() {
   return (
     <div style={{ marginBottom: 60 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-        <BrandMark size={26} />
+        <BrandMark size={32} />
         <span style={{ fontWeight: 700 }}>omniUI</span>
         <span className="pill" style={{ marginLeft: "auto" }}>Releases</span>
       </div>

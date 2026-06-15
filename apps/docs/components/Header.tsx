@@ -44,8 +44,11 @@ export function Header() {
           padding: "14px 28px",
         }}
       >
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <BrandMark size={22} />
+        {/* Plain anchor (not next/link) so we bypass basePath and go to the
+            landing root at omniui-one.vercel.app/. When viewed via the docs
+            subdomain directly, this still goes to "/" of that domain. */}
+        <a href="/" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <BrandMark size={28} />
           <span style={{ fontWeight: 700, letterSpacing: "-0.01em", fontSize: 15 }}>omniUI docs</span>
           <span
             style={{
@@ -60,7 +63,7 @@ export function Header() {
           >
             0.1
           </span>
-        </Link>
+        </a>
         <div style={{ flex: 1 }} />
         <a
           href="https://omniui-releases.vercel.app/"

@@ -1,0 +1,73 @@
+---
+title: Input
+description: Single-line text input with built-in theme styling, three sizes, and leading / trailing slots.
+order: 50
+---
+
+`Input` is the text input primitive. Controlled or uncontrolled, three sizes, optional leading + trailing slots for icons / clear buttons / unit labels.
+
+## API
+
+```tsx
+<Input
+  value={email}
+  onChange={(v) => setEmail(v)}
+  placeholder="you@example.com"
+  type="email"
+/>
+
+<Input
+  size="lg"
+  leading={<Icon name="search" />}
+  placeholder="Search…"
+/>
+
+<Input
+  size="md"
+  invalid={!!errors.password}
+  trailing={
+    <button onClick={() => setShow((s) => !s)}>
+      <Icon name={show ? "eye-off" : "eye"} />
+    </button>
+  }
+  type={show ? "text" : "password"}
+/>
+```
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `value` | `string` (controlled) | - |
+| `defaultValue` | `string` (uncontrolled) | `""` |
+| `onChange` | `(value, event) => void` | - |
+| `placeholder` | `string` | - |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` |
+| `type` | `"text" \| "email" \| "password" \| "search" \| "tel" \| "url" \| "number"` | `"text"` |
+| `invalid` | `boolean` (red border + `aria-invalid`) | `false` |
+| `disabled` | `boolean` | `false` |
+| `leading` | `ReactNode` | - |
+| `trailing` | `ReactNode` | - |
+| `autoFocus` | `boolean` | `false` |
+| `name`, `id` | `string` | - |
+| `aria-label` | `string` | - |
+
+## Size scale
+
+| Size | Web height | Native height | Font size |
+|---|---|---|---|
+| `sm` | 28 | 32 | 13 |
+| `md` | 36 | 40 | 14 |
+| `lg` | 44 | 48 | 16 |
+
+(Web is denser than native because mobile touch targets need extra height.)
+
+## Field integration
+
+`Input` automatically picks up the `invalid` state from a parent `<Field />` (via `@omniui/forms`). No prop drilling.
+
+```tsx
+<Field label="Email" error={errors.email}>
+  <Input value={email} onChange={(v) => setEmail(v)} />
+</Field>
+```

@@ -14,11 +14,11 @@ export default function Footer() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <BrandMark size={22} />
+            <BrandMark size={28} />
             <span style={{ fontWeight: 700 }}>omniUI</span>
           </div>
           <div style={{ display: "flex", gap: 18, fontSize: 13 }}>
-            <a className="muted" href="https://omniui-docs.vercel.app">Docs</a>
+            <a className="muted" href="/docs/">Docs</a>
             <a className="muted" href="#how">How</a>
             <a className="muted" href="#features">Features</a>
             <a className="muted" href="#agent">AI mode</a>

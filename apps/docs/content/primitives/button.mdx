@@ -1,0 +1,62 @@
+---
+title: Button
+description: Four variants, three sizes, leading + trailing icon slots, polymorphic on the element.
+order: 60
+---
+
+`Button` is the action primitive. Four variants, three sizes, optional leading/trailing icon slots, polymorphic via `as` on web so you can render a navigation link with the same shape.
+
+## API
+
+```tsx
+<Button onClick={save}>Save</Button>
+
+<Button variant="ghost" size="sm">Cancel</Button>
+
+<Button variant="danger" iconLeading={<Icon name="trash" />}>
+  Delete
+</Button>
+
+<Button as="a" href="/sign-up">Sign up</Button>
+
+<Button variant="link" iconTrailing={<Icon name="arrowRight" />}>
+  Learn more
+</Button>
+
+<Button loading>Saving…</Button>
+```
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `as` | `ElementType` (web only) | `"button"` |
+| `variant` | `"primary" \| "ghost" \| "link" \| "danger"` | `"primary"` |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` |
+| `loading` | `boolean` (disabled + aria-busy) | `false` |
+| `disabled` | `boolean` | `false` |
+| `iconLeading` | `ReactNode` | - |
+| `iconTrailing` | `ReactNode` | - |
+| `fullWidth` | `boolean` | `false` |
+| `onClick` (web) / `onPress` (native) | `() => void` | - |
+
+## Variants
+
+| Variant | Use it when |
+|---|---|
+| `primary` | The one CTA on the screen. Orange fill, white text. |
+| `ghost` | Secondary actions. Transparent bg, stroke border, theme text. |
+| `link` | Inline link-like action. No height / padding / radius; just text + accent color. |
+| `danger` | Destructive actions (delete, sign out). Red fill, white text. |
+
+## Size scale
+
+| Size | Web height | Native height | Font size |
+|---|---|---|---|
+| `sm` | 28 | 32 | 13 |
+| `md` | 36 | 40 | 14 |
+| `lg` | 44 | 48 | 15 |
+
+## Polymorphism caveat
+
+Same as Box: React's `forwardRef` erases polymorphic generics at the type level. The exported `Button` is cast to restore the generic. Same pattern Radix uses. Web only; native always renders a `Pressable`.

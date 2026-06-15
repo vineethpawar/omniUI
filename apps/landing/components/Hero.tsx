@@ -34,7 +34,7 @@ export default function Hero() {
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
           <a href="#install" className="cta">Get the alpha</a>
-          <a href="https://omniui-docs.vercel.app" className="cta-secondary">Read the docs</a>
+          <a href="/docs/" className="cta-secondary">Read the docs</a>
         </div>
         <div
           style={{

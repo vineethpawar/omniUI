@@ -7,7 +7,7 @@ const LINKS: Array<{ href: string; label: string }> = [
   { href: "#features", label: "Features" },
   { href: "#agent", label: "AI mode" },
   { href: "#remix", label: "Remix" },
-  { href: "https://omniui-docs.vercel.app", label: "Docs" },
+  { href: "/docs/", label: "Docs" },
 ];
 
 export default function Nav() {
@@ -35,7 +35,7 @@ export default function Nav() {
     <div className="nav">
       <div className="nav-inner">
         <a href="#top" className="nav-brand">
-          <BrandMark size={26} />
+          <BrandMark size={32} />
           <span className="nav-name">omniUI</span>
           <span className="nav-beta">BETA</span>
         </a>

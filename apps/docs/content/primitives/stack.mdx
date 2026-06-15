@@ -1,0 +1,57 @@
+---
+title: Stack
+description: Flex container with a gap that maps to the spacing scale.
+order: 30
+---
+
+`Stack` is a flex container whose `gap` resolves against the spacing scale (4px steps). The default direction is column; pair with `Flex` for row-by-default.
+
+## API
+
+```tsx
+<Stack gap={4}>
+  <Box>One</Box>
+  <Box>Two</Box>
+  <Box>Three</Box>
+</Stack>
+
+<Stack direction="row" gap={2} align="center" justify="between">
+  <Text size="lg" weight="bold">Title</Text>
+  <Button>Action</Button>
+</Stack>
+```
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `direction` | `"row" \| "column" \| "row-reverse" \| "column-reverse"` | `"column"` |
+| `gap` | spacing key (`0`, `0.5`, `1`, `1.5`, `2`, `3`, `4`, `5`, `6`, `8`, `10`, `12`, `16`, `20`, `24`) | `0` |
+| `align` | `"start" \| "center" \| "end" \| "stretch" \| "baseline"` | - |
+| `justify` | `"start" \| "center" \| "end" \| "between" \| "around" \| "evenly"` | - |
+| `wrap` | `boolean` | `false` |
+| `inline` | `boolean` (web only — renders `inline-flex`) | `false` |
+
+## Spacing scale
+
+| Token | px |
+|---|---|
+| `0` | 0 |
+| `0.5` | 2 |
+| `1` | 4 |
+| `1.5` | 6 |
+| `2` | 8 |
+| `3` | 12 |
+| `4` | 16 |
+| `5` | 20 |
+| `6` | 24 |
+| `8` | 32 |
+| `10` | 40 |
+| `12` | 48 |
+| `16` | 64 |
+| `20` | 80 |
+| `24` | 96 |
+
+## Native
+
+React Native 0.71+ supports `gap` natively, so the native variant uses it directly. No extra divider hack needed.

@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="omniUI logo">
-  <!-- omniUI mark. 3x3 dot matrix; center dot is the brand orange. -->
-  <rect width="120" height="120" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" role="img" aria-label="omniUI logo">
+  <!-- omniUI mark. 3x3 dot matrix; center dot is the brand orange.
+       Dots sized to fill the viewBox so the mark stays legible at favicon
+       resolutions (16px, 32px). -->
   <g fill="currentColor">
-    <circle cx="40" cy="40" r="6"/>
-    <circle cx="60" cy="40" r="6"/>
-    <circle cx="80" cy="40" r="6"/>
-    <circle cx="40" cy="60" r="6"/>
-    <circle cx="80" cy="60" r="6"/>
-    <circle cx="40" cy="80" r="6"/>
-    <circle cx="60" cy="80" r="6"/>
-    <circle cx="80" cy="80" r="6"/>
+    <circle cx="5"  cy="5"  r="2.4"/>
+    <circle cx="12" cy="5"  r="2.4"/>
+    <circle cx="19" cy="5"  r="2.4"/>
+    <circle cx="5"  cy="12" r="2.4"/>
+    <circle cx="19" cy="12" r="2.4"/>
+    <circle cx="5"  cy="19" r="2.4"/>
+    <circle cx="12" cy="19" r="2.4"/>
+    <circle cx="19" cy="19" r="2.4"/>
   </g>
-  <circle cx="60" cy="60" r="6" fill="#FF5C00"/>
+  <circle cx="12" cy="12" r="2.4" fill="#FF5C00"/>
 </svg>

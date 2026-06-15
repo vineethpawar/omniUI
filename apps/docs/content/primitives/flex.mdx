@@ -1,0 +1,35 @@
+---
+title: Flex
+description: Stack with direction=row baked in. Sugar for the most common layout.
+order: 40
+---
+
+`Flex` is `Stack` with `direction="row"` baked in. Every other prop matches.
+
+```tsx
+<Flex gap={3} align="center">
+  <Icon name="bell" />
+  <Text>Notifications</Text>
+  <Badge>3</Badge>
+</Flex>
+
+<Flex gap={2} justify="between" align="center">
+  <Title />
+  <Actions />
+</Flex>
+
+<Flex reverse>...</Flex>   {/* row-reverse */}
+```
+
+## Props
+
+Same as [Stack](/primitives/stack/) except:
+
+| Prop | Type | Default |
+|---|---|---|
+| ~~`direction`~~ | (removed; always row) | — |
+| `reverse` | `boolean` (flips to `row-reverse`) | `false` |
+
+## Why the separate component
+
+`<Stack direction="row">` reads worse than `<Flex>` when you reach for horizontal layout, which I do all the time. Single-purpose wrapper. Trivial under the hood.
