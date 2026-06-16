@@ -6,22 +6,35 @@ order: 10
 
 ## Pick the bits you need
 
-omniUI is split into small packages so consumers only pay for what they use. The minimum useful install is `@omniui/core` plus `@omniui/styles` plus `@omniui/primitives`.
+omniUI is published as eight small packages. Pull only what you need; nothing else gets installed.
 
 ```bash
+# The minimum useful set
 npm install @omniui/core @omniui/styles @omniui/primitives
 ```
 
-Add icons when you need them:
+| Package | Install when | Dev dep? |
+|---|---|---|
+| `@omniui/core` | Always (tokens, types, hooks). The other packages depend on it. | runtime |
+| `@omniui/styles` | Always (ThemeProvider + useTheme). Wraps your app once. | runtime |
+| `@omniui/primitives` | You need Box, Text, Stack, Flex, Input, Button. | runtime |
+| `@omniui/icons` | You need an Icon component + registry. | runtime |
+| `@omniui/layouts` | You want AppShell, Sidebar, ScreenContainer. | runtime |
+| `@omniui/navigator` | You want defineRoutes + a web/native adapter. | runtime |
+| `@omniui/comps` | You want Modal, Dropdown (Tooltip + Tabs coming). | runtime |
+| `@omniui/mcp` | You want coding agents to install components by name. | tooling |
+
+A single line for the lot:
 
 ```bash
-npm install @omniui/icons
+npm install @omniui/core @omniui/styles @omniui/primitives @omniui/icons \
+  @omniui/layouts @omniui/navigator @omniui/comps
 ```
 
-And the higher-level pieces when you reach for them:
+`@omniui/mcp` is a CLI you install once and run as an MCP server, not a runtime import:
 
 ```bash
-npm install @omniui/layouts @omniui/navigator @omniui/comps
+npm install --save-dev @omniui/mcp
 ```
 
 ## Wrap your app in ThemeProvider
