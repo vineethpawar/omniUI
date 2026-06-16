@@ -61,7 +61,7 @@ export function Header() {
         </a>
         <div style={{ flex: 1 }} />
         <a
-          href="https://releases-plyxui.vercel.app/"
+          href="https://plyxui-releases.vercel.app/"
           target="_blank"
           rel="noreferrer"
           className="header-link"
