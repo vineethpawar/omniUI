@@ -1,0 +1,82 @@
+---
+title: CommandPalette
+description: Cmd+K-style fuzzy-search launcher.
+order: 10
+---
+
+`@omniui/plugins/command-palette` exports `CommandPalette` — a keyboard-driven launcher you can wire to any action set.
+
+## Install
+
+```bash
+npm install @omniui/plugins
+```
+
+## Usage
+
+```tsx
+import { CommandPalette } from "@omniui/plugins";
+import { useDisclosure } from "@omniui/hooks";
+
+function App() {
+  const { isOpen, open, close } = useDisclosure();
+
+  // Wire your trigger -- Cmd+K is the obvious choice
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        open();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <>
+      <YourApp />
+      <CommandPalette
+        open={isOpen}
+        onClose={close}
+        items={[
+          { id: "home",     label: "Go home",      group: "Navigate", icon: "home",     onSelect: () => navigate("/") },
+          { id: "settings", label: "Open settings", group: "Navigate", icon: "settings", onSelect: () => navigate("/settings") },
+          { id: "logout",   label: "Sign out",     group: "Account",  onSelect: signOut },
+        ]}
+      />
+    </>
+  );
+}
+```
+
+## Item shape
+
+| Field | Required | What |
+|---|---|---|
+| `id` | yes | Stable identifier (used as React key). |
+| `label` | yes | What the user sees in the list. |
+| `onSelect` | yes | Called when the user picks this item. The palette closes after. |
+| `group` | no | Logical group header (e.g. "Navigate", "Account"). Ungrouped items appear at top. |
+| `icon` | no | Icon name from the `@omniui/icons` registry. |
+| `keywords` | no | Extra strings included in substring matching. Useful for aliases ("logout", "signout", "log out"). |
+| `disabled` | no | Greys out the item; Enter / click are ignored. |
+
+## Matching
+
+Items are ranked by:
+
+- Prefix match on label or any keyword: highest.
+- Substring match on label or any keyword: middle.
+- No match: filtered out.
+
+This is deliberately simple. Sub-200-item lists feel snappy. If you have thousands of items and need fzf-style fuzzy matching, file an issue.
+
+## Keyboard
+
+| Key | Action |
+|---|---|
+| `↑` / `↓` | Move selection |
+| `Enter` | Run the selected item |
+| `Esc` | Close the palette |
+| `Click outside` | Close the palette |

@@ -1,0 +1,65 @@
+---
+title: Screens overview
+description: Drop-in screen scaffolds. AuthLayout, EmptyState, ErrorScreen.
+order: 10
+---
+
+`@omniui/screens` is the "I just need a competent default" layer. Each export is a screen scaffold you can use as-is or peel apart for your own composition.
+
+## Install
+
+```bash
+npm install @omniui/screens
+```
+
+Auto-pulls everything below: layouts, primitives, icons, styles, core, hooks (transitively).
+
+## AuthLayout
+
+The classic centered-card layout used by sign-in, sign-up, forgot-password, and magic-link confirm.
+
+```tsx
+import { AuthLayout } from "@omniui/screens";
+
+<AuthLayout
+  title="Sign in"
+  subtitle="Welcome back."
+  brand={<Logo />}
+  footer={<a href="/help">Trouble signing in?</a>}
+>
+  <SignInForm />
+</AuthLayout>
+```
+
+## EmptyState
+
+The "no data yet" screen. Big icon, headline, supporting copy, optional CTA. Use as a leaf inside a routed view (not a full-screen layout).
+
+```tsx
+import { EmptyState } from "@omniui/screens";
+import { Button } from "@omniui/primitives";
+
+<EmptyState
+  icon="inbox"
+  title="No messages yet"
+  body="When someone reaches out, they'll show up here."
+  action={<Button onClick={invite}>Invite a friend</Button>}
+/>
+```
+
+## ErrorScreen
+
+The "something broke" full-screen. Big status code, headline, optional retry + go-home buttons.
+
+```tsx
+import { ErrorScreen } from "@omniui/screens";
+import { Button } from "@omniui/primitives";
+
+<ErrorScreen
+  code={500}
+  title="Server hiccup"
+  body="We logged it. Hit retry or head back home."
+  primary={<Button onClick={retry}>Retry</Button>}
+  secondary={<Button variant="ghost" as="a" href="/">Home</Button>}
+/>
+```

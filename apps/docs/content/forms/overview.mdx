@@ -1,0 +1,68 @@
+---
+title: Forms overview
+description: Field wrapper + Select, Checkbox, Radio. Form-grade controls that lean on native browser UX where it helps.
+order: 10
+---
+
+`@omniui/forms` is the form layer. `Field` wraps any control with a label, helper, and error; `Checkbox` / `Radio` / `Select` cover the boring 80%. For controls that don't have a great native equivalent (`Modal`-style dropdown, multi-select with search), reach for `@omniui/comps`.
+
+## Install
+
+```bash
+npm install @omniui/forms
+```
+
+## Field
+
+The wrapper. Owns the label, helper text, and error state. Children receive the field's `invalid` state via React context, so an Input inside a Field automatically gets a red border when there's an error.
+
+```tsx
+import { Field } from "@omniui/forms";
+import { Input } from "@omniui/primitives";
+
+<Field label="Email" helper="We never share it." error={errors.email} required>
+  <Input value={email} onChange={(v) => setEmail(v)} />
+</Field>
+```
+
+## Checkbox
+
+```tsx
+import { Checkbox } from "@omniui/forms";
+
+<Checkbox
+  checked={agreed}
+  onChange={setAgreed}
+  label="I agree to the terms"
+/>
+```
+
+## Radio + RadioGroup
+
+```tsx
+import { Radio, RadioGroup } from "@omniui/forms";
+
+<RadioGroup value={mode} onChange={setMode}>
+  <Radio value="light" label="Light" />
+  <Radio value="dark" label="Dark" />
+  <Radio value="system" label="System" />
+</RadioGroup>
+```
+
+## Select
+
+Native `<select>` with theme-aware chrome. Use this when keyboard a11y + mobile UX matter more than custom styling. For a fancier popover-style picker, use `@omniui/comps Dropdown`.
+
+```tsx
+import { Select } from "@omniui/forms";
+
+<Select
+  value={role}
+  onChange={setRole}
+  options={[
+    { label: "Admin", value: "admin" },
+    { label: "Editor", value: "editor" },
+    { label: "Viewer", value: "viewer" },
+  ]}
+/>
+```

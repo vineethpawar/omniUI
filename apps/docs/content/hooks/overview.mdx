@@ -1,0 +1,45 @@
+---
+title: Hooks overview
+description: Cross-platform React hooks. No DOM or RN assumptions in the public API.
+order: 10
+---
+
+`@omniui/hooks` is a small collection of headless hooks. Web + native both work where the hook makes sense; `useClickOutside` is web-only (gesture handling on native is per-platform).
+
+## Install
+
+```bash
+npm install @omniui/hooks
+```
+
+## Exports
+
+| Hook | What |
+|---|---|
+| `useDisclosure(initial?)` | Boolean state with named setters (`open`, `close`, `toggle`, `set`). Pairs with Modal, Dropdown, Drawer. |
+| `useClickOutside(handler, active?)` | Returns a ref; fires the handler when a click lands outside. Web only. |
+| `useMediaQuery(query)` | Tracks a `matchMedia` query. Returns false on SSR + native. |
+| `useToast()` + `ToastProvider` | Headless toast queue. Wrap your app in `<ToastProvider>`; call `toast({...})` from anywhere. |
+
+## Disclosure
+
+```tsx
+import { useDisclosure } from "@omniui/hooks";
+
+const { isOpen, open, close, toggle } = useDisclosure();
+```
+
+## Toast
+
+```tsx
+import { ToastProvider, useToast } from "@omniui/hooks";
+
+<ToastProvider>
+  <App />
+</ToastProvider>
+
+const { toast } = useToast();
+toast({ title: "Saved", variant: "success" });
+```
+
+`ToastProvider` is headless: it manages the queue. Rendering the toasts is up to you (or `@omniui/comps Toast` once it lands).

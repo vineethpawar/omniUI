@@ -1,0 +1,83 @@
+---
+title: The package ladder
+description: How the eleven packages stack. What depends on what. What you need to install for each layer.
+order: 20
+---
+
+omniUI ships as eleven npm packages on purpose. Each layer is one `npm install` away from being a thing you can use, and each layer pulls in everything below it transitively.
+
+## The stack
+
+```
+                                 ┌───────────────────────┐
+            high-rung           │     @omniui/plugins    │   command palette, table, chart
+                                 │     @omniui/screens    │   AuthLayout, EmptyState, ErrorScreen
+                                 └───────────────────────┘
+                                            ▲
+                                            │
+                                 ┌───────────────────────┐
+            mid-rung            │     @omniui/comps      │   Modal, Dropdown, Toast
+                                 │     @omniui/layouts    │   AppShell, Sidebar
+                                 │     @omniui/forms      │   Field, Select, Checkbox, Radio
+                                 │     @omniui/navigator  │   defineRoutes + adapters
+                                 └───────────────────────┘
+                                            ▲
+                                            │
+                                 ┌───────────────────────┐
+            foundation         │     @omniui/icons      │   Icon + registry
+                                 │     @omniui/primitives │   Box, Text, Stack, Flex, Input, Button
+                                 │     @omniui/styles     │   ThemeProvider, useTheme
+                                 │     @omniui/hooks      │   useDisclosure, useClickOutside, useToast
+                                 │     @omniui/core       │   tokens, types, helpers
+                                 └───────────────────────┘
+```
+
+## The rules
+
+| Layer | Depends on | Consumer install |
+|---|---|---|
+| Foundation | nothing | One install line. `@omniui/styles` always; the rest as needed. |
+| Mid-rung | foundation packages it uses | Auto-installed transitively. You import directly. |
+| High-rung | every layer below | Same. One install line gets you the whole ladder. |
+
+The dep model is **auto-install via dependencies**. When you `npm install @omniui/screens`, you get `screens` + `layouts` + `primitives` + `icons` + `styles` + `core`. No peer-dep installer dance. You can still pin your own versions of the foundation packages by listing them in your own `dependencies`.
+
+## Common patterns
+
+### Building a marketing site
+
+```bash
+npm install @omniui/styles @omniui/primitives @omniui/icons
+```
+
+Wrap with `<ThemeProvider />`. Compose with `Box`, `Text`, `Button`. That's it.
+
+### Building a dashboard
+
+```bash
+npm install @omniui/styles @omniui/primitives @omniui/icons \
+            @omniui/layouts @omniui/comps @omniui/navigator @omniui/forms
+```
+
+`<AppShell>` + `<Sidebar>` + your route table via `defineRoutes()`. Forms via `<Field>` + `<Select>` etc. Modal + Dropdown when you need them.
+
+### Building a full app
+
+```bash
+npm install @omniui/styles @omniui/primitives @omniui/icons \
+            @omniui/layouts @omniui/comps @omniui/navigator \
+            @omniui/forms @omniui/screens @omniui/plugins @omniui/hooks
+```
+
+Auth + empty + error screens out of the box. Command palette via `@omniui/plugins/command-palette`.
+
+## What's NOT in the ladder
+
+- `@omniui/mcp` is a CLI, not a runtime import. Install as a dev dep when you want coding agents to install components by name.
+- The desktop AI tool ([AI Polish](https://github.com/vineethpawar/ai-polish-desktop)) is a sibling product, not a package. It uses omniUI's tokens for theming itself, but consumers don't install it.
+
+## Cross-platform
+
+Every foundation + mid-rung + screens package ships `.ts` for web and `.native.ts` for React Native. Metro resolves the right one; web bundlers (Vite, Webpack, Next, Electron renderer) pick the `.ts`. The public API is identical across both.
+
+`@omniui/plugins` is web-first for now — the CommandPalette UX doesn't have a native equivalent worth pretending. Native variants come per-component as we add them.
