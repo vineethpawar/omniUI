@@ -39,6 +39,20 @@ jobs:
       - name: Install
         run: npm install --no-audit --no-fund
 
+      - name: Diagnose npm auth
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          echo "--- npm whoami ---"
+          npm whoami || true
+          echo "--- npm config get registry ---"
+          npm config get registry
+          echo "--- single-pkg dry-run with explicit --access ---"
+          cd packages/core
+          npm publish --dry-run --access=public 2>&1 | tail -8 || true
+          cd ../..
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create Release PR or Publish
         uses: changesets/action@v1
         with:
