@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>omniUI logo options</title>
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #0A0A0A;
+        color: #ECECEC;
+        padding: 60px 24px;
+      }
+      h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 6px; }
+      .sub { color: #8E8E8E; margin-bottom: 48px; font-size: 14px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; max-width: 1080px; margin: 0 auto; }
+      .card {
+        background: #141414;
+        border: 1px solid #262626;
+        border-radius: 14px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .card.light { background: #FAFAFA; border-color: #E5E5E5; color: #111; }
+      .card.light .label { color: #555; }
+      .card.light .num { color: #999; }
+      .label { font-weight: 600; font-size: 14px; }
+      .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #555; letter-spacing: 0.06em; text-transform: uppercase; }
+      .row { display: flex; gap: 24px; align-items: center; }
+      .lockup { display: flex; align-items: center; gap: 10px; }
+      .lockup span { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+      .modes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 1080px; margin: 0 auto 48px; }
+    </style>
+  </head>
+  <body>
+    <div style="max-width: 1080px; margin: 0 auto 36px;">
+      <h1>omniUI logo options</h1>
+      <p class="sub">Five subtle variants. Same brand orange (#FF5C00). Tell me which one to ship.</p>
+    </div>
+
+    <div class="grid">
+      <!-- 1 -->
+      <div class="card">
+        <span class="num">01 omega</span>
+        <img src="01-omega.svg" width="120" height="120" alt="01 omega" />
+        <div class="label">Greek omega, geometric</div>
+        <div class="lockup"><img src="01-omega.svg" width="22" height="22" alt="" /><span>omniUI</span></div>
+      </div>
+      <!-- 2 -->
+      <div class="card">
+        <span class="num">02 stack</span>
+        <img src="02-stack.svg" width="120" height="120" alt="02 stack" />
+        <div class="label">Layered squares (the package-ladder metaphor)</div>
+        <div class="lockup"><img src="02-stack.svg" width="22" height="22" alt="" /><span>omniUI</span></div>
+      </div>
+      <!-- 3 -->
+      <div class="card">
+        <span class="num">03 orbit</span>
+        <img src="03-orbit.svg" width="120" height="120" alt="03 orbit" />
+        <div class="label">Orbiting dot (omni = all directions)</div>
+        <div class="lockup"><img src="03-orbit.svg" width="22" height="22" alt="" /><span>omniUI</span></div>
+      </div>
+      <!-- 4 -->
+      <div class="card">
+        <span class="num">04 grid</span>
+        <img src="04-grid.svg" width="120" height="120" alt="04 grid" />
+        <div class="label">3&times;3 dot matrix, one accent dot</div>
+        <div class="lockup"><img src="04-grid.svg" width="22" height="22" alt="" /><span>omniUI</span></div>
+      </div>
+      <!-- 5 -->
+      <div class="card">
+        <span class="num">05 curve</span>
+        <img src="05-curve.svg" width="120" height="120" alt="05 curve" />
+        <div class="label">Monoline arc, single stroke</div>
+        <div class="lockup"><img src="05-curve.svg" width="22" height="22" alt="" /><span>omniUI</span></div>
+      </div>
+    </div>
+
+    <h2 style="max-width: 1080px; margin: 60px auto 18px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #8E8E8E;">on light backgrounds</h2>
+    <div class="modes">
+      <div class="card light">
+        <span class="num">02 stack &middot; light</span>
+        <img src="02-stack.svg" width="80" height="80" alt="" />
+      </div>
+      <div class="card light">
+        <span class="num">05 curve &middot; light</span>
+        <img src="05-curve.svg" width="80" height="80" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

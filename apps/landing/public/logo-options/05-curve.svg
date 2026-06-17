@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <!-- Option 05: Monoline curve. A single elegant arc that suggests an "o"
+       and an infinity twist at once. Stroke only -- no fill. Reads as a
+       refined editorial mark. -->
+  <rect width="120" height="120" fill="none"/>
+  <path d="M30 60 Q30 30 60 30 Q90 30 90 60 Q90 90 60 90 Q42 90 36 78"
+        fill="none"
+        stroke="#FF5C00"
+        stroke-width="6"
+        stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <!-- Option 04: Pixel grid. A 3x3 dot matrix forming a stylized "o". One
+       dot in the brand orange. Very tech, very subtle. Works as a favicon
+       at 16x16. -->
+  <rect width="120" height="120" fill="none"/>
+  <g fill="#888888">
+    <circle cx="40" cy="40" r="6"/>
+    <circle cx="60" cy="40" r="6"/>
+    <circle cx="80" cy="40" r="6"/>
+    <circle cx="40" cy="60" r="6"/>
+    <circle cx="80" cy="60" r="6"/>
+    <circle cx="40" cy="80" r="6"/>
+    <circle cx="60" cy="80" r="6"/>
+    <circle cx="80" cy="80" r="6"/>
+  </g>
+  <circle cx="60" cy="60" r="6" fill="#FF5C00"/>
+</svg>
