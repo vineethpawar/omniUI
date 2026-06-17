@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/hooks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cross-platform React hooks. useDisclosure, useClickOutside, useMediaQuery, useToast. No DOM or RN assumptions in the public API.",
   "license": "MIT",
   "main": "src/index.ts",
@@ -12,8 +12,12 @@
       "import": "./src/index.ts"
     }
   },
-  "files": ["src"],
-  "publishConfig": { "access": "public" },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",
