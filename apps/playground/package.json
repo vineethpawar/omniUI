@@ -1,6 +1,6 @@
 {
   "name": "plyxui-playground",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -15,7 +15,7 @@
     "@plyxui/hooks": "^0.2.0",
     "@plyxui/icons": "^0.2.0",
     "@plyxui/layouts": "^0.2.0",
-    "@plyxui/primitives": "^0.2.0",
+    "@plyxui/primitives": "^0.3.0",
     "@plyxui/styles": "^0.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
