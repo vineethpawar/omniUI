@@ -1,0 +1,21 @@
+{
+  "$schema": "https://codesandbox.io/schemas/tasks.json",
+  "setupTasks": [
+    {
+      "name": "Install dependencies",
+      "command": "npm install --no-audit --no-fund"
+    }
+  ],
+  "tasks": {
+    "playground:dev": {
+      "name": "Playground (Vite)",
+      "command": "npm run dev -w plyxui-playground",
+      "runAtStart": true,
+      "preview": { "port": 5173 }
+    },
+    "docs:dev": {
+      "name": "Docs (Next.js)",
+      "command": "npm run dev -w @plyxui/docs"
+    }
+  }
+}

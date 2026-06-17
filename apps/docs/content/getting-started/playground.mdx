@@ -1,0 +1,95 @@
+---
+title: Playground
+description: A live SaaS dashboard built end-to-end with @plyxui/*. Fork it, edit it, ship from it.
+order: 15
+---
+
+The fastest way to see plyxui is to play with it. The playground is a
+one-page Vite app that wires every published package into a single
+SaaS-style dashboard. It runs on CodeSandbox in your browser; fork it
+and the changes are yours.
+
+## Open it
+
+[**Open in CodeSandbox →**](https://codesandbox.io/p/github/vineethpawar/plyxui/main?file=apps/playground/src/App.tsx)
+
+Or browse the source on GitHub: [apps/playground/](https://github.com/vineethpawar/plyxui/tree/main/apps/playground)
+
+<iframe
+  src="https://codesandbox.io/embed/github/vineethpawar/plyxui/main?file=apps/playground/src/App.tsx&module=apps/playground/src/App.tsx&view=preview&hidenavigation=1"
+  style={{
+    width: "100%",
+    height: 600,
+    border: "1px solid var(--stroke)",
+    borderRadius: 8,
+    overflow: "hidden",
+    marginTop: 24,
+  }}
+  title="plyxui playground"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+## What's inside
+
+A SaaS dashboard with a sidebar, stat cards, a member-create form,
+and a comps showcase. Mobile drops the sidebar into a Drawer.
+
+The whole thing is one file: [src/App.tsx](https://github.com/vineethpawar/plyxui/blob/main/apps/playground/src/App.tsx). Around 270 lines, no
+config gymnastics, every import from `@plyxui/*`.
+
+### Packages it touches
+
+| Package | What it gives the demo |
+|---|---|
+| `@plyxui/styles` | `ThemeProvider` at the root, `useTheme` for tokens + light / dark toggle |
+| `@plyxui/hooks` | `useDisclosure` for the modal + mobile drawer, `useMediaQuery` for the 900px breakpoint, `useToast` + `ToastProvider` |
+| `@plyxui/layouts` | `AppShell` + `Sidebar` |
+| `@plyxui/primitives` | `Box`, `Text`, `Stack`, `Flex`, `Input`, `Button` |
+| `@plyxui/forms` | `Field`, `Select`, `Checkbox`, `Radio` + `RadioGroup` |
+| `@plyxui/comps` | `Modal`, `Tabs`, `Tooltip`, `Toaster`, `Drawer` |
+
+## How the responsive bit works
+
+The Sidebar lives in the `AppShell` slot on screens 900&nbsp;px and wider.
+Below that, the slot empties out and a hamburger appears in the header.
+Tapping it opens a `Drawer` with the same Sidebar inside.
+
+```tsx
+const isWide = useMediaQuery("(min-width: 900px)");
+const mobileNav = useDisclosure(false);
+
+<AppShell
+  sidebar={isWide ? SidebarBlock : undefined}
+  header={<Header onMenuClick={mobileNav.open} showMenu={!isWide} />}
+>
+  ...
+</AppShell>
+
+<Drawer open={mobileNav.isOpen} onClose={mobileNav.close} side="left" size={264}>
+  {SidebarBlock}
+</Drawer>
+```
+
+One block of JSX, two surfaces. Same Sidebar component for both.
+
+## Run it locally
+
+```bash
+git clone https://github.com/vineethpawar/plyxui
+cd plyxui
+npm install
+npm run dev -w plyxui-playground
+# vite serves on http://localhost:5173
+```
+
+## Tweak it
+
+Things worth trying first:
+
+- Change the `primaryOrange` token in `@plyxui/core` to your brand color and watch every accent update at once.
+- Swap the `Select` in the form for a `Dropdown` from `@plyxui/comps`.
+- Replace the stat cards' static numbers with a fetch from any public API.
+- Wire the form's `Save member` to a real `POST` and surface the response via the toast.
+
+If something you'd want isn't in the playground, [open an issue](https://github.com/vineethpawar/plyxui/issues/new) — chances are it's a doc gap, not a missing primitive.
