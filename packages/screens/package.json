@@ -1,0 +1,36 @@
+{
+  "name": "@omniui/screens",
+  "version": "0.1.0",
+  "description": "Drop-in screen scaffolds. AuthLayout, EmptyState, ErrorScreen. Composes on every layer below.",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "react-native": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "files": ["src"],
+  "publishConfig": { "access": "public" },
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "lint": "echo 'todo: wire eslint'",
+    "build": "echo 'todo: wire tsup'",
+    "clean": "rm -rf dist .turbo *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@omniui/core": "*",
+    "@omniui/styles": "*",
+    "@omniui/primitives": "*",
+    "@omniui/icons": "*",
+    "@omniui/layouts": "*"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
