@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/styles",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ThemeProvider and useTheme hook. Web variant uses CSS vars + localStorage. Native variant uses Appearance API.",
   "license": "MIT",
   "main": "src/index.tsx",

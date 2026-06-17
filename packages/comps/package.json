@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/comps",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Composite components built on the primitives: Modal, Dropdown, Tooltip, Tabs, Toast, Drawer.",
   "license": "MIT",
   "main": "src/index.ts",

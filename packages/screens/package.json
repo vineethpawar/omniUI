@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/screens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Drop-in screen scaffolds. AuthLayout, EmptyState, ErrorScreen. Composes on every layer below.",
   "license": "MIT",
   "main": "src/index.ts",
@@ -12,8 +12,12 @@
       "import": "./src/index.ts"
     }
   },
-  "files": ["src"],
-  "publishConfig": { "access": "public" },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",

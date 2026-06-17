@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/plugins",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Heavyweight components: CommandPalette, DataTable (planned), Chart (planned). Opt-in; the rest of plyxui doesn't pull these in.",
   "license": "MIT",
   "main": "src/index.ts",
@@ -16,8 +16,12 @@
       "import": "./src/CommandPalette/index.tsx"
     }
   },
-  "files": ["src"],
-  "publishConfig": { "access": "public" },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",
