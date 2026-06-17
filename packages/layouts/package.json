@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/layouts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Cross-platform layout primitives: AppShell, Sidebar, ScreenContainer. Compose with the navigator for full apps.",
   "license": "MIT",
   "main": "src/index.ts",
