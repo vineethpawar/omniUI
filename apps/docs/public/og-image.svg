@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Open Graph card. Logo top-left, name + tagline center-left, subtle
+       dot matrix repeat in the background. -->
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+
+  <!-- Background lattice: faint dots in a wide grid. -->
+  <g fill="#1A1A1A">
+    <circle cx="120"  cy="540" r="3"/>
+    <circle cx="200"  cy="540" r="3"/>
+    <circle cx="280"  cy="540" r="3"/>
+    <circle cx="360"  cy="540" r="3"/>
+    <circle cx="440"  cy="540" r="3"/>
+    <circle cx="520"  cy="540" r="3"/>
+    <circle cx="600"  cy="540" r="3"/>
+    <circle cx="680"  cy="540" r="3"/>
+    <circle cx="760"  cy="540" r="3"/>
+    <circle cx="840"  cy="540" r="3"/>
+    <circle cx="920"  cy="540" r="3"/>
+    <circle cx="1000" cy="540" r="3"/>
+    <circle cx="1080" cy="540" r="3"/>
+  </g>
+
+  <!-- Logo mark, scaled up -->
+  <g transform="translate(120 180) scale(2.1)">
+    <g fill="#888888">
+      <circle cx="40" cy="40" r="6"/>
+      <circle cx="60" cy="40" r="6"/>
+      <circle cx="80" cy="40" r="6"/>
+      <circle cx="40" cy="60" r="6"/>
+      <circle cx="80" cy="60" r="6"/>
+      <circle cx="40" cy="80" r="6"/>
+      <circle cx="60" cy="80" r="6"/>
+      <circle cx="80" cy="80" r="6"/>
+    </g>
+    <circle cx="60" cy="60" r="6" fill="#FF5C00"/>
+  </g>
+
+  <!-- Wordmark + tagline -->
+  <text x="440" y="290"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="88" font-weight="800" letter-spacing="-3" fill="#ECECEC">
+    omniUI
+  </text>
+  <text x="440" y="350"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="28" font-weight="500" fill="#8E8E8E">
+    Cross-platform component library.
+  </text>
+  <text x="440" y="392"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="28" font-weight="500" fill="#8E8E8E">
+    Per-package install. Agent-aware.
+  </text>
+
+  <!-- Footer hint -->
+  <text x="120" y="582"
+        font-family="JetBrains Mono, ui-monospace, monospace"
+        font-size="18" font-weight="500" fill="#555555">
+    omniui-docs.vercel.app
+  </text>
+</svg>

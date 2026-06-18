@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-  <!-- Option 03: Orbit. "Omni" = all directions. A circle with an orbiting
-       dot. The most quiet of the bunch -- minimal stroke, single accent. -->
-  <rect width="120" height="120" fill="none"/>
-  <circle cx="60" cy="60" r="28" fill="none" stroke="#666666" stroke-width="3"/>
-  <circle cx="88" cy="60" r="6" fill="#FF5C00"/>
-</svg>

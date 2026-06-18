@@ -1,3 +1,5 @@
+import { BrandMark } from "./BrandMark";
+
 export default function Nav() {
   return (
     <div className="nav">
@@ -12,15 +14,7 @@ export default function Nav() {
         }}
       >
         <a href="#top" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span
-            style={{
-              width: 26,
-              height: 26,
-              borderRadius: 7,
-              background: "linear-gradient(135deg, var(--orange), #FF8A3D)",
-              boxShadow: "0 0 18px var(--orange-glow)",
-            }}
-          />
+          <BrandMark size={26} />
           <span style={{ fontWeight: 800, fontSize: 17, letterSpacing: "-0.02em" }}>omniUI</span>
           <span
             style={{

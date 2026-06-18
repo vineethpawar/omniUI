@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-  <!-- Option 01: Stylized omega. The literal "omni" reference, drawn as a
-       single geometric stroke. Reads as "o" at small sizes; the legs hint
-       at depth. -->
-  <rect width="120" height="120" fill="none"/>
-  <path d="M30 90 L30 75 Q30 38 60 38 Q90 38 90 75 L90 90 L75 90 L75 75 Q75 56 60 56 Q45 56 45 75 L45 90 Z"
-        fill="#FF5C00"/>
-</svg>

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { BrandMark } from "./BrandMark";
 
 export function Header() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
@@ -44,15 +45,7 @@ export function Header() {
         }}
       >
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span
-            style={{
-              width: 22,
-              height: 22,
-              borderRadius: 6,
-              background: "linear-gradient(135deg, var(--orange), #FF8A3D)",
-              boxShadow: "0 0 14px rgba(255,92,0,0.4)",
-            }}
-          />
+          <BrandMark size={22} />
           <span style={{ fontWeight: 700, letterSpacing: "-0.01em", fontSize: 15 }}>omniUI docs</span>
           <span
             style={{

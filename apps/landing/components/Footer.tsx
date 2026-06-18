@@ -1,3 +1,5 @@
+import { BrandMark } from "./BrandMark";
+
 export default function Footer() {
   return (
     <footer>
@@ -12,15 +14,7 @@ export default function Footer() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span
-              style={{
-                width: 22,
-                height: 22,
-                borderRadius: 6,
-                background: "linear-gradient(135deg, var(--orange), #FF8A3D)",
-                boxShadow: "0 0 14px var(--orange-glow)",
-              }}
-            />
+            <BrandMark size={22} />
             <span style={{ fontWeight: 700 }}>omniUI</span>
           </div>
           <div style={{ display: "flex", gap: 18, fontSize: 13 }}>

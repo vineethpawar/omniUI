@@ -1,6 +1,21 @@
-# omniUI
+<p align="center">
+  <img src="./logo.svg" width="84" height="84" alt="omniUI" />
+</p>
 
-A component library that tries to be equally good for humans and AI agents.
+<h1 align="center">omniUI</h1>
+
+<p align="center">
+  A component library that tries to be equally good for humans and AI agents.
+</p>
+
+<p align="center">
+  <a href="https://omniui-one.vercel.app">Landing</a> &middot;
+  <a href="https://omniui-docs.vercel.app">Docs</a> &middot;
+  <a href="https://omniui-releases.vercel.app">Releases</a> &middot;
+  <a href="https://github.com/vineethpawar/ai-polish-desktop">AI Polish (sibling)</a>
+</p>
+
+---
 
 Most libraries pick a lane. shadcn is built around copy-paste. Radix is built around correctness. Tamagui is built around its compiler. omniUI is built around one assumption: in 2026 the agent installing your component matters as much as the developer reading the docs.
 
@@ -20,18 +35,33 @@ omniUI is an attempt to fix all three at once:
 
 ## Status
 
-Foundation + first chunk of breadth + docs scaffold all in. Tracker in `OMNIUI_PLAN.md`.
+0.1 cut across eleven packages. Tracker in `OMNIUI_PLAN.md`, full ladder at <https://omniui-docs.vercel.app/getting-started/ladder/>.
 
-- `@omniui/core`: design tokens (colors, spacing, radius), polymorphic type helper, headless hooks. Module-augmentable.
-- `@omniui/theme`: ThemeProvider for web and React Native. Follows OS preference until you toggle; persists once you do. Electron title-bar bridge baked in.
-- `@omniui/primitives`: `Box`, `Text`, `Stack`, `Flex`, `Input`, `Button`. Web + native parity.
-- `@omniui/icons`: registry-based `Icon` component, augmentable name union, seed pack of 20.
-- `@omniui/layouts`: `AppShell`, `Sidebar`, `ScreenContainer`.
-- `@omniui/navigator`: router-agnostic `defineRoutes` + adapters for react-router and react-navigation.
-- `@omniui/comps`: `Modal`, `Dropdown`. More incoming.
-- `@omniui/mcp`: tool signatures, handler impls in progress.
+### Foundation
 
-Not on npm yet. The 0.1 cut lands once the MCP server has real handlers; until then, point at the GitHub workspace.
+- `@omniui/core` — tokens (colors, spacing, radius), polymorphic helpers, module-augmentable token interfaces.
+- `@omniui/styles` — ThemeProvider + useTheme. Follows OS preference until you toggle. Electron title-bar bridge baked in.
+- `@omniui/primitives` — Box, Text, Stack, Flex, Input, Button. Web + native parity.
+- `@omniui/icons` — registry-based Icon, augmentable name union, seed pack of 20.
+- `@omniui/hooks` — useDisclosure, useClickOutside, useMediaQuery, useToast.
+
+### Mid-rung
+
+- `@omniui/layouts` — AppShell, Sidebar, ScreenContainer.
+- `@omniui/navigator` — router-agnostic defineRoutes + react-router / react-navigation adapters.
+- `@omniui/forms` — Field, Select, Checkbox, Radio + RadioGroup.
+- `@omniui/comps` — Modal, Dropdown. Tooltip + Tabs + Toast next.
+
+### High-rung
+
+- `@omniui/screens` — AuthLayout, EmptyState, ErrorScreen.
+- `@omniui/plugins` — CommandPalette. DataTable + Chart next.
+
+### Tooling
+
+- `@omniui/mcp` — first-party MCP server. Tool surface defined; real handlers next.
+
+Not on npm yet. The 0.1 publish is gated on adding `NPM_TOKEN` to the repo secrets; the release workflow (`.github/workflows/release.yml`) is already wired via `changesets/action`.
 
 ## Extending tokens
 
@@ -61,16 +91,21 @@ After registration, every `useTheme().colors.brandTeal` call is typed, and every
 omniUI/
 ├── apps/
 │   ├── playground-web/      vite app, quick way to see primitives render
-│   ├── docs/                next.js + MDX docs site
-│   └── landing/             product page (Product Hunt-bound)
+│   ├── docs/                next + MDX docs site → omniui-docs.vercel.app
+│   ├── landing/             product page → omniui-one.vercel.app
+│   └── releases/            release index → omniui-releases.vercel.app
 ├── packages/
-│   ├── core/                tokens + types + hooks, zero DOM, zero RN
-│   ├── theme/               ThemeProvider with web + native splits
+│   ├── core/                tokens + types, zero DOM, zero RN
+│   ├── styles/              ThemeProvider with web + native splits
 │   ├── primitives/          Box, Text, Stack, Flex, Input, Button
+│   ├── hooks/               useDisclosure, useClickOutside, useToast
 │   ├── icons/               Icon component + registry + seed pack
 │   ├── layouts/             AppShell, Sidebar, ScreenContainer
 │   ├── navigator/           router-agnostic + adapters
+│   ├── forms/               Field, Select, Checkbox, Radio
 │   ├── comps/               Modal, Dropdown (more coming)
+│   ├── screens/             AuthLayout, EmptyState, ErrorScreen
+│   ├── plugins/             CommandPalette (heavyweight stuff)
 │   └── mcp/                 first-party MCP server
 ├── turbo.json
 └── tsconfig.base.json
@@ -90,11 +125,14 @@ Foundation + breadth + docs scaffold are in. Next stops:
 
 - MCP server: real handler implementations behind the tool signatures, then llms.txt at the docs root.
 - Composites: Tooltip, Tabs, Toast, Drawer.
-- AI desktop app: paste a Figma frame URL + bring your Anthropic key, the agent edits the design system in place.
 - Theme remix backend: publish a token + variant override bundle, share with a one-line `<ThemeProvider remixUrl="..." />`.
 - Sprite-sheet codegen for heavy icon users.
 
 See `OMNIUI_PLAN.md` for the running tracker.
+
+## Related
+
+- **[AI Polish](https://github.com/vineethpawar/ai-polish-desktop)** — sibling desktop app. Pick a project folder, paste an Anthropic key, hand the agent a Figma frame. Pairs nicely with omniUI but works on any codebase.
 
 ## Prior art
 

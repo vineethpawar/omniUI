@@ -10,6 +10,21 @@ import { getSidebar } from "../lib/mdx";
 export const metadata: Metadata = {
   title: "omniUI docs",
   description: "Cross-platform component library. Per-package install. Agent-aware.",
+  metadataBase: new URL("https://omniui-docs.vercel.app"),
+  openGraph: {
+    title: "omniUI docs",
+    description: "Cross-platform component library. Per-package install. Agent-aware.",
+    url: "https://omniui-docs.vercel.app",
+    siteName: "omniUI",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "omniUI" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "omniUI docs",
+    description: "Cross-platform component library. Per-package install. Agent-aware.",
+    images: ["/og-image.svg"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

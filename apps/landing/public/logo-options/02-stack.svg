@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
-  <!-- Option 02: Layered squares -- the package-ladder metaphor. Three
-       offset rounded squares; the front one is the brand orange, the back
-       two recede in tone. Reads as a brand at any scale. -->
-  <rect width="120" height="120" fill="none"/>
-  <rect x="38" y="28" width="50" height="50" rx="9" fill="#333333"/>
-  <rect x="32" y="38" width="50" height="50" rx="9" fill="#666666"/>
-  <rect x="26" y="48" width="50" height="50" rx="9" fill="#FF5C00"/>
-</svg>

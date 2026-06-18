@@ -1,4 +1,5 @@
 import { getAllReleases, formatDate, formatBytes, parseNpmTag, type Release } from "../lib/github";
+import { BrandMark } from "../components/BrandMark";
 
 export const revalidate = 3600; // rebuild hourly when running in production
 
@@ -20,15 +21,7 @@ function Header() {
   return (
     <div style={{ marginBottom: 60 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-        <span
-          style={{
-            width: 26,
-            height: 26,
-            borderRadius: 7,
-            background: "linear-gradient(135deg, var(--orange), #FF8A3D)",
-            boxShadow: "0 0 16px rgba(255,92,0,0.4)",
-          }}
-        />
+        <BrandMark size={26} />
         <span style={{ fontWeight: 700 }}>omniUI</span>
         <span className="pill" style={{ marginLeft: "auto" }}>Releases</span>
       </div>
