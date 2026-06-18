@@ -40,6 +40,21 @@
       "react-native": "./src/button/index.native.tsx",
       "types": "./src/button/index.tsx",
       "import": "./src/button/index.tsx"
+    },
+    "./image": {
+      "react-native": "./src/image/index.native.tsx",
+      "types": "./src/image/index.tsx",
+      "import": "./src/image/index.tsx"
+    },
+    "./divider": {
+      "react-native": "./src/divider/index.native.tsx",
+      "types": "./src/divider/index.tsx",
+      "import": "./src/divider/index.tsx"
+    },
+    "./spinner": {
+      "react-native": "./src/spinner/index.native.tsx",
+      "types": "./src/spinner/index.tsx",
+      "import": "./src/spinner/index.tsx"
     }
   },
   "files": [

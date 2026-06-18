@@ -18,7 +18,7 @@ import { useState } from "react";
 import { useTheme } from "@plyxui/styles";
 import { useMediaQuery, useToast, useDisclosure } from "@plyxui/hooks";
 import { AppShell, Sidebar } from "@plyxui/layouts";
-import { Box, Text, Stack, Flex, Input, Button } from "@plyxui/primitives";
+import { Box, Text, Stack, Flex, Input, Button, Image, Divider, Spinner } from "@plyxui/primitives";
 import { Field, Select, Checkbox, Radio, RadioGroup } from "@plyxui/forms";
 import { Modal, Tabs, TabList, Tab, TabPanel, Tooltip, Toaster, Drawer } from "@plyxui/comps";
 
@@ -91,6 +91,7 @@ export function App() {
         <Box style={{ padding: isWide ? 32 : 20, background: colors.primaryFill, minHeight: "100%" }}>
           <Stack direction="vertical" gap={5}>
             <StatRow />
+            <Divider />
             <DashboardGrid />
           </Stack>
         </Box>
@@ -173,21 +174,29 @@ function Header({ title, onMenuClick, showMenu }: { title: string; onMenuClick: 
             {mode === "dark" ? "☀" : "☾"}
           </button>
         </Tooltip>
-        <Box
-          style={{
-            width: 32,
-            height: 32,
-            borderRadius: "50%",
-            background: colors.primaryOrange,
-            color: "#fff",
-            display: "grid",
-            placeItems: "center",
-            fontSize: 13,
-            fontWeight: 600,
-          }}
-        >
-          VP
-        </Box>
+        <Image
+          src="https://i.pravatar.cc/64?u=plyxui-demo"
+          alt="Vineeth Pawar"
+          width={32}
+          height={32}
+          radius="pill"
+          fallback={
+            <Box
+              style={{
+                width: "100%",
+                height: "100%",
+                background: colors.primaryOrange,
+                color: "#fff",
+                display: "grid",
+                placeItems: "center",
+                fontSize: 13,
+                fontWeight: 600,
+              }}
+            >
+              VP
+            </Box>
+          }
+        />
       </Flex>
     </Flex>
   );
@@ -259,6 +268,19 @@ function CreateMemberCard() {
   const [plan, setPlan] = useState("pro");
   const [sendInvite, setSendInvite] = useState(true);
   const [role, setRole] = useState<"user" | "admin">("user");
+  const [saving, setSaving] = useState(false);
+
+  const handleSave = async () => {
+    setSaving(true);
+    // Simulated network — replace with a real POST in your app.
+    await new Promise((r) => setTimeout(r, 900));
+    setSaving(false);
+    toast({
+      title: name ? `Invited ${name}` : "Invited new member",
+      description: `Role: ${role}, plan: ${plan}.`,
+      variant: "success",
+    });
+  };
 
   return (
     <Box style={{ padding: 24, background: colors.surfaceFill, border: `1px solid ${colors.stroke}`, borderRadius: 12 }}>
@@ -295,19 +317,19 @@ function CreateMemberCard() {
           </RadioGroup>
         </Field>
 
-        <Flex gap={2} justify="end" style={{ marginTop: 8 }}>
-          <Button variant="ghost" onClick={() => { setName(""); setEmail(""); }}>Reset</Button>
+        <Divider label="Review and save" />
+
+        <Flex gap={2} justify="end">
+          <Button variant="ghost" onClick={() => { setName(""); setEmail(""); }} disabled={saving}>
+            Reset
+          </Button>
           <Button
             variant="primary"
-            onClick={() => {
-              toast({
-                title: name ? `Invited ${name}` : "Invited new member",
-                description: `Role: ${role}, plan: ${plan}.`,
-                variant: "success",
-              });
-            }}
+            onClick={handleSave}
+            disabled={saving}
+            iconLeading={saving ? <Spinner size="sm" color="#fff" label={null} /> : undefined}
           >
-            Save member
+            {saving ? "Saving…" : "Save member"}
           </Button>
         </Flex>
       </Stack>

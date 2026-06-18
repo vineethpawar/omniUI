@@ -1,0 +1,56 @@
+---
+title: Image
+description: Themed <img> wrapper with a loading skeleton, object-fit, radius tokens, and a fallback slot.
+order: 60
+---
+
+`Image` is a thin wrapper around the native element. It adds three small
+quality-of-life things that come up every time you reach for `<img>`:
+
+- a themed skeleton background while the file is loading,
+- a `radius` prop that takes the design tokens (or a raw pixel),
+- a `fallback` slot rendered when the URL 404s.
+
+## API
+
+```tsx
+import { Image } from "@plyxui/primitives";
+
+<Image src={user.avatar} alt={user.name} width={32} height={32} radius="pill" />
+
+<Image
+  src="/hero.jpg"
+  alt="Hero photo"
+  aspectRatio="16 / 9"
+  fit="cover"
+  radius="lg"
+/>
+
+<Image
+  src={user.avatar}
+  alt={user.name}
+  width={64}
+  height={64}
+  radius="pill"
+  fallback={<span>VP</span>}
+/>
+```
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `src` | `string` | required |
+| `alt` | `string` | required |
+| `width` | `number \| string` | — |
+| `height` | `number \| string` | — |
+| `aspectRatio` | `string \| number` | — (wins over width+height if both set) |
+| `fit` | `"cover" \| "contain" \| "fill" \| "none" \| "scale-down"` | `"cover"` |
+| `radius` | `RadiusKey \| number` | — |
+| `placeholder` | `ReactNode` | themed skeleton |
+| `fallback` | `ReactNode` | nothing |
+
+## Native
+
+The native build uses RN `Image` with the same prop shape. `fit` maps
+to `resizeMode`. `aspectRatio` is a number on native, not a CSS string.

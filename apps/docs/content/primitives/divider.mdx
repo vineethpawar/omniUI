@@ -1,0 +1,43 @@
+---
+title: Divider
+description: A line. Horizontal or vertical, with an optional inline label.
+order: 65
+---
+
+`Divider` is small but earns its keep: a themed line that doesn't drift
+when the design system's stroke color changes, plus an inline-label
+mode for the OR-style splitter pattern.
+
+## API
+
+```tsx
+import { Divider } from "@plyxui/primitives";
+
+<Divider />
+
+<Divider label="OR" />
+
+<Flex>
+  <Text>Left</Text>
+  <Divider orientation="vertical" />
+  <Text>Right</Text>
+</Flex>
+
+<Divider inset={20} style="dashed" thickness={1} color={colors.statusError} />
+```
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
+| `label` | `ReactNode` | — (label-split mode is horizontal only) |
+| `inset` | `number` (px) | `0` |
+| `color` | `string` | `colors.stroke` |
+| `thickness` | `number` | `1` |
+| `style` | `"solid" \| "dashed"` | `"solid"` |
+
+## Native
+
+Same prop shape. Native draws a `View` with a colored background
+instead of a CSS border, but the API doesn't change.

@@ -1,0 +1,59 @@
+---
+title: Spinner
+description: Indeterminate loading indicator. SVG arc on web, ActivityIndicator on native, same prop shape.
+order: 70
+---
+
+`Spinner` is an indeterminate loading indicator. Five sizes, theme-colored
+by default, accessible by default.
+
+## API
+
+```tsx
+import { Spinner } from "@plyxui/primitives";
+
+<Spinner />
+
+<Spinner size="lg" />
+<Spinner size={48} />
+
+<Spinner color={colors.primaryAccent} />
+
+<Button loading={isSaving} iconLeading={<Spinner size="sm" />}>
+  Save
+</Button>
+```
+
+## Sizes
+
+| Token | Pixels |
+|---|---|
+| `xs` | 12 |
+| `sm` | 16 |
+| `md` (default) | 20 |
+| `lg` | 28 |
+| `xl` | 40 |
+
+You can also pass a raw number for a custom size.
+
+## Accessibility
+
+The Spinner has `role="status"` and an `aria-label` of `"Loading"`. If
+your UI already has a visible "Loading…" text alongside, pass `label={null}`
+to keep screen readers from announcing the same state twice.
+
+## Props
+
+| Prop | Type | Default |
+|---|---|---|
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl" \| number` | `"md"` |
+| `color` | `string` | `colors.primaryOrange` |
+| `thickness` | `number` (fraction of size) | `0.12` |
+| `label` | `string \| null` | `"Loading"` |
+
+## Native
+
+Wraps RN's `ActivityIndicator`. The `xs`/`md`/`xl` sizes map to raw
+pixel values (since RN's component takes pixels for custom sizes);
+`sm` and `lg` map to RN's built-in `"small"` and `"large"` because
+those have platform-tuned defaults that look right out of the box.
