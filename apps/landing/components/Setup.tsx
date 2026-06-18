@@ -46,15 +46,7 @@ registerIcons(seedPack);`,
       ].map((step) => (
         <div
           key={step.n}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "60px 1fr 1fr",
-            gap: 24,
-            paddingBottom: 32,
-            marginBottom: 32,
-            borderBottom: "1px solid var(--stroke-soft)",
-            alignItems: "start",
-          }}
+          className="setup-step"
         >
           <div
             style={{
