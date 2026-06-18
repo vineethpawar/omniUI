@@ -7,7 +7,7 @@ const LINKS: Array<{ href: string; label: string }> = [
   { href: "#features", label: "Features" },
   { href: "#agent", label: "AI mode" },
   { href: "#remix", label: "Remix" },
-  { href: "/docs/", label: "Docs" },
+  { href: "https://omniui-docs.vercel.app", label: "Docs" },
 ];
 
 export default function Nav() {
