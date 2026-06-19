@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/icons",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Icon component + extensible icon registry. Icons are typed TS modules, not SVG assets, so consumers get autocomplete on names.",
   "license": "MIT",
   "main": "./dist/index.cjs",

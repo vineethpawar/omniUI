@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/primitives",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Base components. Box is the first one. Polymorphic on web, View-backed on native.",
   "license": "MIT",
   "main": "./dist/index.cjs",

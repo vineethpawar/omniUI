@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/hooks",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Cross-platform React hooks. useDisclosure, useClickOutside, useMediaQuery, useToast. No DOM or RN assumptions in the public API.",
   "license": "MIT",
   "main": "./dist/index.cjs",

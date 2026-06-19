@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/screens",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Drop-in screen scaffolds. AuthLayout, EmptyState, ErrorScreen. Composes on every layer below.",
   "license": "MIT",
   "main": "./dist/index.cjs",
