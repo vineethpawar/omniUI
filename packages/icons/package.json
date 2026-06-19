@@ -10,11 +10,14 @@
     ".": {
       "react-native": "./src/index.native.ts",
       "types": "./src/index.ts",
-      "import": "./src/index.ts"
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
     },
     "./pack": {
+      "react-native": "./src/pack/index.ts",
       "types": "./src/pack/index.ts",
-      "import": "./src/pack/index.ts"
+      "import": "./src/pack/index.ts",
+      "default": "./src/pack/index.ts"
     }
   },
   "files": [

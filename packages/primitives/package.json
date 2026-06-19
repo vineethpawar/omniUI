@@ -8,53 +8,64 @@
   "react-native": "src/index.ts",
   "exports": {
     ".": {
+      "react-native": "./src/index.ts",
       "types": "./src/index.ts",
-      "import": "./src/index.ts"
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
     },
     "./box": {
       "react-native": "./src/box/index.native.tsx",
       "types": "./src/box/index.tsx",
-      "import": "./src/box/index.tsx"
+      "import": "./src/box/index.tsx",
+      "default": "./src/box/index.tsx"
     },
     "./text": {
       "react-native": "./src/text/index.native.tsx",
       "types": "./src/text/index.tsx",
-      "import": "./src/text/index.tsx"
+      "import": "./src/text/index.tsx",
+      "default": "./src/text/index.tsx"
     },
     "./stack": {
       "react-native": "./src/stack/index.native.tsx",
       "types": "./src/stack/index.tsx",
-      "import": "./src/stack/index.tsx"
+      "import": "./src/stack/index.tsx",
+      "default": "./src/stack/index.tsx"
     },
     "./flex": {
       "react-native": "./src/flex/index.native.tsx",
       "types": "./src/flex/index.tsx",
-      "import": "./src/flex/index.tsx"
+      "import": "./src/flex/index.tsx",
+      "default": "./src/flex/index.tsx"
     },
     "./input": {
       "react-native": "./src/input/index.native.tsx",
       "types": "./src/input/index.tsx",
-      "import": "./src/input/index.tsx"
+      "import": "./src/input/index.tsx",
+      "default": "./src/input/index.tsx"
     },
     "./button": {
       "react-native": "./src/button/index.native.tsx",
       "types": "./src/button/index.tsx",
-      "import": "./src/button/index.tsx"
+      "import": "./src/button/index.tsx",
+      "default": "./src/button/index.tsx"
     },
     "./image": {
       "react-native": "./src/image/index.native.tsx",
       "types": "./src/image/index.tsx",
-      "import": "./src/image/index.tsx"
+      "import": "./src/image/index.tsx",
+      "default": "./src/image/index.tsx"
     },
     "./divider": {
       "react-native": "./src/divider/index.native.tsx",
       "types": "./src/divider/index.tsx",
-      "import": "./src/divider/index.tsx"
+      "import": "./src/divider/index.tsx",
+      "default": "./src/divider/index.tsx"
     },
     "./spinner": {
       "react-native": "./src/spinner/index.native.tsx",
       "types": "./src/spinner/index.tsx",
-      "import": "./src/spinner/index.tsx"
+      "import": "./src/spinner/index.tsx",
+      "default": "./src/spinner/index.tsx"
     }
   },
   "files": [

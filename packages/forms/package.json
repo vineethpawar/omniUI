@@ -10,7 +10,8 @@
     ".": {
       "react-native": "./src/index.native.ts",
       "types": "./src/index.ts",
-      "import": "./src/index.ts"
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
     }
   },
   "files": [
