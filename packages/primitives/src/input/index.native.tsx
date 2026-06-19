@@ -14,7 +14,7 @@ const sizeMap: Record<InputSize, { h: number; fontSize: number; padX: number }> 
   lg: { h: 48, fontSize: 16, padX: spacing[4] },
 };
 
-export interface InputProps extends Omit<TextInputProps, "style"> {
+export interface InputProps extends Omit<TextInputProps, "style" | "onChange"> {
   value?: string;
   onChange?: (value: string) => void;
   size?: InputSize;

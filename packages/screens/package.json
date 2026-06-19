@@ -3,18 +3,37 @@
   "version": "0.2.1",
   "description": "Drop-in screen scaffolds. AuthLayout, EmptyState, ErrorScreen. Composes on every layer below.",
   "license": "MIT",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "react-native": "src/index.ts",
   "exports": {
     ".": {
-      "react-native": "./src/index.ts",
-      "types": "./src/index.ts",
-      "import": "./src/index.ts",
-      "default": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./AuthLayout": {
+      "types": "./dist/AuthLayout.d.ts",
+      "import": "./dist/AuthLayout.js",
+      "require": "./dist/AuthLayout.cjs",
+      "default": "./dist/AuthLayout.js"
+    },
+    "./EmptyState": {
+      "types": "./dist/EmptyState.d.ts",
+      "import": "./dist/EmptyState.js",
+      "require": "./dist/EmptyState.cjs",
+      "default": "./dist/EmptyState.js"
+    },
+    "./ErrorScreen": {
+      "types": "./dist/ErrorScreen.d.ts",
+      "import": "./dist/ErrorScreen.js",
+      "require": "./dist/ErrorScreen.cjs",
+      "default": "./dist/ErrorScreen.js"
     }
   },
   "files": [
+    "dist",
     "src"
   ],
   "publishConfig": {
@@ -23,7 +42,7 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",
-    "build": "echo 'todo: wire tsup'",
+    "build": "tsup",
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
@@ -37,6 +56,10 @@
     "react": ">=18"
   },
   "devDependencies": {
-    "typescript": "^5.6.0"
-  }
+    "typescript": "^5.6.0",
+    "tsup": "^8.5.1"
+  },
+  "type": "module",
+  "module": "./dist/index.js",
+  "sideEffects": false
 }

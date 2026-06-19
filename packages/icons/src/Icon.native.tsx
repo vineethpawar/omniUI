@@ -32,6 +32,9 @@ type SvgModule = {
   Polyline: React.ComponentType<Record<string, unknown>>;
 };
 
+// Dynamic require so the package builds without react-native-svg installed.
+declare const require: (id: string) => unknown;
+
 let svgModule: SvgModule | null | undefined;
 function loadSvg(): SvgModule | null {
   if (svgModule !== undefined) return svgModule;
@@ -55,7 +58,7 @@ function resolveColor(
   return color as string;
 }
 
-function renderElement(svg: SvgModule, el: IconElement, key: number, props: Record<string, unknown>): JSX.Element {
+function renderElement(svg: SvgModule, el: IconElement, key: number, props: Record<string, unknown>): React.ReactElement {
   const { Path, Circle, Rect, Line, Polyline } = svg;
   switch (el.kind) {
     case "path":

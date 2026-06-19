@@ -3,18 +3,49 @@
   "version": "0.2.1",
   "description": "Form primitives: Field wrapper, Select, Checkbox, Radio. Composes on top of @plyxui/primitives.",
   "license": "MIT",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "react-native": "src/index.ts",
   "exports": {
     ".": {
-      "react-native": "./src/index.native.ts",
-      "types": "./src/index.ts",
-      "import": "./src/index.ts",
-      "default": "./src/index.ts"
+      "react-native": {
+        "types": "./dist/index.native.d.ts",
+        "import": "./dist/index.native.js",
+        "require": "./dist/index.native.cjs",
+        "default": "./dist/index.native.js"
+      },
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./Field": {
+      "types": "./dist/Field.d.ts",
+      "import": "./dist/Field.js",
+      "require": "./dist/Field.cjs",
+      "default": "./dist/Field.js"
+    },
+    "./Checkbox": {
+      "types": "./dist/Checkbox.d.ts",
+      "import": "./dist/Checkbox.js",
+      "require": "./dist/Checkbox.cjs",
+      "default": "./dist/Checkbox.js"
+    },
+    "./Radio": {
+      "types": "./dist/Radio.d.ts",
+      "import": "./dist/Radio.js",
+      "require": "./dist/Radio.cjs",
+      "default": "./dist/Radio.js"
+    },
+    "./Select": {
+      "types": "./dist/Select.d.ts",
+      "import": "./dist/Select.js",
+      "require": "./dist/Select.cjs",
+      "default": "./dist/Select.js"
     }
   },
   "files": [
+    "dist",
     "src"
   ],
   "publishConfig": {
@@ -23,7 +54,7 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",
-    "build": "echo 'todo: wire tsup'",
+    "build": "tsup",
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
@@ -35,6 +66,10 @@
     "react": ">=18"
   },
   "devDependencies": {
-    "typescript": "^5.6.0"
-  }
+    "typescript": "^5.6.0",
+    "tsup": "^8.5.1"
+  },
+  "type": "module",
+  "module": "./dist/index.js",
+  "sideEffects": false
 }

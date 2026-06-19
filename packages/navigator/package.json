@@ -3,32 +3,26 @@
   "version": "0.2.1",
   "description": "Router-agnostic helper. defineRoutes() once; render with the right adapter on web or native.",
   "license": "MIT",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "react-native": "src/index.ts",
   "exports": {
     ".": {
-      "react-native": "./src/index.native.ts",
-      "types": "./src/index.ts",
-      "import": "./src/index.ts",
-      "default": "./src/index.ts"
-    },
-    "./react-router": {
-      "react-native": "./src/adapters/react-router.tsx",
-      "types": "./src/adapters/react-router.tsx",
-      "import": "./src/adapters/react-router.tsx",
-      "default": "./src/adapters/react-router.tsx"
-    },
-    "./react-navigation": {
-      "react-native": "./src/adapters/react-navigation.tsx",
-      "types": "./src/adapters/react-navigation.tsx",
-      "import": "./src/adapters/react-navigation.tsx",
-      "default": "./src/adapters/react-navigation.tsx"
+      "react-native": {
+        "types": "./dist/index.native.d.ts",
+        "import": "./dist/index.native.js",
+        "require": "./dist/index.native.cjs",
+        "default": "./dist/index.native.js"
+      },
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
     }
   },
   "files": [
-    "src",
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -36,7 +30,7 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",
-    "build": "echo 'todo: wire tsup or tsc emit'",
+    "build": "tsup",
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
@@ -56,6 +50,10 @@
     }
   },
   "devDependencies": {
-    "typescript": "^5.6.0"
-  }
+    "typescript": "^5.6.0",
+    "tsup": "^8.5.1"
+  },
+  "type": "module",
+  "module": "./dist/index.js",
+  "sideEffects": false
 }

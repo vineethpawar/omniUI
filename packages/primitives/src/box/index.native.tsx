@@ -53,7 +53,7 @@ export const Box = forwardRef<View, BoxProps>(function Box(
       ref={ref}
       style={StyleSheet.flatten([
         surfaceStyle,
-        { padding: padMap[padding], borderRadius: radiusMap[radius] },
+        { padding: padMap[padding ?? "none"], borderRadius: radiusMap[radius ?? "none"] },
         style,
       ])}
     >

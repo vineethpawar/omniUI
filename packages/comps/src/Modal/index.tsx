@@ -82,7 +82,7 @@ export function Modal({
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", maxHeight: "inherit" }}>
-        {(title || onClose) && (
+        {title ? (
           <div
             style={{
               display: "flex",
@@ -115,7 +115,7 @@ export function Modal({
               <Icon name="x" size={18} />
             </button>
           </div>
-        )}
+        ) : null}
         <div style={{ padding: spacing[4], overflow: "auto", flex: 1 }}>{children}</div>
         {footer ? (
           <div

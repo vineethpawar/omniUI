@@ -39,6 +39,9 @@ jobs:
       - name: Install
         run: npm install --no-audit --no-fund
 
+      - name: Build packages
+        run: npx turbo build --filter="@plyxui/*"
+
       - name: Create Release PR or Publish
         uses: changesets/action@v1
         with:

@@ -2,7 +2,7 @@
  * Image (native). RN <Image> with the same prop shape as web.
  */
 import { forwardRef, useState } from "react";
-import { Image as RNImage, View, type ImageProps as RNImageProps, type ViewStyle } from "react-native";
+import { Image as RNImage, View, type ImageProps as RNImageProps, type ImageStyle, type ViewStyle } from "react-native";
 import { useTheme } from "@plyxui/styles";
 import { radius as radiusTokens, type RadiusKey } from "@plyxui/core";
 
@@ -18,7 +18,7 @@ export interface ImageProps {
   radius?: RadiusKey | number;
   placeholder?: React.ReactNode;
   fallback?: React.ReactNode;
-  style?: ViewStyle;
+  style?: ImageStyle;
 }
 
 export const Image = forwardRef<RNImage, ImageProps>(function Image(

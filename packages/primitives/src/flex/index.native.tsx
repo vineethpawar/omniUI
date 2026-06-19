@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { View } from "react-native";
-import { Stack, type StackProps } from "../stack";
+import { Stack, type StackProps } from "../stack/index.native";
 
 export interface FlexProps extends Omit<StackProps, "direction"> {
   reverse?: boolean;

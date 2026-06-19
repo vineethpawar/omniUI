@@ -57,7 +57,7 @@ export function ThemeProvider({ children, defaultMode }: ThemeProviderProps) {
 
   useEffect(() => {
     if (defaultMode) return; // explicit prop wins, don't track system
-    const sub = Appearance.addChangeListener(({ colorScheme }) => {
+    const sub = Appearance.addChangeListener(({ colorScheme }: { colorScheme: ColorSchemeName }) => {
       setMode(fromColorScheme(colorScheme));
     });
     return () => sub.remove();

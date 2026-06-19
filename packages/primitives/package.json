@@ -3,74 +3,128 @@
   "version": "0.3.1",
   "description": "Base components. Box is the first one. Polymorphic on web, View-backed on native.",
   "license": "MIT",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "react-native": "src/index.ts",
   "exports": {
     ".": {
-      "react-native": "./src/index.ts",
-      "types": "./src/index.ts",
-      "import": "./src/index.ts",
-      "default": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
     },
     "./box": {
-      "react-native": "./src/box/index.native.tsx",
-      "types": "./src/box/index.tsx",
-      "import": "./src/box/index.tsx",
-      "default": "./src/box/index.tsx"
+      "react-native": {
+        "types": "./dist/box.native.d.ts",
+        "import": "./dist/box.native.js",
+        "require": "./dist/box.native.cjs",
+        "default": "./dist/box.native.js"
+      },
+      "types": "./dist/box.d.ts",
+      "import": "./dist/box.js",
+      "require": "./dist/box.cjs",
+      "default": "./dist/box.js"
     },
     "./text": {
-      "react-native": "./src/text/index.native.tsx",
-      "types": "./src/text/index.tsx",
-      "import": "./src/text/index.tsx",
-      "default": "./src/text/index.tsx"
+      "react-native": {
+        "types": "./dist/text.native.d.ts",
+        "import": "./dist/text.native.js",
+        "require": "./dist/text.native.cjs",
+        "default": "./dist/text.native.js"
+      },
+      "types": "./dist/text.d.ts",
+      "import": "./dist/text.js",
+      "require": "./dist/text.cjs",
+      "default": "./dist/text.js"
     },
     "./stack": {
-      "react-native": "./src/stack/index.native.tsx",
-      "types": "./src/stack/index.tsx",
-      "import": "./src/stack/index.tsx",
-      "default": "./src/stack/index.tsx"
+      "react-native": {
+        "types": "./dist/stack.native.d.ts",
+        "import": "./dist/stack.native.js",
+        "require": "./dist/stack.native.cjs",
+        "default": "./dist/stack.native.js"
+      },
+      "types": "./dist/stack.d.ts",
+      "import": "./dist/stack.js",
+      "require": "./dist/stack.cjs",
+      "default": "./dist/stack.js"
     },
     "./flex": {
-      "react-native": "./src/flex/index.native.tsx",
-      "types": "./src/flex/index.tsx",
-      "import": "./src/flex/index.tsx",
-      "default": "./src/flex/index.tsx"
+      "react-native": {
+        "types": "./dist/flex.native.d.ts",
+        "import": "./dist/flex.native.js",
+        "require": "./dist/flex.native.cjs",
+        "default": "./dist/flex.native.js"
+      },
+      "types": "./dist/flex.d.ts",
+      "import": "./dist/flex.js",
+      "require": "./dist/flex.cjs",
+      "default": "./dist/flex.js"
     },
     "./input": {
-      "react-native": "./src/input/index.native.tsx",
-      "types": "./src/input/index.tsx",
-      "import": "./src/input/index.tsx",
-      "default": "./src/input/index.tsx"
+      "react-native": {
+        "types": "./dist/input.native.d.ts",
+        "import": "./dist/input.native.js",
+        "require": "./dist/input.native.cjs",
+        "default": "./dist/input.native.js"
+      },
+      "types": "./dist/input.d.ts",
+      "import": "./dist/input.js",
+      "require": "./dist/input.cjs",
+      "default": "./dist/input.js"
     },
     "./button": {
-      "react-native": "./src/button/index.native.tsx",
-      "types": "./src/button/index.tsx",
-      "import": "./src/button/index.tsx",
-      "default": "./src/button/index.tsx"
+      "react-native": {
+        "types": "./dist/button.native.d.ts",
+        "import": "./dist/button.native.js",
+        "require": "./dist/button.native.cjs",
+        "default": "./dist/button.native.js"
+      },
+      "types": "./dist/button.d.ts",
+      "import": "./dist/button.js",
+      "require": "./dist/button.cjs",
+      "default": "./dist/button.js"
     },
     "./image": {
-      "react-native": "./src/image/index.native.tsx",
-      "types": "./src/image/index.tsx",
-      "import": "./src/image/index.tsx",
-      "default": "./src/image/index.tsx"
+      "react-native": {
+        "types": "./dist/image.native.d.ts",
+        "import": "./dist/image.native.js",
+        "require": "./dist/image.native.cjs",
+        "default": "./dist/image.native.js"
+      },
+      "types": "./dist/image.d.ts",
+      "import": "./dist/image.js",
+      "require": "./dist/image.cjs",
+      "default": "./dist/image.js"
     },
     "./divider": {
-      "react-native": "./src/divider/index.native.tsx",
-      "types": "./src/divider/index.tsx",
-      "import": "./src/divider/index.tsx",
-      "default": "./src/divider/index.tsx"
+      "react-native": {
+        "types": "./dist/divider.native.d.ts",
+        "import": "./dist/divider.native.js",
+        "require": "./dist/divider.native.cjs",
+        "default": "./dist/divider.native.js"
+      },
+      "types": "./dist/divider.d.ts",
+      "import": "./dist/divider.js",
+      "require": "./dist/divider.cjs",
+      "default": "./dist/divider.js"
     },
     "./spinner": {
-      "react-native": "./src/spinner/index.native.tsx",
-      "types": "./src/spinner/index.tsx",
-      "import": "./src/spinner/index.tsx",
-      "default": "./src/spinner/index.tsx"
+      "react-native": {
+        "types": "./dist/spinner.native.d.ts",
+        "import": "./dist/spinner.native.js",
+        "require": "./dist/spinner.native.cjs",
+        "default": "./dist/spinner.native.js"
+      },
+      "types": "./dist/spinner.d.ts",
+      "import": "./dist/spinner.js",
+      "require": "./dist/spinner.cjs",
+      "default": "./dist/spinner.js"
     }
   },
   "files": [
-    "src",
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -78,7 +132,7 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",
-    "build": "echo 'todo: wire tsup or tsc emit'",
+    "build": "tsup",
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
@@ -90,6 +144,10 @@
     "react": ">=18"
   },
   "devDependencies": {
-    "typescript": "^5.6.0"
-  }
+    "typescript": "^5.6.0",
+    "tsup": "^8.5.1"
+  },
+  "type": "module",
+  "module": "./dist/index.js",
+  "sideEffects": false
 }

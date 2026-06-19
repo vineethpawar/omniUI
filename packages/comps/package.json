@@ -3,20 +3,98 @@
   "version": "0.2.1",
   "description": "Composite components built on the primitives: Modal, Dropdown, Tooltip, Tabs, Toast, Drawer.",
   "license": "MIT",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
   "react-native": "src/index.ts",
   "exports": {
     ".": {
-      "react-native": "./src/index.native.ts",
-      "types": "./src/index.ts",
-      "import": "./src/index.ts",
-      "default": "./src/index.ts"
+      "react-native": {
+        "types": "./dist/index.native.d.ts",
+        "import": "./dist/index.native.js",
+        "require": "./dist/index.native.cjs",
+        "default": "./dist/index.native.js"
+      },
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    },
+    "./Modal": {
+      "react-native": {
+        "types": "./dist/Modal.native.d.ts",
+        "import": "./dist/Modal.native.js",
+        "require": "./dist/Modal.native.cjs",
+        "default": "./dist/Modal.native.js"
+      },
+      "types": "./dist/Modal.d.ts",
+      "import": "./dist/Modal.js",
+      "require": "./dist/Modal.cjs",
+      "default": "./dist/Modal.js"
+    },
+    "./Dropdown": {
+      "react-native": {
+        "types": "./dist/Dropdown.native.d.ts",
+        "import": "./dist/Dropdown.native.js",
+        "require": "./dist/Dropdown.native.cjs",
+        "default": "./dist/Dropdown.native.js"
+      },
+      "types": "./dist/Dropdown.d.ts",
+      "import": "./dist/Dropdown.js",
+      "require": "./dist/Dropdown.cjs",
+      "default": "./dist/Dropdown.js"
+    },
+    "./Tooltip": {
+      "react-native": {
+        "types": "./dist/Tooltip.native.d.ts",
+        "import": "./dist/Tooltip.native.js",
+        "require": "./dist/Tooltip.native.cjs",
+        "default": "./dist/Tooltip.native.js"
+      },
+      "types": "./dist/Tooltip.d.ts",
+      "import": "./dist/Tooltip.js",
+      "require": "./dist/Tooltip.cjs",
+      "default": "./dist/Tooltip.js"
+    },
+    "./Tabs": {
+      "react-native": {
+        "types": "./dist/Tabs.native.d.ts",
+        "import": "./dist/Tabs.native.js",
+        "require": "./dist/Tabs.native.cjs",
+        "default": "./dist/Tabs.native.js"
+      },
+      "types": "./dist/Tabs.d.ts",
+      "import": "./dist/Tabs.js",
+      "require": "./dist/Tabs.cjs",
+      "default": "./dist/Tabs.js"
+    },
+    "./Toast": {
+      "react-native": {
+        "types": "./dist/Toast.native.d.ts",
+        "import": "./dist/Toast.native.js",
+        "require": "./dist/Toast.native.cjs",
+        "default": "./dist/Toast.native.js"
+      },
+      "types": "./dist/Toast.d.ts",
+      "import": "./dist/Toast.js",
+      "require": "./dist/Toast.cjs",
+      "default": "./dist/Toast.js"
+    },
+    "./Drawer": {
+      "react-native": {
+        "types": "./dist/Drawer.native.d.ts",
+        "import": "./dist/Drawer.native.js",
+        "require": "./dist/Drawer.native.cjs",
+        "default": "./dist/Drawer.native.js"
+      },
+      "types": "./dist/Drawer.d.ts",
+      "import": "./dist/Drawer.js",
+      "require": "./dist/Drawer.cjs",
+      "default": "./dist/Drawer.js"
     }
   },
   "files": [
-    "src",
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -24,7 +102,7 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "echo 'todo: wire eslint'",
-    "build": "echo 'todo: wire tsup or tsc emit'",
+    "build": "tsup",
     "clean": "rm -rf dist .turbo *.tsbuildinfo"
   },
   "dependencies": {
@@ -38,6 +116,10 @@
     "react": ">=18"
   },
   "devDependencies": {
-    "typescript": "^5.6.0"
-  }
+    "typescript": "^5.6.0",
+    "tsup": "^8.5.1"
+  },
+  "type": "module",
+  "module": "./dist/index.js",
+  "sideEffects": false
 }

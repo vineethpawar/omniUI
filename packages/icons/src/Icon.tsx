@@ -45,7 +45,7 @@ function resolveColor(
   return color as string;
 }
 
-function renderElement(el: IconElement, key: number): JSX.Element {
+function renderElement(el: IconElement, key: number): React.ReactElement {
   switch (el.kind) {
     case "path":
       return <path key={key} d={el.d} fillRule={el.fillRule} clipRule={el.clipRule} />;
