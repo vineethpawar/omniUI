@@ -1,85 +1,106 @@
 ---
 title: Playground
-description: A live SaaS dashboard built end-to-end with @plyxui/*. Fork it, edit it, ship from it.
+description: A team-chat dashboard built end-to-end with @plyxui/*. Fork it on CodeSandbox, edit live, ship.
 order: 15
 ---
 
 The fastest way to see plyxui is to play with it. The playground is a
-one-page Vite app that wires every published package into a single
-SaaS-style dashboard. It runs on CodeSandbox in your browser; fork it
-and the changes are yours.
+self-contained Vite app — one `App.tsx`, no monorepo — that wires the
+published packages into a cream + peach + yellow chat dashboard with
+Montserrat typography. CodeSandbox installs the packages from npm
+when it boots; forks are yours.
 
 ## Open it
 
-[**Open in CodeSandbox →**](https://codesandbox.io/p/github/vineethpawar/plyxui/main?file=apps/playground/src/App.tsx)
+[**Open in CodeSandbox →**](https://codesandbox.io/p/github/vineethpawar/plyxui-demo/main?file=src/App.tsx)
 
-Or browse the source on GitHub: [apps/playground/](https://github.com/vineethpawar/plyxui/tree/main/apps/playground)
+Or browse the source on GitHub: [vineethpawar/plyxui-demo](https://github.com/vineethpawar/plyxui-demo)
 
 <iframe
-  src="https://codesandbox.io/embed/github/vineethpawar/plyxui/main?file=apps/playground/src/App.tsx&module=apps/playground/src/App.tsx&view=preview&hidenavigation=1"
+  src="https://codesandbox.io/embed/github/vineethpawar/plyxui-demo/main?file=src/App.tsx&module=src/App.tsx&view=preview&hidenavigation=1"
   style={{
     width: "100%",
-    height: 600,
+    height: 640,
     border: "1px solid var(--stroke)",
     borderRadius: 8,
     overflow: "hidden",
     marginTop: 24,
   }}
-  title="plyxui playground"
+  title="plyxui dashboard demo"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
 ## What's inside
 
-A SaaS dashboard with a sidebar, stat cards, a member-create form,
-and a comps showcase. Mobile drops the sidebar into a Drawer.
+A team-chat dashboard: sidebar with main menu + Quick Add card, top bar
+with title + date + search + theme toggle + avatar, then three columns —
+a messages list, an active chat thread, and a scheduler reminder rail.
+Mobile collapses the sidebar into a Drawer and drops the scheduler
+column below 1100&nbsp;px.
 
-The whole thing is one file: [src/App.tsx](https://github.com/vineethpawar/plyxui/blob/main/apps/playground/src/App.tsx). Around 270 lines, no
-config gymnastics, every import from `@plyxui/*`.
+The whole thing is one file: [src/App.tsx](https://github.com/vineethpawar/plyxui-demo/blob/main/src/App.tsx). Around 400 lines, every import from `@plyxui/*`.
 
 ### Packages it touches
 
 | Package | What it gives the demo |
 |---|---|
 | `@plyxui/styles` | `ThemeProvider` at the root, `useTheme` for tokens + light / dark toggle |
-| `@plyxui/hooks` | `useDisclosure` for the modal + mobile drawer, `useMediaQuery` for the 900px breakpoint, `useToast` + `ToastProvider` |
-| `@plyxui/layouts` | `AppShell` + `Sidebar` |
-| `@plyxui/primitives` | `Box`, `Text`, `Stack`, `Flex`, `Input`, `Button` |
-| `@plyxui/forms` | `Field`, `Select`, `Checkbox`, `Radio` + `RadioGroup` |
-| `@plyxui/comps` | `Modal`, `Tabs`, `Tooltip`, `Toaster`, `Drawer` |
+| `@plyxui/core` | `registerColorTokens` to register the brand palette (cream, peach, yellow, bubbleMine, …) |
+| `@plyxui/hooks` | `useDisclosure` for the mobile sidebar, `useMediaQuery` for breakpoints, `useToast` + `ToastProvider` |
+| `@plyxui/layouts` | `AppShell` for the sidebar / header / main slots |
+| `@plyxui/primitives` | `Box`, `Text`, `Stack`, `Flex`, `Input`, `Button`, `Image`, `Divider` |
+| `@plyxui/comps` | `Tooltip`, `Drawer` (for the mobile sidebar) |
 
-## How the responsive bit works
+## Brand extension instead of a fork
 
-The Sidebar lives in the `AppShell` slot on screens 900&nbsp;px and wider.
-Below that, the slot empties out and a hamburger appears in the header.
-Tapping it opens a `Drawer` with the same Sidebar inside.
+The cream / peach / yellow palette isn't built into plyxui — and it
+doesn't have to be. The demo registers a brand extension against
+plyxui's token table in [`src/main.tsx`](https://github.com/vineethpawar/plyxui-demo/blob/main/src/main.tsx):
 
-```tsx
-const isWide = useMediaQuery("(min-width: 900px)");
-const mobileNav = useDisclosure(false);
+```ts
+import { registerColorTokens } from "@plyxui/core";
 
-<AppShell
-  sidebar={isWide ? SidebarBlock : undefined}
-  header={<Header onMenuClick={mobileNav.open} showMenu={!isWide} />}
->
-  ...
-</AppShell>
-
-<Drawer open={mobileNav.isOpen} onClose={mobileNav.close} side="left" size={264}>
-  {SidebarBlock}
-</Drawer>
+registerColorTokens({
+  cream:        { light: "#FAF3EC", dark: "#161412" },
+  peach:        { light: "#F8C9C0", dark: "#5B3A35" },
+  yellow:       { light: "#F6E27A", dark: "#806F2C" },
+  bubbleMine:   { light: "#F6CBC1", dark: "#5B3A35" },
+  bubbleTheirs: { light: "#F2EBE3", dark: "#2A2522" },
+  // ...
+});
 ```
 
-One block of JSX, two surfaces. Same Sidebar component for both.
+Pair with a TS module augmentation in `src/tokens.d.ts` and your editor
+autocompletes `colors.peach`, `colors.yellow`, the lot. Same `useTheme()`
+hook, same `colors.X` access pattern — the only thing that changes is the
+brand.
+
+## Typography
+
+Montserrat ships preloaded via the Google Fonts `<link>` in
+[`index.html`](https://github.com/vineethpawar/plyxui-demo/blob/main/index.html):
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
+```
+
+A single `:root { font-family: "Montserrat", …; }` in the page style is
+enough — every plyxui component inherits `font-family` so the override
+takes effect everywhere with no per-component prop drilling.
 
 ## Run it locally
 
 ```bash
-git clone https://github.com/vineethpawar/plyxui
-cd plyxui
+git clone https://github.com/vineethpawar/plyxui-demo
+cd plyxui-demo
 npm install
-npm run dev -w plyxui-playground
+npm run dev
 # vite serves on http://localhost:5173
 ```
 
@@ -87,9 +108,9 @@ npm run dev -w plyxui-playground
 
 Things worth trying first:
 
-- Change the `primaryOrange` token in `@plyxui/core` to your brand color and watch every accent update at once.
-- Swap the `Select` in the form for a `Dropdown` from `@plyxui/comps`.
-- Replace the stat cards' static numbers with a fetch from any public API.
-- Wire the form's `Save member` to a real `POST` and surface the response via the toast.
+- Change `cream` to your own warm background in `main.tsx` and watch every surface follow.
+- Swap the message bubble shape — `borderTopLeftRadius` / `borderTopRightRadius` in `Bubble` — to match your house style.
+- Wire the chat input to a real transport. The `useToast` call is a placeholder.
+- Replace the scheduler illustrations with proper SVGs from your design system.
 
-If something you'd want isn't in the playground, [open an issue](https://github.com/vineethpawar/plyxui/issues/new) — chances are it's a doc gap, not a missing primitive.
+If something you'd want isn't in the playground, [open an issue](https://github.com/vineethpawar/plyxui-demo/issues/new) — chances are it's a doc gap, not a missing primitive.
