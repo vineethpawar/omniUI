@@ -38,7 +38,16 @@ export interface ThemeContextValue {
   refreshColors: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextValue | null>(null);
+// Pin the context to globalThis so duplicate copies of @plyxui/styles
+// (Snackager pre-bundles each plyxui package separately and inlines a
+// copy) all share one context instance. Otherwise a <Text> inside
+// @plyxui/primitives looks at a different ThemeContext than the one
+// the consumer's <ThemeProvider> writes to, and useTheme throws.
+const GLOBAL_KEY = "__plyxui_theme_context_v1__";
+type Global = typeof globalThis & { [GLOBAL_KEY]?: React.Context<ThemeContextValue | null> };
+const g = globalThis as Global;
+const ThemeContext: React.Context<ThemeContextValue | null> =
+  g[GLOBAL_KEY] ?? (g[GLOBAL_KEY] = createContext<ThemeContextValue | null>(null));
 
 function getInitialMode(): ThemeVariant {
   if (typeof window === "undefined") return "dark";

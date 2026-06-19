@@ -33,7 +33,12 @@ export interface ThemeContextValue {
   refreshColors: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextValue | null>(null);
+// Same globalThis dedup as the web variant — see index.tsx for the rationale.
+const GLOBAL_KEY = "__plyxui_theme_context_v1__";
+type Global = typeof globalThis & { [GLOBAL_KEY]?: React.Context<ThemeContextValue | null> };
+const g = globalThis as Global;
+const ThemeContext: React.Context<ThemeContextValue | null> =
+  g[GLOBAL_KEY] ?? (g[GLOBAL_KEY] = createContext<ThemeContextValue | null>(null));
 
 function fromColorScheme(scheme: ColorSchemeName): ThemeVariant {
   return scheme === "light" ? "light" : "dark";

@@ -43,20 +43,29 @@ export interface OmniColorTokens {
  * Default token table. The light + dark values here mirror what I've shipped
  * in BCI tooling for over a year; they survive both bright clinical rooms
  * and dim recording booths. Tweak liberally.
+ *
+ * Pinned to globalThis so duplicate bundled copies of @plyxui/core (Snackager
+ * inlines a copy per consumer package) share one mutable table — otherwise
+ * registerColorTokens() in user code wouldn't be visible to internals.
  */
-export const colorTokens: Record<keyof OmniColorTokens, ColorPair> = {
-  primaryFill:    { light: "#FBF6F3", dark: "#111111" },
-  surfaceFill:    { light: "#FFFFFF", dark: "#22201F" },
-  containerFill:  { light: "#F3E7E1", dark: "#191919" },
-  stroke:         { light: "#A7A4A2", dark: "#3A3735" },
-  text:           { light: "#010101", dark: "#FFFFFF" },
-  textMuted:      { light: "#6A6663", dark: "#A7A4A2" },
-  primaryOrange:  { light: "#FF5C00", dark: "#FF5C00" },
-  primaryAccent:  { light: "#5B54F0", dark: "#6366F1" },
-  statusSuccess:  { light: "#22A861", dark: "#299764" },
-  statusError:    { light: "#DC3545", dark: "#E05146" },
-  statusWarning:  { light: "#F0A500", dark: "#F2B143" },
-};
+const TOKENS_KEY = "__plyxui_color_tokens_v1__";
+type Global = typeof globalThis & { [TOKENS_KEY]?: Record<keyof OmniColorTokens, ColorPair> };
+const _g = globalThis as Global;
+
+export const colorTokens: Record<keyof OmniColorTokens, ColorPair> =
+  _g[TOKENS_KEY] ?? (_g[TOKENS_KEY] = {
+    primaryFill:    { light: "#FBF6F3", dark: "#111111" },
+    surfaceFill:    { light: "#FFFFFF", dark: "#22201F" },
+    containerFill:  { light: "#F3E7E1", dark: "#191919" },
+    stroke:         { light: "#A7A4A2", dark: "#3A3735" },
+    text:           { light: "#010101", dark: "#FFFFFF" },
+    textMuted:      { light: "#6A6663", dark: "#A7A4A2" },
+    primaryOrange:  { light: "#FF5C00", dark: "#FF5C00" },
+    primaryAccent:  { light: "#5B54F0", dark: "#6366F1" },
+    statusSuccess:  { light: "#22A861", dark: "#299764" },
+    statusError:    { light: "#DC3545", dark: "#E05146" },
+    statusWarning:  { light: "#F0A500", dark: "#F2B143" },
+  });
 
 /**
  * Resolve the active palette for a theme mode.

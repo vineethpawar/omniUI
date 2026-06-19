@@ -40,7 +40,16 @@ export interface ToastContextValue {
   clear: () => void;
 }
 
-const ToastContext = createContext<ToastContextValue | null>(null);
+// Pin the context to globalThis. When Snackager pre-bundles each plyxui
+// package, it can end up with multiple copies of @plyxui/hooks (one
+// inlined into @plyxui/comps, one in the consumer). Without this, the
+// Toaster's useToast() sees a different context than the consumer's
+// ToastProvider, and the hook throws.
+const GLOBAL_KEY = "__plyxui_toast_context_v1__";
+type Global = typeof globalThis & { [GLOBAL_KEY]?: React.Context<ToastContextValue | null> };
+const g = globalThis as Global;
+const ToastContext: React.Context<ToastContextValue | null> =
+  g[GLOBAL_KEY] ?? (g[GLOBAL_KEY] = createContext<ToastContextValue | null>(null));
 
 function uid(): string {
   return Math.random().toString(36).slice(2, 10);
