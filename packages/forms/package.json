@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/forms",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Form primitives: Field wrapper, Select, Checkbox, Radio. Composes on top of @plyxui/primitives.",
   "license": "MIT",
   "main": "./dist/index.cjs",
