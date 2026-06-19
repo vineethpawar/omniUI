@@ -10,7 +10,7 @@ export default function Setup() {
         {
           n: 1,
           title: "Install",
-          body: "Pick the layers you need. Foundation is three packages.",
+          body: "Pick the layers you need. Foundation is three packages. Eleven total ship pre-bundled with full TS intellisense.",
           code: "npm install @plyxui/core @plyxui/styles @plyxui/primitives",
         },
         {

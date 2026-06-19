@@ -73,16 +73,31 @@ column below 1100&nbsp;px.
 
 The whole thing is one file: [src/App.tsx](https://github.com/vineethpawar/plyxui-demo/blob/main/src/App.tsx). Around 400 lines, every import from `@plyxui/*`.
 
-### Packages it touches
+### Packages the web demo touches
 
 | Package | What it gives the demo |
 |---|---|
 | `@plyxui/styles` | `ThemeProvider` at the root, `useTheme` for tokens + light / dark toggle |
 | `@plyxui/core` | `registerColorTokens` to register the brand palette (cream, peach, yellow, bubbleMine, …) |
-| `@plyxui/hooks` | `useDisclosure` for the mobile sidebar, `useMediaQuery` for breakpoints, `useToast` + `ToastProvider` |
+| `@plyxui/hooks` | `useDisclosure` for the mobile sidebar + modal, `useMediaQuery` for the 900&nbsp;px breakpoint, `useToast` + `ToastProvider` |
 | `@plyxui/layouts` | `AppShell` for the sidebar / header / main slots |
-| `@plyxui/primitives` | `Box`, `Text`, `Stack`, `Flex`, `Input`, `Button`, `Image`, `Divider` |
-| `@plyxui/comps` | `Tooltip`, `Drawer` (for the mobile sidebar) |
+| `@plyxui/primitives` | `Box`, `Text`, `Stack`, `Flex`, `Input`, `Button`, `Image`, `Divider`, `Spinner` |
+| `@plyxui/forms` | `Field`, `Select`, `Checkbox`, `Radio` + `RadioGroup` |
+| `@plyxui/comps` | `Modal`, `Tabs`, `Tooltip`, `Toaster`, `Drawer` (for the mobile sidebar) |
+
+### Native demo
+
+The React Native version lives in [vineethpawar/plyxui-demo-native](https://github.com/vineethpawar/plyxui-demo-native).
+It's the same design language re-shaped for a phone — sidebar becomes a
+header, three columns becomes a Tabs swap between Chats and Scheduler.
+
+`App.tsx` is the entry — it wraps the tree in `<ThemeProvider>` and
+mounts `<DashboardScreen />` inside the provider, so every `useTheme()`
+call (in `Header`, `StatRow`, `ChatRow`, etc.) sits under the wrapper.
+The brand palette + spacing/radius/font-family scales are in
+[`src/theme.ts`](https://github.com/vineethpawar/plyxui-demo-native/blob/main/src/theme.ts)
+as plain TypeScript constants — no React context needed for design
+tokens, just direct imports.
 
 ## Brand extension instead of a fork
 

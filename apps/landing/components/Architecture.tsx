@@ -9,17 +9,20 @@ export default function Architecture() {
       <pre className="codeblock" style={{ marginBottom: 32 }}>
 {`plyxui/
 ├── apps/
-│   ├── playground-web/      sandbox with the live primitives
 │   ├── docs/                next.js + MDX docs site
 │   └── landing/             this site
 ├── packages/
-│   ├── core/                tokens, polymorphic types, hooks
-│   ├── theme/               ThemeProvider, useTheme (web + native)
-│   ├── primitives/          Box, Text, Stack, Flex, Input, Button
+│   ├── core/                tokens, polymorphic types
+│   ├── styles/              ThemeProvider, useTheme (web + native)
+│   ├── hooks/               useDisclosure, useToast, useMediaQuery, useClickOutside
+│   ├── primitives/          Box, Text, Stack, Flex, Input, Button, Image, Divider, Spinner
 │   ├── icons/               Icon component + augmentable registry
 │   ├── layouts/             AppShell, Sidebar, ScreenContainer
 │   ├── navigator/           router-agnostic adapter
-│   ├── comps/               Modal, Dropdown
+│   ├── forms/               Field, Select, Checkbox, Radio
+│   ├── comps/               Modal, Dropdown, Tooltip, Tabs, Toaster, Drawer
+│   ├── screens/             AuthLayout, EmptyState, ErrorScreen
+│   ├── plugins/             CommandPalette (heavyweight opt-in)
 │   └── mcp/                 first-party MCP server
 ├── turbo.json
 └── tsconfig.base.json`}

@@ -11,12 +11,12 @@ export default function HowItWorks() {
           {
             n: "01",
             title: "Foundation",
-            body: "@plyxui/core, @plyxui/styles, @plyxui/primitives. Tokens, theming, Box, Text, Stack, Flex, Input, Button. Cross-platform.",
+            body: "@plyxui/core, @plyxui/styles, @plyxui/primitives. Tokens, theming, the 9 primitives (Box, Text, Stack, Flex, Input, Button, Image, Divider, Spinner). Cross-platform.",
           },
           {
             n: "02",
             title: "Polish",
-            body: "@plyxui/icons, @plyxui/comps, @plyxui/layouts. The icon registry, Modal, Dropdown, AppShell, Sidebar, ScreenContainer.",
+            body: "@plyxui/icons, @plyxui/layouts, @plyxui/forms, @plyxui/comps. Icon registry, AppShell + Sidebar, Field + Select + Checkbox + Radio, Modal + Dropdown + Tooltip + Tabs + Toaster + Drawer.",
           },
           {
             n: "03",

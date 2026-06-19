@@ -6,7 +6,7 @@ order: 10
 
 ## Pick the bits you need
 
-plyxui is published as eight small packages. Pull only what you need; nothing else gets installed.
+plyxui is published as eleven small packages plus one CLI. Pull only what you need; nothing else gets installed.
 
 ```bash
 # The minimum useful set
@@ -15,20 +15,25 @@ npm install @plyxui/core @plyxui/styles @plyxui/primitives
 
 | Package | Install when | Dev dep? |
 |---|---|---|
-| `@plyxui/core` | Always (tokens, types, hooks). The other packages depend on it. | runtime |
-| `@plyxui/styles` | Always (ThemeProvider + useTheme). Wraps your app once. | runtime |
-| `@plyxui/primitives` | You need Box, Text, Stack, Flex, Input, Button. | runtime |
-| `@plyxui/icons` | You need an Icon component + registry. | runtime |
-| `@plyxui/layouts` | You want AppShell, Sidebar, ScreenContainer. | runtime |
-| `@plyxui/navigator` | You want defineRoutes + a web/native adapter. | runtime |
-| `@plyxui/comps` | You want Modal, Dropdown (Tooltip + Tabs coming). | runtime |
+| `@plyxui/core` | Always (tokens, types, hooks). Other packages depend on it. | runtime |
+| `@plyxui/styles` | Always (`ThemeProvider` + `useTheme`). Wraps your app once. | runtime |
+| `@plyxui/primitives` | You need `Box`, `Text`, `Stack`, `Flex`, `Input`, `Button`, `Image`, `Divider`, `Spinner`. | runtime |
+| `@plyxui/hooks` | You need `useDisclosure`, `useClickOutside`, `useMediaQuery`, `useToast` + `ToastProvider`. | runtime |
+| `@plyxui/icons` | You need an `Icon` component + registry. | runtime |
+| `@plyxui/layouts` | You want `AppShell`, `Sidebar`, `ScreenContainer`. | runtime |
+| `@plyxui/navigator` | You want `defineRoutes` + a web/native adapter. | runtime |
+| `@plyxui/forms` | You want `Field`, `Select`, `Checkbox`, `Radio`. | runtime |
+| `@plyxui/comps` | You want `Modal`, `Dropdown`, `Tooltip`, `Tabs`, `Toaster`, `Drawer`. | runtime |
+| `@plyxui/screens` | You want drop-in scaffolds: `AuthLayout`, `EmptyState`, `ErrorScreen`. | runtime |
+| `@plyxui/plugins` | You want heavyweight opt-ins like `CommandPalette`. | runtime |
 | `@plyxui/mcp` | You want coding agents to install components by name. | tooling |
 
 A single line for the lot:
 
 ```bash
-npm install @plyxui/core @plyxui/styles @plyxui/primitives @plyxui/icons \
-  @plyxui/layouts @plyxui/navigator @plyxui/comps
+npm install @plyxui/core @plyxui/styles @plyxui/primitives @plyxui/hooks \
+  @plyxui/icons @plyxui/layouts @plyxui/navigator @plyxui/forms \
+  @plyxui/comps @plyxui/screens @plyxui/plugins
 ```
 
 `@plyxui/mcp` is a CLI you install once and run as an MCP server, not a runtime import:
@@ -36,6 +41,16 @@ npm install @plyxui/core @plyxui/styles @plyxui/primitives @plyxui/icons \
 ```bash
 npm install --save-dev @plyxui/mcp
 ```
+
+## Pre-bundled, autocomplete-friendly
+
+Every package ships pre-bundled `dist/*.{js,cjs,d.ts,d.cts}` (built with
+tsup). Two things this gets you for free:
+
+- **Any bundler works.** Vite, Next, Webpack, Metro, Rollup, plain Node — none of them have to TS-compile from `node_modules`. No special config required.
+- **Full intellisense.** Hover any prop in VS Code and the JSDoc is right there. Same experience you'd get from Mantine or Radix.
+
+Native packages ship a `react-native` condition in the exports field — Metro picks `.native.tsx` builds automatically, no fork in your codebase.
 
 ## Wrap your app in ThemeProvider
 
@@ -51,7 +66,7 @@ export default function App() {
 }
 ```
 
-That's it. The provider sets CSS custom properties on `documentElement`, persists the active mode to `localStorage`, and follows the OS preference until the user explicitly toggles.
+The provider sets CSS custom properties on `documentElement`, persists the active mode to `localStorage`, and follows the OS preference until the user explicitly toggles.
 
 ## Use a primitive
 
@@ -70,8 +85,23 @@ export function Hello() {
 }
 ```
 
+## Brand your own palette
+
+```tsx
+import { registerColorTokens } from "@plyxui/core";
+
+registerColorTokens({
+  brandTeal: { light: "#0CB7B7", dark: "#1FF0F0" },
+});
+```
+
+The token table lives on `globalThis` so duplicate-bundled copies of the
+package (Snackager, certain Webpack configs) all share the same source
+of truth. Pair with a TypeScript module augmentation if you want
+`colors.brandTeal` to autocomplete inside `useTheme()`.
+
 ## What's next
 
-- [ThemeProvider](/styles/provider/) covers extending tokens, runtime registration, and the Electron title-bar bridge.
-- [Box](/primitives/box/) is the polymorphic primitive every other comp builds on.
-- [Icons](/icons/icon/) explains the registry pattern and how to bring your own SVGs.
+- [Playground](/docs/getting-started/playground/) — a live dashboard demo running both web and React Native, source on GitHub.
+- [Ladder](/docs/getting-started/ladder/) — the package dependency tree, top to bottom.
+- [Box](/docs/primitives/box/) — the polymorphic primitive every other component builds on.
