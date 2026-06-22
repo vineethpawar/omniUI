@@ -57,7 +57,7 @@ export default function Hero() {
 
       <div
         style={{
-          maxWidth: 920,
+          maxWidth: 1080,
           margin: "56px auto 0",
           padding: "0 24px",
           position: "relative",
@@ -86,29 +86,76 @@ export default function Hero() {
             <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#FF5F57" }} />
             <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#FEBC2E" }} />
             <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#28C840" }} />
-            <span style={{ marginLeft: 12, color: "var(--muted)", fontSize: 12, fontFamily: "var(--font-mono)" }}>
-              app.tsx
+            <span
+              style={{
+                marginLeft: 12,
+                color: "var(--muted)",
+                fontSize: 12,
+                fontFamily: "var(--font-mono)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <span
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  background: "#28C840",
+                  boxShadow: "0 0 0 3px rgba(40,200,64,0.18)",
+                }}
+                aria-hidden
+              />
+              live · plyxui dashboard demo
             </span>
+            <a
+              href="https://stackblitz.com/github/vineethpawar/plyxui-demo"
+              target="_blank"
+              rel="noopener"
+              style={{
+                marginLeft: "auto",
+                color: "var(--muted)",
+                fontSize: 12,
+                fontFamily: "var(--font-mono)",
+                textDecoration: "none",
+              }}
+            >
+              Open in StackBlitz →
+            </a>
           </div>
-          <pre className="codeblock" style={{ borderRadius: 0, border: "none", margin: 0, padding: "20px 24px" }}>
-{`import { ThemeProvider } from "@plyxui/styles";
-import { Box, Text, Button } from "@plyxui/primitives";
-import { Icon } from "@plyxui/icons";
-
-export default function App() {
-  return (
-    <ThemeProvider>
-      <Box surface="primary" padding="lg">
-        <Text size="2xl" weight="bold">Hello.</Text>
-        <Button iconLeading={<Icon name="plus" />}>
-          New session
-        </Button>
-      </Box>
-    </ThemeProvider>
-  );
-}`}
-          </pre>
+          <div style={{ position: "relative", paddingTop: "62%", background: "var(--bg)" }}>
+            {/* Live, interactive dashboard built with @plyxui/*. WebContainer
+                boots npm install + vite dev in the browser; what visitors see
+                here IS the package, not a screenshot. ~12-15s cold boot the
+                first time. */}
+            <iframe
+              src="https://stackblitz.com/github/vineethpawar/plyxui-demo?embed=1&file=src/App.tsx&hideNavigation=1&theme=light&view=preview&ctl=0"
+              title="plyxui dashboard demo"
+              loading="lazy"
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                border: 0,
+              }}
+              allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+              sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            />
+          </div>
         </div>
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: 14,
+            fontSize: 13,
+            color: "var(--muted)",
+          }}
+        >
+          What you're seeing is the live StackBlitz boot of <a href="https://github.com/vineethpawar/plyxui-demo" target="_blank" rel="noopener">plyxui-demo</a> —
+          one Vite app, no monorepo, every component from <code>@plyxui/*</code>. Native sibling on <a href="https://snack.expo.dev/rxtGc5Lls8OUbbmv2_RhK" target="_blank" rel="noopener">Expo Snack</a>.
+        </p>
       </div>
     </section>
   );
