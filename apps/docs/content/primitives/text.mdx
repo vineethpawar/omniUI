@@ -6,6 +6,26 @@ order: 20
 
 `Text` is plyxui's typography primitive. Sized via a small enum (`xs` to `3xl`), weighted via four named weights, color resolved against the theme, polymorphic on the element via the `as` prop on web.
 
+## Try it live
+
+<LivePreview code={`
+import { Text, Stack, Box } from "@plyxui/primitives";
+
+export default function App() {
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Stack direction="vertical" gap={2}>
+        <Text size="3xl" weight="bold">Display</Text>
+        <Text size="xl" weight="semibold">Heading</Text>
+        <Text size="md">Body copy lives at the default size.</Text>
+        <Text size="sm" style={{ opacity: 0.7 }}>Muted caption</Text>
+        <Text size="xs" weight="medium">XS metadata</Text>
+      </Stack>
+    </Box>
+  );
+}
+`} height={260} />
+
 ## API
 
 ```tsx

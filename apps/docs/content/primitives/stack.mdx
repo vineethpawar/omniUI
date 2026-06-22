@@ -6,6 +6,31 @@ order: 30
 
 `Stack` is a flex container whose `gap` resolves against the spacing scale (4px steps). The default direction is column; pair with `Flex` for row-by-default.
 
+## Try it live
+
+<LivePreview code={`
+import { Stack, Box, Text } from "@plyxui/primitives";
+
+export default function App() {
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Text size="sm" weight="semibold" style={{ marginBottom: 12 }}>direction=vertical, gap=3</Text>
+      <Stack direction="vertical" gap={3} style={{ marginBottom: 32 }}>
+        <Box surface="raised" padding="md" radius="md"><Text>One</Text></Box>
+        <Box surface="raised" padding="md" radius="md"><Text>Two</Text></Box>
+        <Box surface="raised" padding="md" radius="md"><Text>Three</Text></Box>
+      </Stack>
+      <Text size="sm" weight="semibold" style={{ marginBottom: 12 }}>direction=horizontal, justify=between</Text>
+      <Stack direction="horizontal" gap={2} justify="between">
+        <Box surface="raised" padding="md" radius="md"><Text>Left</Text></Box>
+        <Box surface="raised" padding="md" radius="md"><Text>Mid</Text></Box>
+        <Box surface="raised" padding="md" radius="md"><Text>Right</Text></Box>
+      </Stack>
+    </Box>
+  );
+}
+`} height={320} />
+
 ## API
 
 ```tsx

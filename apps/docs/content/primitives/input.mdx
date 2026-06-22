@@ -6,6 +6,28 @@ order: 50
 
 `Input` is the text input primitive. Controlled or uncontrolled, three sizes, optional leading + trailing slots for icons / clear buttons / unit labels.
 
+## Try it live
+
+<LivePreview code={`
+import { useState } from "react";
+import { Input, Box, Stack, Text } from "@plyxui/primitives";
+
+export default function App() {
+  const [email, setEmail] = useState("");
+  const invalid = email.length > 0 && !email.includes("@");
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Stack direction="vertical" gap={3} style={{ maxWidth: 360 }}>
+        <Input size="sm" placeholder="Small" />
+        <Input size="md" value={email} onChange={setEmail} placeholder="you@example.com" invalid={invalid} />
+        {invalid ? <Text size="xs" style={{ color: "crimson" }}>Must include @</Text> : null}
+        <Input size="lg" placeholder="Large" />
+      </Stack>
+    </Box>
+  );
+}
+`} height={300} />
+
 ## API
 
 ```tsx

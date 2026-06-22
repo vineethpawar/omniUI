@@ -6,6 +6,27 @@ order: 40
 
 `Flex` is `Stack` with `direction="row"` baked in. Every other prop matches.
 
+## Try it live
+
+<LivePreview code={`
+import { Flex, Box, Text, Button } from "@plyxui/primitives";
+
+export default function App() {
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Flex align="center" justify="between" gap={3}
+            style={{ background: "rgba(0,0,0,0.04)", padding: 12, borderRadius: 8 }}>
+        <Text size="md" weight="semibold">Header</Text>
+        <Flex align="center" gap={2}>
+          <Button variant="ghost" size="sm">Cancel</Button>
+          <Button variant="primary" size="sm">Save</Button>
+        </Flex>
+      </Flex>
+    </Box>
+  );
+}
+`} height={220} />
+
 ```tsx
 <Flex gap={3} align="center">
   <Icon name="bell" />

@@ -7,6 +7,31 @@ order: 10
 `Tooltip` wraps a single trigger element. The label appears on hover or focus
 after a short delay, dismisses on mouse leave, blur, or Escape.
 
+## Try it live
+
+<LivePreview code={`
+import { Tooltip } from "@plyxui/comps";
+import { Box, Button, Stack } from "@plyxui/primitives";
+
+export default function App() {
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Stack direction="horizontal" gap={3}>
+        <Tooltip label="Saves your draft" side="top">
+          <Button variant="primary">Hover me (top)</Button>
+        </Tooltip>
+        <Tooltip label="Shortcut: ⌘S" side="bottom">
+          <Button variant="ghost">Bottom</Button>
+        </Tooltip>
+        <Tooltip label="Right side, longer delay" side="right" delay={500}>
+          <Button variant="ghost">Right</Button>
+        </Tooltip>
+      </Stack>
+    </Box>
+  );
+}
+`} height={220} />
+
 ## API
 
 ```tsx

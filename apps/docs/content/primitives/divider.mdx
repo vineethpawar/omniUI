@@ -8,6 +8,28 @@ order: 65
 when the design system's stroke color changes, plus an inline-label
 mode for the OR-style splitter pattern.
 
+## Try it live
+
+<LivePreview code={`
+import { Divider, Box, Text, Stack } from "@plyxui/primitives";
+
+export default function App() {
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Stack direction="vertical" gap={4} style={{ maxWidth: 360 }}>
+        <Text>Above the line</Text>
+        <Divider />
+        <Text>Below the line</Text>
+        <Divider label="OR" />
+        <Text>After the OR splitter</Text>
+        <Divider style="dashed" />
+        <Text>After a dashed divider</Text>
+      </Stack>
+    </Box>
+  );
+}
+`} height={280} />
+
 ## API
 
 ```tsx

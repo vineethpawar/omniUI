@@ -8,6 +8,34 @@ order: 40
 `open` / `onClose` shape, same backdrop and Escape behavior, but the panel
 sits flush against an edge instead of centering.
 
+## Try it live
+
+<LivePreview code={`
+import { useState } from "react";
+import { Drawer } from "@plyxui/comps";
+import { Box, Button, Text, Stack } from "@plyxui/primitives";
+
+export default function App() {
+  const [open, setOpen] = useState(false);
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Button onClick={() => setOpen(true)}>Open drawer</Button>
+      <Drawer
+        open={open}
+        onClose={() => setOpen(false)}
+        side="right"
+        title="Settings"
+        footer={<Button variant="primary" onClick={() => setOpen(false)}>Done</Button>}
+      >
+        <Stack direction="vertical" gap={3}>
+          <Text size="sm">Edit any prop on the left. Try side="left" or side="bottom".</Text>
+        </Stack>
+      </Drawer>
+    </Box>
+  );
+}
+`} height={300} />
+
 ## API
 
 ```tsx

@@ -7,6 +7,26 @@ order: 70
 `Spinner` is an indeterminate loading indicator. Five sizes, theme-colored
 by default, accessible by default.
 
+## Try it live
+
+<LivePreview code={`
+import { Spinner, Box, Stack, Text } from "@plyxui/primitives";
+
+export default function App() {
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Stack direction="horizontal" gap={4} align="center">
+        <Stack direction="vertical" gap={1} align="center"><Spinner size="xs" /><Text size="xs">xs</Text></Stack>
+        <Stack direction="vertical" gap={1} align="center"><Spinner size="sm" /><Text size="xs">sm</Text></Stack>
+        <Stack direction="vertical" gap={1} align="center"><Spinner size="md" /><Text size="xs">md</Text></Stack>
+        <Stack direction="vertical" gap={1} align="center"><Spinner size="lg" /><Text size="xs">lg</Text></Stack>
+        <Stack direction="vertical" gap={1} align="center"><Spinner size="xl" /><Text size="xs">xl</Text></Stack>
+      </Stack>
+    </Box>
+  );
+}
+`} height={240} />
+
 ## API
 
 ```tsx

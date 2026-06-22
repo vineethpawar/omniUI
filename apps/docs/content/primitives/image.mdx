@@ -11,6 +11,35 @@ quality-of-life things that come up every time you reach for `<img>`:
 - a `radius` prop that takes the design tokens (or a raw pixel),
 - a `fallback` slot rendered when the URL 404s.
 
+## Try it live
+
+<LivePreview code={`
+import { Image, Box, Stack } from "@plyxui/primitives";
+
+export default function App() {
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Stack direction="horizontal" gap={4}>
+        <Image src="https://i.pravatar.cc/96?img=14" alt="Avatar" width={64} height={64} radius="pill" />
+        <Image src="https://picsum.photos/seed/plyxui/240/180" alt="Cover" width={240} height={180} radius="lg" fit="cover" />
+        <Image
+          src="https://broken.example/404.jpg"
+          alt="Fallback demo"
+          width={64}
+          height={64}
+          radius="pill"
+          fallback={
+            <div style={{ width: "100%", height: "100%", background: "#FF5C00", color: "#fff", display: "grid", placeItems: "center", fontWeight: 700 }}>
+              VP
+            </div>
+          }
+        />
+      </Stack>
+    </Box>
+  );
+}
+`} height={280} />
+
 ## API
 
 ```tsx
