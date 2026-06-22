@@ -45,12 +45,21 @@ npm install --save-dev @plyxui/mcp
 ## Pre-bundled, autocomplete-friendly
 
 Every package ships pre-bundled `dist/*.{js,cjs,d.ts,d.cts}` (built with
-tsup). Two things this gets you for free:
+tsup). Three things this gets you for free:
 
 - **Any bundler works.** Vite, Next, Webpack, Metro, Rollup, plain Node — none of them have to TS-compile from `node_modules`. No special config required.
 - **Full intellisense.** Hover any prop in VS Code and the JSDoc is right there. Same experience you'd get from Mantine or Radix.
+- **Live previews in the docs.** Every component page on plyxui.com opens with an editable Sandpack — change a prop, see the result, fork the sandbox.
 
 Native packages ship a `react-native` condition in the exports field — Metro picks `.native.tsx` builds automatically, no fork in your codebase.
+
+## Agent-friendly via MCP
+
+```bash
+npx -y @plyxui/mcp
+```
+
+Drop that command into Claude Desktop, Cursor, Cline, or Continue's `mcpServers` config and the agent can `list`, `search`, `get`, `lint`, and `install` plyxui components by name. The full tool list is at [`plyxui.com/llms.txt`](/llms.txt).
 
 ## Wrap your app in ThemeProvider
 

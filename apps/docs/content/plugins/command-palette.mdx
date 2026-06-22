@@ -6,6 +6,39 @@ order: 10
 
 `@plyxui/plugins/command-palette` exports `CommandPalette` — a keyboard-driven launcher you can wire to any action set.
 
+## Try it live
+
+<LivePreview code={`
+import { useEffect, useState } from "react";
+import { CommandPalette } from "@plyxui/plugins";
+import { Box, Button, Text } from "@plyxui/primitives";
+
+export default function App() {
+  const [open, setOpen] = useState(false);
+  const [last, setLast] = useState("");
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") { e.preventDefault(); setOpen((v) => !v); }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+  const items = [
+    { id: "new-doc",   label: "New document",   onSelect: () => setLast("New document") },
+    { id: "open",      label: "Open file…",     onSelect: () => setLast("Open file") },
+    { id: "settings",  label: "Settings",       onSelect: () => setLast("Settings") },
+    { id: "logout",    label: "Sign out",       onSelect: () => setLast("Sign out") },
+  ];
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Button onClick={() => setOpen(true)}>Open palette (or press ⌘K)</Button>
+      <Text size="sm" style={{ marginTop: 12, opacity: 0.7 }}>Last action: {last || "(none yet)"}</Text>
+      <CommandPalette open={open} onClose={() => setOpen(false)} items={items} placeholder="Search commands…" />
+    </Box>
+  );
+}
+`} height={320} />
+
 ## Install
 
 ```bash

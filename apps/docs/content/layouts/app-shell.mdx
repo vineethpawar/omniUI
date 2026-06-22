@@ -6,6 +6,44 @@ order: 10
 
 AppShell is the chrome you wrap your routed views in. It doesn't take a router opinion, so you can use any navigator under it.
 
+## Try it live
+
+<LivePreview code={`
+import { useState } from "react";
+import { AppShell, Sidebar } from "@plyxui/layouts";
+import { Box, Text, Flex } from "@plyxui/primitives";
+
+const ITEMS = [
+  { key: "home",    label: "Home",    icon: "home" },
+  { key: "members", label: "Members", icon: "users" },
+  { key: "reports", label: "Reports", icon: "file-text" },
+  { key: "settings",label: "Settings",icon: "settings" },
+];
+
+export default function App() {
+  const [active, setActive] = useState("home");
+  const items = ITEMS.map((it) => ({ ...it, active: it.key === active, onSelect: () => setActive(it.key) }));
+  return (
+    <AppShell
+      sidebar={<Sidebar items={items} header={<Text size="sm" weight="semibold" style={{ padding: 8 }}>plyxui demo</Text>} />}
+      header={
+        <Flex align="center" justify="between" style={{ height: 56, padding: "0 20px" }}>
+          <Text size="md" weight="semibold">{ITEMS.find(i => i.key === active)?.label}</Text>
+          <Text size="sm" style={{ opacity: 0.6 }}>plyxui.com</Text>
+        </Flex>
+      }
+    >
+      <Box padding="lg">
+        <Text size="lg" weight="semibold">{active} content</Text>
+        <Text size="sm" style={{ marginTop: 8, opacity: 0.7 }}>Click any sidebar item to switch.</Text>
+      </Box>
+    </AppShell>
+  );
+}
+`} height={380} />
+
+## API
+
 ```tsx
 import { AppShell, Sidebar } from "@plyxui/layouts";
 
