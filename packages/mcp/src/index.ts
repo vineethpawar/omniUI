@@ -1,2 +1,3 @@
-export * from "./tools";
-export * from "./server";
+export * from "./tools.js";
+export * from "./server.js";
+export * from "./registry.js";

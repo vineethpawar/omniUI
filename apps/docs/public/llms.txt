@@ -1,0 +1,98 @@
+# plyxui
+
+> Cross-platform component library for React + React Native. Same source
+> tree for both via .ts and .native.ts splits. Brand tokens are typed.
+> First-party MCP server lets coding agents install components by name.
+
+plyxui ships eleven npm packages plus a CLI. Every package emits
+pre-bundled dist/*.{js,cjs,d.ts} so any bundler picks it up without
+TS-compiling node_modules.
+
+## Install (one consumer line)
+
+```bash
+npm install @plyxui/core @plyxui/styles @plyxui/primitives
+```
+
+## Use the MCP server
+
+```bash
+npx -y @plyxui/mcp
+```
+
+Or wire it into your AI coding agent's stdio MCP config. Example for
+Claude Desktop (~/Library/Application Support/Claude/claude_desktop_config.json):
+
+```jsonc
+{
+  "mcpServers": {
+    "plyxui": {
+      "command": "npx",
+      "args": ["-y", "@plyxui/mcp"]
+    }
+  }
+}
+```
+
+Tools the server exposes:
+- plyxui_list_components — every component, optionally by category
+- plyxui_get_component — full prop table + examples + tokens used
+- plyxui_search — free-text query over names + descriptions
+- plyxui_suggest — natural-language to component shortlist
+- plyxui_install — returns the npm install + import lines for a name
+- plyxui_get_tokens — active design tokens for light or dark
+- plyxui_lint — static checks on a snippet (no hex, theme imports, scope)
+- plyxui_examples — runnable code samples per component
+
+## Packages
+
+| Package | Surface |
+|---|---|
+| @plyxui/core | Design tokens, polymorphic types, hooks. Base of everything. |
+| @plyxui/styles | ThemeProvider + useTheme. Wraps your app once. |
+| @plyxui/hooks | useDisclosure, useClickOutside, useMediaQuery, useToast + ToastProvider |
+| @plyxui/primitives | Box, Text, Stack, Flex, Input, Button, Image, Divider, Spinner |
+| @plyxui/icons | Icon component + augmentable name registry |
+| @plyxui/layouts | AppShell, Sidebar, ScreenContainer |
+| @plyxui/navigator | defineRoutes + web/native adapter |
+| @plyxui/forms | Field, Select, Checkbox, Radio + RadioGroup |
+| @plyxui/comps | Modal, Dropdown, Tooltip, Tabs, Toaster, Drawer |
+| @plyxui/screens | AuthLayout, EmptyState, ErrorScreen |
+| @plyxui/plugins | CommandPalette (Cmd+K launcher) |
+| @plyxui/mcp | This MCP server |
+
+## Documentation
+
+- Install + first steps: https://plyxui.com/docs/getting-started/install/
+- Playground (web + native, live): https://plyxui.com/docs/getting-started/playground/
+- Ladder (dependency tree): https://plyxui.com/docs/getting-started/ladder/
+- Primitives: https://plyxui.com/docs/primitives/box/
+- Components: https://plyxui.com/docs/comps/modal/
+- GitHub: https://github.com/vineethpawar/plyxui
+- npm org: https://npmjs.com/org/plyxui
+
+## Quickstart
+
+```tsx
+import { ThemeProvider } from "@plyxui/styles";
+import { Box, Text, Button } from "@plyxui/primitives";
+import { useTheme } from "@plyxui/styles";
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <Home />
+    </ThemeProvider>
+  );
+}
+
+function Home() {
+  const { colors, toggleTheme } = useTheme();
+  return (
+    <Box surface="primary" padding="lg" radius="lg">
+      <Text size="xl" weight="bold">Hello.</Text>
+      <Button onClick={toggleTheme}>Flip theme</Button>
+    </Box>
+  );
+}
+```

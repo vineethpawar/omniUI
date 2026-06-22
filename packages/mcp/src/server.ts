@@ -1,9 +1,10 @@
 /**
- * MCP server skeleton.
- *
- * Implementations are placeholders. Week 2 wires this to the real
- * `@modelcontextprotocol/sdk` server and ships the registry + lint engine.
+ * MCP server implementation. Each handler reads from the registry; no
+ * stubs, no "TODO" branches. The transport is wired in `bin.ts` so
+ * this module stays test-friendly — call handlers directly with input
+ * objects without spinning up stdio.
  */
+import { COMPONENTS, findComponent, searchComponents, summarize } from "./registry";
 import { TOOL_DESCRIPTIONS, type OmniMcpToolName, type OmniMcpTools } from "./tools";
 
 export type ToolHandlers = {
@@ -11,81 +12,113 @@ export type ToolHandlers = {
 };
 
 export const handlers: ToolHandlers = {
-  async plyxui_list_components() {
-    return [
-      {
-        name: "Box",
-        category: "primitives",
-        description: "Polymorphic layout primitive.",
-        platforms: ["web", "native"],
-      },
-    ];
+  async plyxui_list_components({ category }) {
+    return COMPONENTS
+      .filter((entry) => !category || entry.category === category)
+      .map(summarize);
   },
 
   async plyxui_get_component({ name }) {
-    if (name !== "Box") {
-      throw new Error(`Unknown component: ${name}`);
+    const entry = findComponent(name);
+    if (!entry) {
+      throw new Error(
+        `Unknown component: ${name}. Use plyxui_list_components to see what's available.`,
+      );
+    }
+    // Drop pkg/importPath from the wire response — they belong to the
+    // install tool, not the documentation shape.
+    const { pkg: _pkg, importPath: _ip, ...detail } = entry;
+    void _pkg; void _ip;
+    return detail;
+  },
+
+  async plyxui_search({ query, limit }) {
+    return searchComponents(query, limit ?? 10).map(summarize);
+  },
+
+  async plyxui_suggest({ description, platform }) {
+    // Same scoring as search, with an extra filter for platform mismatch.
+    const matches = searchComponents(description, 20);
+    const filtered = platform
+      ? matches.filter((m) => m.platforms.includes(platform))
+      : matches;
+    return filtered.slice(0, 5).map(summarize);
+  },
+
+  async plyxui_install({ name }) {
+    // plyxui packages ship pre-bundled dist — consumers npm-install the
+    // package and import. This tool returns the install command + import
+    // line for the agent to execute in the user's project.
+    const entry = findComponent(name);
+    if (!entry) {
+      throw new Error(`Unknown component: ${name}.`);
     }
     return {
-      name: "Box",
-      category: "primitives",
-      description: "Polymorphic layout primitive. Web uses HTML element via `as`, native uses View.",
-      platforms: ["web", "native"],
-      props: [
-        { name: "as", type: "ElementType", required: false, description: "HTML element to render (web only)." },
-        { name: "surface", type: '"none" | "primary" | "raised" | "sunken"', required: false },
-        { name: "padding", type: '"none" | "sm" | "md" | "lg"', required: false },
-        { name: "radius", type: '"none" | "sm" | "md" | "lg" | "pill"', required: false },
+      installed: [entry.pkg],
+      skipped: [],
+      modifiedFiles: [
+        // The agent runs these as commands / inserts these snippets;
+        // we don't touch the user's filesystem from here.
+        `RUN: npm install ${entry.pkg}`,
+        `IMPORT: import { ${entry.name} } from "${entry.importPath}";`,
       ],
-      examples: [
-        {
-          title: "Basic",
-          code: '<Box surface="raised" padding="md">Hello</Box>',
-        },
-      ],
-      source: "packages/primitives/src/box/index.tsx",
-      tokens: ["primaryFill", "surfaceFill", "containerFill"],
     };
   },
 
-  async plyxui_search({ query }) {
-    const q = query.toLowerCase();
-    if ("box layout container surface".includes(q)) {
-      return [
-        {
-          name: "Box",
-          category: "primitives",
-          description: "Polymorphic layout primitive.",
-          platforms: ["web", "native"],
-        },
-      ];
-    }
-    return [];
-  },
-
-  async plyxui_suggest() {
-    // TODO: replace with embeddings + simple BM25 fallback once we have more comps.
-    return [];
-  },
-
-  async plyxui_install() {
-    // TODO: real install runs a registry fetch + writes files. Hooked up in week 2.
-    return { installed: [], skipped: [], modifiedFiles: [] };
-  },
-
-  async plyxui_get_tokens({ theme = "dark" }) {
+  async plyxui_get_tokens({ theme }) {
+    // Resolve via @plyxui/core so brand augmentations registered at runtime
+    // come through too. Defaults to dark to match ThemeProvider's default.
     const { resolveColors } = await import("@plyxui/core");
-    return resolveColors(theme);
+    return resolveColors(theme ?? "dark");
   },
 
-  async plyxui_lint() {
-    // TODO: AST-based rules. Stub returns clean.
-    return [];
+  async plyxui_lint({ code }) {
+    // Static checks — fast, no AST, just regexes that catch the
+    // mistakes I've seen most in shipped apps. Real AST rules can
+    // replace these without changing the wire shape.
+    const diagnostics: OmniMcpTools["plyxui_lint"]["output"] = [];
+
+    // Hardcoded hex inside JSX style props
+    const hex = /style\s*=\s*\{[^}]*#[0-9a-fA-F]{3,8}/g;
+    if (hex.test(code)) {
+      diagnostics.push({
+        rule: "no-hardcoded-colors",
+        severity: "warn",
+        message:
+          "Hardcoded hex color in a style prop. Use useTheme().colors.<token> so light/dark switches work.",
+        suggestion: "const { colors } = useTheme(); style={{ color: colors.text }}",
+      });
+    }
+
+    // useTheme called but @plyxui/styles not imported
+    if (/useTheme\(\)/.test(code) && !/from\s+["']@plyxui\/styles["']/.test(code)) {
+      diagnostics.push({
+        rule: "missing-theme-import",
+        severity: "error",
+        message: "useTheme() called without importing it from @plyxui/styles.",
+        suggestion: 'import { useTheme } from "@plyxui/styles";',
+      });
+    }
+
+    // Old import path from pre-rebrand
+    const oldImport = /from\s+["']@omniui\//.exec(code);
+    if (oldImport) {
+      diagnostics.push({
+        rule: "deprecated-scope",
+        severity: "error",
+        message:
+          "@omniui/* is the old scope. Use @plyxui/* — same packages, rebranded.",
+        suggestion: oldImport[0].replace("@omniui/", "@plyxui/"),
+      });
+    }
+
+    return diagnostics;
   },
 
   async plyxui_examples({ name }) {
-    const detail = await handlers.plyxui_get_component({ name });
-    return detail.examples;
+    const entry = findComponent(name);
+    if (!entry) throw new Error(`Unknown component: ${name}.`);
+    return entry.examples;
   },
 };
 
