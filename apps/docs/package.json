@@ -11,16 +11,17 @@
     "clean": "rm -rf .next out .turbo"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
+    "@plyxui/core": "*",
+    "@plyxui/icons": "*",
+    "@plyxui/primitives": "*",
+    "@plyxui/styles": "*",
+    "gray-matter": "^4.0.3",
     "next": "^16.0.0",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "gray-matter": "^4.0.3",
-    "remark-gfm": "^4.0.0",
-    "@plyxui/core": "*",
-    "@plyxui/styles": "*",
-    "@plyxui/primitives": "*",
-    "@plyxui/icons": "*"
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

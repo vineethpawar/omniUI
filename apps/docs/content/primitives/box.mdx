@@ -6,6 +6,25 @@ order: 10
 
 `Box` is the single most-reused primitive in plyxui. On the web it's polymorphic via the `as` prop, so it renders any HTML element you want while still typing the native attributes correctly. On native it's a `View` (RN has no polymorphism story worth simulating, so we don't pretend).
 
+## Try it live
+
+<LivePreview code={`
+import { Box, Text } from "@plyxui/primitives";
+
+export default function App() {
+  return (
+    <Box surface="primary" padding="lg" style={{ minHeight: "100vh" }}>
+      <Box surface="raised" padding="lg" radius="lg" style={{ maxWidth: 420, margin: "20px auto" }}>
+        <Text size="xl" weight="bold">Hello from Box</Text>
+        <Text size="sm" style={{ marginTop: 6, opacity: 0.7 }}>
+          Edit anything on the left — the surface, padding, and radius props all flip live.
+        </Text>
+      </Box>
+    </Box>
+  );
+}
+`} />
+
 ## API at a glance
 
 ```tsx

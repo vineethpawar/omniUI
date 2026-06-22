@@ -2,6 +2,10 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getAllDocs, getDocBySlug } from "../../lib/mdx";
+import { LivePreview } from "../../components/LivePreview";
+
+// Components MDX files can reference by name (e.g. <LivePreview code="…" />).
+const MDX_COMPONENTS = { LivePreview };
 
 const MDX_OPTIONS = {
   mdxOptions: {
@@ -41,7 +45,7 @@ export default async function DocPage({ params }: PageProps) {
         <p style={{ fontSize: 17, color: "var(--muted)" }}>{doc.frontmatter.description}</p>
       ) : null}
       <hr style={{ border: "none", borderTop: "1px solid var(--stroke-soft)", margin: "28px 0" }} />
-      <MDXRemote source={doc.source} options={MDX_OPTIONS} />
+      <MDXRemote source={doc.source} options={MDX_OPTIONS} components={MDX_COMPONENTS} />
     </>
   );
 }

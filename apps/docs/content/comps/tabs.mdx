@@ -9,6 +9,38 @@ order: 20
 bar between the list and the panels, or render panels somewhere else
 entirely.
 
+## Try it live
+
+<LivePreview code={`
+import { useState } from "react";
+import { Tabs, TabList, Tab, TabPanel } from "@plyxui/comps";
+import { Box, Text } from "@plyxui/primitives";
+
+export default function App() {
+  const [tab, setTab] = useState("overview");
+  return (
+    <Box padding="lg" style={{ minHeight: "100vh" }}>
+      <Tabs value={tab} onChange={setTab}>
+        <TabList>
+          <Tab value="overview">Overview</Tab>
+          <Tab value="usage">Usage</Tab>
+          <Tab value="props">Props</Tab>
+        </TabList>
+        <TabPanel value="overview">
+          <Text size="sm">Use the arrow keys to move focus across tabs.</Text>
+        </TabPanel>
+        <TabPanel value="usage">
+          <Text size="sm">Composable parts — drop anything between TabList and TabPanel.</Text>
+        </TabPanel>
+        <TabPanel value="props">
+          <Text size="sm">value + onChange are the only required props on Tabs.</Text>
+        </TabPanel>
+      </Tabs>
+    </Box>
+  );
+}
+`} height={280} />
+
 ## API
 
 ```tsx

@@ -6,6 +6,34 @@ order: 60
 
 `Button` is the action primitive. Four variants, three sizes, optional leading/trailing icon slots, polymorphic via `as` on web so you can render a navigation link with the same shape.
 
+## Try it live
+
+<LivePreview code={`
+import { useState } from "react";
+import { Button, Stack } from "@plyxui/primitives";
+
+export default function App() {
+  const [count, setCount] = useState(0);
+  return (
+    <Stack direction="vertical" gap={3} style={{ padding: 32 }}>
+      <Stack direction="horizontal" gap={2}>
+        <Button variant="primary" onClick={() => setCount(c => c + 1)}>
+          Clicked {count}
+        </Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="link">Link</Button>
+        <Button variant="danger">Danger</Button>
+      </Stack>
+      <Stack direction="horizontal" gap={2}>
+        <Button size="sm">Small</Button>
+        <Button size="md">Medium</Button>
+        <Button size="lg">Large</Button>
+      </Stack>
+    </Stack>
+  );
+}
+`} />
+
 ## API
 
 ```tsx

@@ -11,6 +11,42 @@ That split is on purpose: the same queue can drive a custom snackbar, a
 banner stack, or this `Toaster`. Apps that need a bespoke visual skip the
 renderer and read from `useToast()` directly.
 
+## Try it live
+
+<LivePreview code={`
+import { ToastProvider, useToast } from "@plyxui/hooks";
+import { Toaster } from "@plyxui/comps";
+import { Box, Button, Stack } from "@plyxui/primitives";
+
+function Demo() {
+  const { toast } = useToast();
+  return (
+    <Stack direction="vertical" gap={3} style={{ padding: 32 }}>
+      <Button onClick={() => toast({ title: "Saved", variant: "success" })}>
+        Fire a success toast
+      </Button>
+      <Button variant="ghost" onClick={() => toast({ title: "Heads up", description: "Something to look at", variant: "default" })}>
+        With description
+      </Button>
+      <Button variant="danger" onClick={() => toast({ title: "Couldn't save", variant: "error" })}>
+        Error
+      </Button>
+    </Stack>
+  );
+}
+
+export default function App() {
+  return (
+    <ToastProvider>
+      <Box style={{ minHeight: "100vh" }}>
+        <Demo />
+      </Box>
+      <Toaster position="bottom-right" />
+    </ToastProvider>
+  );
+}
+`} height={280} />
+
 ## API
 
 ```tsx
