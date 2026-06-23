@@ -1,61 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Open Graph card. Logo top-left, name + tagline center-left, subtle
-       dot matrix repeat in the background. -->
-  <rect width="1200" height="630" fill="#0A0A0A"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="80%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#FF5C00" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FF5C00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
 
-  <!-- Background lattice: faint dots in a wide grid. -->
-  <g fill="#1A1A1A">
-    <circle cx="120"  cy="540" r="3"/>
-    <circle cx="200"  cy="540" r="3"/>
-    <circle cx="280"  cy="540" r="3"/>
-    <circle cx="360"  cy="540" r="3"/>
-    <circle cx="440"  cy="540" r="3"/>
-    <circle cx="520"  cy="540" r="3"/>
-    <circle cx="600"  cy="540" r="3"/>
-    <circle cx="680"  cy="540" r="3"/>
-    <circle cx="760"  cy="540" r="3"/>
-    <circle cx="840"  cy="540" r="3"/>
-    <circle cx="920"  cy="540" r="3"/>
-    <circle cx="1000" cy="540" r="3"/>
-    <circle cx="1080" cy="540" r="3"/>
-  </g>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0A0807"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
 
-  <!-- Logo mark, scaled up -->
-  <g transform="translate(120 180) scale(2.1)">
-    <g fill="#888888">
-      <circle cx="40" cy="40" r="6"/>
-      <circle cx="60" cy="40" r="6"/>
-      <circle cx="80" cy="40" r="6"/>
-      <circle cx="40" cy="60" r="6"/>
-      <circle cx="80" cy="60" r="6"/>
-      <circle cx="40" cy="80" r="6"/>
-      <circle cx="60" cy="80" r="6"/>
-      <circle cx="80" cy="80" r="6"/>
+  <!-- 3x3 dot brand mark + name, top-left -->
+  <g transform="translate(80, 76)">
+    <g transform="scale(2.5)" fill="#FAF5F0">
+      <circle cx="4"  cy="4"  r="2.4"/>
+      <circle cx="12" cy="4"  r="2.4"/>
+      <circle cx="20" cy="4"  r="2.4"/>
+      <circle cx="4"  cy="12" r="2.4"/>
+      <circle cx="12" cy="12" r="2.4" fill="#FF5C00"/>
+      <circle cx="20" cy="12" r="2.4"/>
+      <circle cx="4"  cy="20" r="2.4"/>
+      <circle cx="12" cy="20" r="2.4"/>
+      <circle cx="20" cy="20" r="2.4"/>
     </g>
-    <circle cx="60" cy="60" r="6" fill="#FF5C00"/>
+    <text x="84" y="48" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="36" font-weight="700" fill="#FAF5F0" letter-spacing="-0.5">plyxui</text>
   </g>
 
-  <!-- Wordmark + tagline -->
-  <text x="440" y="290"
-        font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="88" font-weight="800" letter-spacing="-3" fill="#ECECEC">
-    plyxui
-  </text>
-  <text x="440" y="350"
-        font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="28" font-weight="500" fill="#8E8E8E">
-    Cross-platform component library.
-  </text>
-  <text x="440" y="392"
-        font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif"
-        font-size="28" font-weight="500" fill="#8E8E8E">
-    Per-package install. Agent-aware.
+  <!-- Headline -->
+  <g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-weight="800">
+    <text x="80" y="280" font-size="84" fill="#FAF5F0" letter-spacing="-2">One component library.</text>
+    <text x="80" y="380" font-size="84" fill="#FF5C00" letter-spacing="-2">Web, native, agent-aware.</text>
+  </g>
+
+  <!-- Subline -->
+  <text x="80" y="450" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="28" fill="#A39B92">
+    Typed, branded, cross-platform components. First-party MCP server. Free.
   </text>
 
-  <!-- Footer hint -->
-  <text x="120" y="582"
-        font-family="JetBrains Mono, ui-monospace, monospace"
-        font-size="18" font-weight="500" fill="#555555">
-    plyxui.vercel.app
-  </text>
+  <!-- Footer row -->
+  <g transform="translate(80, 560)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" fill="#A39B92">
+    <text>npm install @plyxui/*</text>
+    <text x="280" fill="#FF5C00">•</text>
+    <text x="320">plyxui.com</text>
+    <text x="540" fill="#FF5C00">•</text>
+    <text x="580">npx -y @plyxui/mcp</text>
+  </g>
 </svg>
