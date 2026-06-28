@@ -1,6 +1,6 @@
 {
   "name": "@plyxui/vscode",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Drop-in adapter so plyxui works inside VS Code webview extensions. Auto-themes to the user's IDE, plus tiny hooks for the VS Code API + message channel.",
   "license": "MIT",
   "type": "module",
