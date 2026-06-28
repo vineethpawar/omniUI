@@ -1,0 +1,85 @@
+---
+title: VS Code
+description: Drop-in adapter so plyxui works inside VS Code webview extensions — auto-themes to the IDE, plus tiny hooks for the VS Code API + message channel.
+order: 17
+---
+
+`@plyxui/vscode` is the third platform target (after web and React Native).
+Drop it into a VS Code webview extension and your plyxui components adopt
+the user's active IDE theme, ride along when the user flips between
+Light / Dark / High Contrast, and stay CSP-safe.
+
+## Install
+
+```bash
+npm install @plyxui/vscode @plyxui/styles @plyxui/core @plyxui/primitives
+```
+
+## Wire it in your webview entry
+
+```tsx
+import { createRoot } from "react-dom/client";
+import { VSCodeThemeProvider } from "@plyxui/vscode";
+import { Box, Text, Button } from "@plyxui/primitives";
+
+function ExtensionPanel() {
+  return (
+    <Box surface="primary" padding="lg">
+      <Text size="lg" weight="semibold">Hello from the extension</Text>
+      <Button variant="primary">Match the IDE</Button>
+    </Box>
+  );
+}
+
+createRoot(document.getElementById("root")!).render(
+  <VSCodeThemeProvider>
+    <ExtensionPanel />
+  </VSCodeThemeProvider>,
+);
+```
+
+No `<ThemeProvider>` from `@plyxui/styles` needed alongside —
+`VSCodeThemeProvider` mounts it internally.
+
+## What it does
+
+| | |
+|---|---|
+| **Mode mirroring** | Watches `<body data-vscode-theme-kind>` (set by VS Code) and pushes light / dark into plyxui's `setMode` in lockstep. The user toggles their IDE theme, your components follow. |
+| **Token bridge** | Overrides plyxui's color tokens with `var(--vscode-*)` so a `<Button variant="primary">` adopts the IDE's accent, surfaces blend with the active editor background, focus rings respect the user's contrast level. |
+| **High contrast** | The two HC variants (`vscode-high-contrast` and `vscode-high-contrast-light`) map onto plyxui's dark / light modes correctly; users on HC themes don't end up with low-contrast plyxui surfaces. |
+| **CSP-safe** | No external font fetches, no inline event handlers, no `eval`. The component tree renders inside a webview's restricted CSP without further config. |
+
+## Talk to the extension host
+
+```tsx
+import { useVscodeApi, useVscodeMessage } from "@plyxui/vscode";
+
+function Saver() {
+  const vscode = useVscodeApi();
+
+  // Inbound — from extension.activate's panel.webview.postMessage
+  useVscodeMessage<{ type: string; payload?: unknown }>((msg) => {
+    if (msg.type === "refresh") void refetch();
+  });
+
+  return (
+    <Button onClick={() => vscode?.postMessage({ type: "save", payload: editorState })}>
+      Save
+    </Button>
+  );
+}
+```
+
+`useVscodeApi()` caches the singleton `acquireVsCodeApi()` call (VS Code
+only allows it once per webview) and returns `null` outside an extension
+context — so unit tests, Storybook, and the docs site keep rendering.
+
+## API
+
+| Export | What it does |
+|---|---|
+| `VSCodeThemeProvider` | Root wrapper. Mounts `ThemeProvider`, syncs to the IDE theme, registers the VS Code token bridge. |
+| `useVscodeKind()` | Returns the current `vscode-light \| vscode-dark \| vscode-high-contrast \| vscode-high-contrast-light` string, or `null`. |
+| `useVscodeApi<TState>()` | Returns the cached `acquireVsCodeApi()` result. `postMessage` + `setState` + `getState`. |
+| `useVscodeMessage<M>(handler)` | Subscribes to `window.message` events from the extension host. |

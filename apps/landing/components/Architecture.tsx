@@ -23,6 +23,7 @@ export default function Architecture() {
 │   ├── comps/               Modal, Dropdown, Tooltip, Tabs, Toaster, Drawer
 │   ├── screens/             AuthLayout, EmptyState, ErrorScreen
 │   ├── plugins/             CommandPalette (heavyweight opt-in)
+│   ├── vscode/              VS Code webview adapter (theme + API hooks)
 │   └── mcp/                 first-party MCP server
 ├── turbo.json
 └── tsconfig.base.json`}

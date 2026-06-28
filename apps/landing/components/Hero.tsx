@@ -26,7 +26,7 @@ export default function Hero() {
         </div>
         <h1 className="h1" style={{ maxWidth: 880, margin: "0 auto 24px" }}>
           One component library.<br />
-          <span className="accent">Web, native, electron.</span><br />
+          <span className="accent">Web, native, VS Code.</span><br />
           Per-package install, agent-aware.
         </h1>
         <p className="lead" style={{ margin: "0 auto 32px", maxWidth: 640 }}>

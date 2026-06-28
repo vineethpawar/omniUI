@@ -13,6 +13,7 @@ const ITEMS = [
   { phase: "Shipping", what: "First-party MCP server (@plyxui/mcp) — list, search, get, install, lint, examples over stdio", done: true },
   { phase: "Shipping", what: "llms.txt at plyxui.com root — structured agent pointer", done: true },
   { phase: "Shipping", what: "Sandpack live previews on every component doc page", done: true },
+  { phase: "Shipping", what: "VS Code webview adapter (@plyxui/vscode) — auto-themes to the IDE, hooks for the VS Code API + message channel", done: true },
   { phase: "Next", what: "Theme remix backend + plyxui.dev/r/<short-id> sharing", done: false },
   { phase: "Soon", what: "Sprite-sheet codegen for heavy icon users", done: false },
   { phase: "Soon", what: "Team mode: shared remix workspaces", done: false },

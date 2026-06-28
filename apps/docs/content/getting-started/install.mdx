@@ -6,7 +6,7 @@ order: 10
 
 ## Pick the bits you need
 
-plyxui is published as eleven small packages plus one CLI. Pull only what you need; nothing else gets installed.
+plyxui is published as twelve small packages plus one CLI. Pull only what you need; nothing else gets installed.
 
 ```bash
 # The minimum useful set
@@ -26,6 +26,7 @@ npm install @plyxui/core @plyxui/styles @plyxui/primitives
 | `@plyxui/comps` | You want `Modal`, `Dropdown`, `Tooltip`, `Tabs`, `Toaster`, `Drawer`. | runtime |
 | `@plyxui/screens` | You want drop-in scaffolds: `AuthLayout`, `EmptyState`, `ErrorScreen`. | runtime |
 | `@plyxui/plugins` | You want heavyweight opt-ins like `CommandPalette`. | runtime |
+| `@plyxui/vscode` | You're shipping a VS Code webview extension and want plyxui to auto-theme to the IDE. | runtime |
 | `@plyxui/mcp` | You want coding agents to install components by name. | tooling |
 
 A single line for the lot:
@@ -52,6 +53,8 @@ tsup). Three things this gets you for free:
 - **Live previews in the docs.** Every component page on plyxui.com opens with an editable Sandpack — change a prop, see the result, fork the sandbox.
 
 Native packages ship a `react-native` condition in the exports field — Metro picks `.native.tsx` builds automatically, no fork in your codebase.
+
+**Three platform targets:** web (React + DOM), React Native (Metro picks `.native.tsx`), and **VS Code webview extensions** (via [`@plyxui/vscode`](/docs/getting-started/vscode/) — auto-themes to the user's active IDE colors).
 
 ## Agent-friendly via MCP
 
